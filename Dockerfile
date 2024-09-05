@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir poetry
 ENV PATH="/root/.local/bin:$PATH"
 
 # Set the working directory
-WORKDIR /gql-standalone
+WORKDIR /test
 
 # Copy the pyproject.toml and poetry.lock files to the working directory
 COPY pyproject.toml poetry.lock ./
