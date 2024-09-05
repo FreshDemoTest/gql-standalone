@@ -18,6 +18,21 @@ RUN pip install *.whl && rm -rf *.whl
 COPY ./dist/*.whl ./
 RUN pip install *.whl && rm -rf *.whl
 
+# Add Poetry to the PATH
+ENV PATH="/root/.local/bin:$PATH"
+
+# Set the working directory
+WORKDIR /pt
+
+# Copy the pyproject.toml and poetry.lock files to the working directory
+COPY pyproject.toml poetry.lock ./
+
+# Install dependencies
+RUN poetry install --no-root --no-dev
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
 ENV APP_NAME "gqlapi"
 ENV APP_PORT "8004"
 

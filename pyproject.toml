@@ -1,35 +1,55 @@
 [tool.poetry]
-name = "monorepo"
-version = "1.2.0"
-description = "Alima's monorepo"
-authors = ["rogamba", "jorgeviz"]
+name = "gqlapi"
+version = "0.1.0"
+description = "Alima's GraphQL API"
+authors = ["jorgeviz"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-starlette = "^0.26.1"
+strawberry-graphql = "^0.170.0"
 uvicorn = "^0.21.1"
-requests = "^2.28.2"
+starlette = "^0.26.1"
 sqlalchemy = "~1.4.42"
 databases = "^0.7.0"
-nest-asyncio = "^1.5.6"
-pandas = "^2.0.0"
-flake8 = "^6.0.0"
-pytest = "^7.2.2"
-logger = {path = "lib/logger", develop = true}
-metrics = {path = "lib/metrics", develop = true}
-future = {path = "lib/future", develop = true}
-environ = {path = "lib/environ", develop = true}
-application = {path = "lib/application", develop = true}
-postgres = {path = "lib/postgres", develop = true}
-clients = {path = "lib/clients", develop = true}
-domain = {path = "domain", develop = true}
+firebase-admin = "^6.1.0"
+motor = "^3.1.2"
+openpyxl = "^3.1.2"
+pandas = "^2.0.1"
+python-multipart = "^0.0.6"
+bs4 = "^0.0.1"
+lxml = "^4.9.2"
+cloudinary = "^1.33.0"
+algoliasearch = "^3.0.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+tqdm = "^4.66.1"
+xlsxwriter = "^3.1.9"
 fuzzywuzzy = "^0.18.0"
 
-[tool.poetry.dev-dependencies]
 
 [tool.poetry.group.dev.dependencies]
+pytest = "^7.2.2"
 autopep8 = "^2.0.2"
+logger = {path = "../../lib/logger", develop = true}
+metrics = {path = "../../lib/metrics", develop = true}
+environ = {path = "../../lib/environ", develop = true}
+future = {path = "../../lib/future", develop = true}
+domain = {path = "../../domain", develop = true}
+postgres = {path = "../../lib/postgres", develop = true}
+application = {path = "../../lib/application", develop = true}
+clients = {path = "../../lib/clients", develop = true}
+integrations = {path = "../../lib/integrations", develop = true}
+pytest-env = "^0.8.1"
+tqdm = "^4.66.1"
+
+
+[tool.poetry.group.dev-linux.dependencies]
+black = "^23.3.0"
+
+[tool.poetry.scripts]
+api-server = "gqlapi.main:main"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
