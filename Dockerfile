@@ -18,8 +18,8 @@ RUN pip install --no-cache-dir poetry
 # Add Poetry to the PATH
 ENV PATH="/root/.local/bin:$PATH"
 
-# Set the working directory
-WORKDIR /gqlapi
+# # Set the working directory
+# WORKDIR /gqlapi
 
 # Copy the pyproject.toml and poetry.lock files to the working directory
 COPY pyproject.toml poetry.lock ./
