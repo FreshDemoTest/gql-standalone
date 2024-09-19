@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir poetry
 ENV PATH="/root/.local/bin:$PATH"
 
 # Set the working directory
-WORKDIR /test
+WORKDIR /gqlapi
 
 # Copy the pyproject.toml and poetry.lock files to the working directory
 COPY pyproject.toml poetry.lock ./
@@ -48,4 +48,4 @@ ENV PORT=$PORT
 EXPOSE $PORT
 
 # Start the app using Render's $PORT environment variable
-CMD ["python", "-m", "gqlapi.main", "serve", "--port", "$PORT"]
+CMD ["python", "-m", "gqlapi.main", "serve", "--host", "0.0.0.0", "--port", "$PORT"]

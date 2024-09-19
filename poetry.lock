@@ -54,7 +54,7 @@ uvicorn = "^0.21.1"
 
 [package.source]
 type = "directory"
-url = "../../lib/application"
+url = "lib/application"
 
 [[package]]
 name = "asyncpg"
@@ -529,7 +529,7 @@ stripe = "^5.4.0"
 
 [package.source]
 type = "directory"
-url = "../../lib/clients"
+url = "lib/clients"
 
 [[package]]
 name = "cloudinary"
@@ -675,7 +675,7 @@ develop = true
 
 [package.source]
 type = "directory"
-url = "../../domain"
+url = "domain"
 
 [[package]]
 name = "ecdsa"
@@ -711,7 +711,7 @@ boto3 = "^1.26.106"
 
 [package.source]
 type = "directory"
-url = "../../lib/environ"
+url = "lib/environ"
 
 [[package]]
 name = "et-xmlfile"
@@ -775,7 +775,7 @@ nest-asyncio = "^1.5.4"
 
 [package.source]
 type = "directory"
-url = "../../lib/future"
+url = "lib/future"
 
 [[package]]
 name = "fuzzywuzzy"
@@ -1296,7 +1296,7 @@ develop = true
 
 [package.source]
 type = "directory"
-url = "../../lib/integrations"
+url = "lib/integrations"
 
 [[package]]
 name = "jmespath"
@@ -1322,7 +1322,7 @@ develop = true
 
 [package.source]
 type = "directory"
-url = "../../lib/logger"
+url = "lib/logger"
 
 [[package]]
 name = "lxml"
@@ -1445,7 +1445,7 @@ develop = true
 
 [package.source]
 type = "directory"
-url = "../../lib/metrics"
+url = "lib/metrics"
 
 [[package]]
 name = "motor"
@@ -1793,7 +1793,7 @@ sqlalchemy = "~1.4.42"
 
 [package.source]
 type = "directory"
-url = "../../lib/postgres"
+url = "lib/postgres"
 
 [[package]]
 name = "proto-plus"
@@ -2610,4 +2610,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "8ffddc055d9c216ea8d804ef973f9af3179a91e126147b71aefe817f2c933cee"
+content-hash = "170843e2c16c282c645511fe0bb9232ec30b4d9711b103b3f12aa406a68525d5"
