@@ -25,7 +25,7 @@ RUN echo "Set PYTHONPATH to include the lib directory..."
 ENV PYTHONPATH="/_gqlapi/lib:${PYTHONPATH}"
 
 # Set the working directory
-WORKDIR /_gqlapi
+WORKDIR /gqlapi_app
 
 # Copy the pyproject.toml and poetry.lock files to the working directory
 COPY pyproject.toml poetry.lock ./
@@ -35,6 +35,8 @@ RUN poetry install --no-root --no-dev
 
 # Copy the rest of the application code to the working directory
 COPY . .
+
+RUN echo "Directory structure:" && ls -R /gqlapi_app
 
 # Expose the correct port for Render
 EXPOSE 8004
