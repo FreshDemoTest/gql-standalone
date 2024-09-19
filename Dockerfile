@@ -14,9 +14,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 
-# RUN echo "INSTALL POETRY..."
-# # Install Poetry
-# RUN pip install --no-cache-dir poetry
+RUN echo "INSTALL POETRY..."
+# Install Poetry
+RUN pip install --no-cache-dir poetry
 
 RUN echo "ADD POETRY TO PATH..."
 # Add Poetry to the PATH
