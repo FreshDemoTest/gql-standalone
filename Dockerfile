@@ -20,17 +20,17 @@ RUN pip install --no-cache-dir poetry
 # Add Poetry to the PATH
 ENV PATH="/root/.local/bin:$PATH"
 
-COPY ./dist/deps/*.whl ./
-RUN pip install *.whl && rm -rf *.whl
-
-COPY ./dist/*.whl ./
-RUN pip install *.whl && rm -rf *.whl
-
 # Set the working directory
 WORKDIR /gqlapi_app
 
 # Copy the pyproject.toml and poetry.lock files to the working directory
 COPY pyproject.toml poetry.lock ./
+
+COPY ./dist/deps/*.whl ./
+RUN pip install *.whl && rm -rf *.whl
+
+COPY ./dist/*.whl ./
+RUN pip install *.whl && rm -rf *.whl
 
 # Install dependencies without dev dependencies
 RUN poetry install --no-root --no-dev
