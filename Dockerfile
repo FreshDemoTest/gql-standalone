@@ -44,4 +44,4 @@ RUN echo "Set environment variables for app name and port..."
 EXPOSE 8004
 
 # Start the app using Render's $PORT environment variable
-CMD ["python", "-m", "gqlapi.main", "serve", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["python", "-m", "gqlapi.main", "serve", "--host", "0.0.0.0", "--port", "${PORT:-8004}"]
