@@ -20,9 +20,11 @@ RUN pip install --no-cache-dir poetry
 # Add Poetry to the PATH
 ENV PATH="/root/.local/bin:$PATH"
 
-RUN echo "Set PYTHONPATH to include the lib directory..."
-# Set the PYTHONPATH to include the lib directory
-ENV PYTHONPATH="/_gqlapi/lib:${PYTHONPATH}"
+COPY ./dist/deps/*.whl ./
+RUN pip install *.whl && rm -rf *.whl
+
+COPY ./dist/*.whl ./
+RUN pip install *.whl && rm -rf *.whl
 
 # Set the working directory
 WORKDIR /gqlapi_app
@@ -31,12 +33,10 @@ WORKDIR /gqlapi_app
 COPY pyproject.toml poetry.lock ./
 
 # Install dependencies without dev dependencies
-RUN poetry install
+RUN poetry install --no-root --no-dev
 
 # Copy the rest of the application code to the working directory
 COPY . .
-
-RUN echo "Directory structure:" && ls -R /gqlapi_app
 
 # Expose the correct port for Render
 EXPOSE 8004
