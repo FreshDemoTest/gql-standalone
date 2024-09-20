@@ -1,2 +1,4 @@
 # env vars file
 .env
+# 
+.pyc

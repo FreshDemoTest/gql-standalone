@@ -19,7 +19,7 @@ WORKDIR /gqlapi_app
 # Copy the pyproject.toml and poetry.lock files to the working directory
 COPY pyproject.toml poetry.lock ./
 
-# Install dependencies with dev dependencies
+# Install dependencies without dev dependencies
 RUN poetry install --with dev
 
 # Copy the rest of the application code to the working directory
