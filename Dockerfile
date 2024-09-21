@@ -29,7 +29,7 @@ COPY . /app
 ENV PYTHONPATH=/app/lib:$PYTHONPATH
 
 # Expose the correct port for Render
-EXPOSE 8004
+EXPOSE 8000
 
 # Start the app using Render's $PORT environment variable
-CMD ["python", "-m", "gqlapi.main", "serve", "--host", "0.0.0.0", "--port", "8004"]
+CMD ["python", "-m", "gqlapi.main", "serve", "--host", "0.0.0.0", "--port", "8000"]
