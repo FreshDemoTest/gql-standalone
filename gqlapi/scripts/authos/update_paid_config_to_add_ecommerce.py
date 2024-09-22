@@ -10,7 +10,7 @@ import json
 import logging
 from typing import List
 from databases import Database
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.db import (
     db_shutdown,
     db_startup,

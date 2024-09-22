@@ -11,7 +11,7 @@ strawberry-graphql = "^0.170.0"
 uvicorn = "^0.21.1"
 starlette = "^0.26.1"
 sqlalchemy = "~1.4.42"
-databases = "^0.7.0"
+databases = "0.7.0"
 firebase-admin = "^6.1.0"
 motor = "^3.1.2"
 openpyxl = "^3.1.2"
@@ -33,6 +33,7 @@ pytest = "^7.2.2"
 autopep8 = "^2.0.2"
 pytest-env = "^0.8.1"
 tqdm = "^4.66.1"
+flake8 = "6.0.0"
 
 
 [tool.poetry.group.dev-linux.dependencies]

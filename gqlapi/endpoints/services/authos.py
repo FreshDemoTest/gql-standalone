@@ -1,6 +1,6 @@
 from datetime import timedelta
 from typing import Optional
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.handlers.restaurant.restaurant_business import RestaurantBusinessHandler
 from gqlapi.repository.b2bcommerce.ecommerce_seller import (
     EcommerceSellerRepository,
@@ -25,19 +25,19 @@ import strawberry
 from strawberry.types import Info as StrawberryInfo
 from starlette.background import BackgroundTasks
 
-from domain.interfaces.v2.authos.ecommerce_pwd import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_pwd import (
     EcommercePasswordError,
     EcommercePasswordResetMsg,
     EcommercePasswordResetResult,
     EcommercePasswordResult,
 )
-from domain.interfaces.v2.authos.ecommerce_user import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUserError,
     EcommerceUserMsg,
     EcommerceUserMsgResult,
     EcommerceUserResult,
 )
-from domain.interfaces.v2.authos.ecommerce_session import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_session import (
     EcommerceSessionError,
     EcommerceSessionResult,
 )

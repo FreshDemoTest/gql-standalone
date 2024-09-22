@@ -6,7 +6,7 @@ from uuid import UUID
 import strawberry
 from strawberry.file_uploads import Upload
 
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     InvoicingOptions,
     MinimumOrderValue,
     DeliveryOptions,
@@ -15,14 +15,14 @@ from domain.models.v2.supplier import (
     SupplierBusinessCommertialConditions,
     SupplierUserPermission,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     NotificationChannelType,
     BusinessType,
     PayMethodType,
     SupplierBusinessType,
 )
-from domain.models.v2.core import SupplierEmployeeInfo
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.core import SupplierEmployeeInfo
+from gqlapi.lib.future.future.deprecation import deprecated
 
 
 @strawberry.type

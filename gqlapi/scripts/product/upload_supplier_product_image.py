@@ -13,7 +13,7 @@ from typing import Any, Dict, List
 from uuid import UUID
 import uuid
 from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
-from domain.models.v2.supplier import SupplierProductImage
+from gqlapi.domain.models.v2.supplier import SupplierProductImage
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 from gqlapi.repository.services.image import ImageRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
@@ -21,7 +21,7 @@ import pandas as pd
 
 from gqlapi.config import ENV as DEV_ENV
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 
 logger = get_logger(get_app())

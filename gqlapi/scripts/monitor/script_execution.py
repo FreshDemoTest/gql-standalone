@@ -6,7 +6,7 @@ import asyncio
 import logging
 from typing import Any, Dict, List
 from databases import Database
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.config import RETOOL_SECRET_BYPASS
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.handlers.services.mails import send_monitor_alert

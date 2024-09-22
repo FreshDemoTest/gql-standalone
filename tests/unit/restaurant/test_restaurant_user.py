@@ -1,12 +1,12 @@
 from datetime import datetime
 import logging
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserGQL,
     # RestaurantUserPermCont,
 )
-from domain.models.v2.core import CoreUser, RestaurantEmployeeInfo
-from domain.models.v2.restaurant import RestaurantUserPermission
+from gqlapi.domain.models.v2.core import CoreUser, RestaurantEmployeeInfo
+from gqlapi.domain.models.v2.restaurant import RestaurantUserPermission
 from gqlapi.errors import GQLApiException
 from gqlapi.repository.restaurant.restaurant_user import (
     MockRestaurantEmployeeRepository,

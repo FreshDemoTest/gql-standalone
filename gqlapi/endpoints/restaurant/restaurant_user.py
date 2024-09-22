@@ -1,12 +1,12 @@
 from typing import List, Optional
 from uuid import UUID
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantDisplayPermissionsInput,
     RestaurantEmployeeInfoPermissionInput,
     RestaurantUserEmployeeGQLResult,
@@ -16,7 +16,7 @@ from domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserStatus,
     RestaurantUserStatusResult,
 )
-from domain.models.v2.core import PermissionDict, RestaurantEmployeeInfoPermission
+from gqlapi.domain.models.v2.core import PermissionDict, RestaurantEmployeeInfoPermission
 from gqlapi.app.permissions import (
     IsAlimaEmployeeAuthorized,
     IsAlimaRestaurantAuthorized,

@@ -4,7 +4,7 @@ from types import NoneType
 from typing import Any, Dict
 
 import strawberry
-from domain.models.v2.authos import IPwdRestore
+from gqlapi.domain.models.v2.authos import IPwdRestore
 
 
 @strawberry.type

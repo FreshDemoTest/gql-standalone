@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 import uuid
 from firebase_admin import App as FirebaseApp
 from firebase_admin.auth import Client as FirebaseAuthClient
-from domain.interfaces.v2.user import FirebaseTokenRepositoryInterface
-from domain.models.v2.core import CoreUser
+from gqlapi.domain.interfaces.v2.user import FirebaseTokenRepositoryInterface
+from gqlapi.domain.models.v2.core import CoreUser
 
 
 class MockTokenRepository(FirebaseTokenRepositoryInterface):

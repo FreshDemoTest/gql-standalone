@@ -3,7 +3,7 @@ from types import NoneType
 from typing import Optional
 from uuid import UUID
 from datetime import datetime
-from domain.models.v2.utils import CFDIUse, RegimenSat, RestaurantBusinessType
+from gqlapi.domain.models.v2.utils import CFDIUse, RegimenSat, RestaurantBusinessType
 
 from strawberry import type as strawberry_type
 

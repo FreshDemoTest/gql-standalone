@@ -1,8 +1,8 @@
 import logging
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.catalog.category import CategoryError, CategoryResult
-from domain.models.v2.utils import CategoryType
+from gqlapi.domain.interfaces.v2.catalog.category import CategoryError, CategoryResult
+from gqlapi.domain.models.v2.utils import CategoryType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.core.category import CategoryHandler
 from gqlapi.repository.core.category import CategoryRepository

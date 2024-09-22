@@ -8,12 +8,12 @@ import asyncio
 import base64
 import secrets
 import string
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     SupplierRestaurantCreationGQL,
 )
-from domain.models.v2.authos import IEcommerceUser
+from gqlapi.domain.models.v2.authos import IEcommerceUser
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.b2bcommerce.ecommerce_seller import EcommerceSellerHandler
 from gqlapi.handlers.services.authos import EcommerceJWTHandler

@@ -7,7 +7,7 @@ from uuid import UUID
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountDeleteGQLResult,
     RestaurantBusinessAccountInput,
     RestaurantBusinessAdminGQLResult,

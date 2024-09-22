@@ -1,12 +1,12 @@
 import logging
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.supplier.supplier_invoice import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_invoice import (
     CustomerMxInvoiceGQLResult,
     SupplierInvoiceError,
     SupplierInvoiceTriggerResult,
 )
-from domain.models.v2.utils import PayMethodType
+from gqlapi.domain.models.v2.utils import PayMethodType
 from gqlapi.app.permissions import IsAlimaSupplyAuthorized, IsAuthenticated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.core.invoice import MxInvoiceHandler

@@ -4,12 +4,12 @@ from io import BytesIO, StringIO
 import json
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchError,
     RestaurantBranchTagInput,
     RestaurantBranchTaxResult,
 )
-from domain.models.v2.utils import CFDIUse, InvoiceTriggerTime, InvoiceType, RegimenSat
+from gqlapi.domain.models.v2.utils import CFDIUse, InvoiceTriggerTime, InvoiceType, RegimenSat
 from gqlapi.handlers.b2bcommerce.ecommerce_seller import EcommerceSellerHandler
 from gqlapi.handlers.b2bcommerce.ecommerce_user import B2BEcommerceUserHandler
 from gqlapi.handlers.restaurant.restaurant_business import RestaurantBusinessHandler
@@ -31,7 +31,7 @@ import pandas as pd
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     ExportSupplierRestaurantGQL,
     ExportSupplierRestaurantResult,
     SupplierRestaurantAssignationResult,
@@ -74,7 +74,7 @@ from gqlapi.repository.supplier.supplier_unit import (
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.app.permissions import IsAlimaSupplyAuthorized, IsAuthenticated
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 
 logger = get_logger(get_app())

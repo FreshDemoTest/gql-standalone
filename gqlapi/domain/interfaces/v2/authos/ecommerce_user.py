@@ -2,10 +2,10 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Any, Dict, Optional
 from uuid import UUID
-from domain.interfaces.v2.authos.ecommerce_session import EcommerceSession
+from gqlapi.domain.interfaces.v2.authos.ecommerce_session import EcommerceSession
 
 import strawberry
-from domain.models.v2.authos import IEcommerceUser
+from gqlapi.domain.models.v2.authos import IEcommerceUser
 
 
 @strawberry.type

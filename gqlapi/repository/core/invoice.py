@@ -4,21 +4,21 @@ from typing import Any, Dict, List, Optional
 import uuid
 from uuid import UUID
 from bson import Binary
-from domain.interfaces.v2.orden.invoice import (
+from gqlapi.domain.interfaces.v2.orden.invoice import (
     MxInvoiceComplementRepositoryInterface,
     MxInvoiceRepositoryInterface,
     MxInvoicingExecutionRepositoryInterface,
     MxSatCertificateRepositoryInterface,
 )
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     MxInvoice,
     MxInvoiceComplement,
     MxInvoiceOrden,
     MxInvoicingExecution,
     MxSatInvoicingCertificateInfo,
 )
-from domain.models.v2.supplier import InvoicingOptions
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.supplier import InvoicingOptions
+from gqlapi.domain.models.v2.utils import (
     DataTypeDecoder,
     ExecutionStatusType,
     InvoiceConsolidation,
@@ -28,7 +28,7 @@ from domain.models.v2.utils import (
     PayStatusType,
     RegimenSat,
 )
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.repository import CoreMongoRepository, CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
 from gqlapi.utils.helpers import list_into_strtuple

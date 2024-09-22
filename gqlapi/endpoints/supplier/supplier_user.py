@@ -3,10 +3,10 @@ from uuid import UUID
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
-from domain.models.v2.core import PermissionDict, SupplierEmployeeInfoPermission
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.models.v2.core import PermissionDict, SupplierEmployeeInfoPermission
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierDisplayPermissionsInput,
     SupplierEmployeeInfoPermissionInput,
     SupplierUserEmployeeGQLResult,

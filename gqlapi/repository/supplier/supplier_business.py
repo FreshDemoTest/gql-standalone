@@ -3,24 +3,24 @@ from typing import Any, Dict, List, Optional
 from datetime import datetime
 import uuid
 from uuid import UUID
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 from strawberry.file_uploads import Upload
 from bson.binary import Binary
 
-from future.deprecation import deprecated
-from domain.models.v2.core import SupplierEmployeeInfo
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.lib.future.future.deprecation import deprecated
+from gqlapi.domain.models.v2.core import SupplierEmployeeInfo
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
     SupplierBusinessAccountRepositoryInterface,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     MinimumOrderValue,
     SupplierBusiness,
     SupplierBusinessAccount,
     SupplierBusinessCommertialConditions,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     BusinessType,
     NotificationChannelType,
     OrderSize,

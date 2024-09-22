@@ -5,8 +5,8 @@ import json
 from typing import Optional, List
 from uuid import UUID
 import uuid
-from domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
-from environ.environ import get_app
+from gqlapi.domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.handlers.integrations.integrations import IntegrationsWebhookandler
 from gqlapi.repository.integrarions.integrations import IntegrationWebhookRepository
 from gqlapi.utils.helpers import serialize_encoded_file
@@ -19,7 +19,7 @@ from strawberry.types import Info as StrawberryInfo
 from starlette.background import BackgroundTasks
 from strawberry.file_uploads import Upload
 
-from domain.models.v2.supplier import SupplierRestaurantRelation
+from gqlapi.domain.models.v2.supplier import SupplierRestaurantRelation
 from gqlapi.handlers.restaurant.restaurant_suppliers import (
     RestaurantSupplierAssignationHandler,
 )
@@ -49,7 +49,7 @@ from gqlapi.repository.supplier.supplier_user import (
     SupplierUserRepository,
 )
 
-from domain.interfaces.v2.orden.orden import (
+from gqlapi.domain.interfaces.v2.orden.orden import (
     CartProductInput,
     DeliveryTimeWindowInput,
     ExportOrdenGQL,
@@ -64,11 +64,11 @@ from domain.interfaces.v2.orden.orden import (
     PaymentAmountInput,
     PaymentReceiptResult,
 )
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchContactInfo,
 )
-from domain.models.v2.core import CartProduct, OrdenDetails, OrdenStatus
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.core import CartProduct, OrdenDetails, OrdenStatus
+from gqlapi.domain.models.v2.utils import (
     CFDIType,
     DataTypeDecoder,
     DeliveryTimeWindow,

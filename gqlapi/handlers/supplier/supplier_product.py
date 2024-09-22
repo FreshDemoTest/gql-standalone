@@ -3,17 +3,17 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 from uuid import UUID, uuid4
 import pandas as pd
 
-from domain.interfaces.v2.supplier.supplier_price_list import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
     SupplierPriceListHandlerInterface,
 )
-from domain.models.v2.core import CoreUser
-from domain.models.v2.utils import DataTypeDecoder, DataTypeTraslate, UOMType
-from domain.interfaces.v2.catalog.category import CategoryRepositoryInterface
-from domain.interfaces.v2.catalog.product import ProductRepositoryInterface
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.utils import DataTypeDecoder, DataTypeTraslate, UOMType
+from gqlapi.domain.interfaces.v2.catalog.category import CategoryRepositoryInterface
+from gqlapi.domain.interfaces.v2.catalog.product import ProductRepositoryInterface
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductDetailsGQL,
     SupplierProductHandlerInterface,
     SupplierProductPriceRepositoryInterface,
@@ -23,11 +23,11 @@ from domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductsBatch,
     SupplierProductsStockBatch,
 )
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
     SupplierProduct,
     SupplierProductImage,
@@ -36,8 +36,8 @@ from domain.models.v2.supplier import (
     SupplierProductTag,
     SupplierUnit,
 )
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
-from environ.environ import get_app
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 from gqlapi.config import ALIMA_ADMIN_BUSINESS
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException

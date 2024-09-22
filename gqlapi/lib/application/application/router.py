@@ -2,7 +2,7 @@ from typing import List
 import logging
 from starlette.routing import Router
 
-from future.future import asynchronize
+from gqlapi.lib.future.future.future import asynchronize
 from metrics.metrics_client import MetricsClient
 
 

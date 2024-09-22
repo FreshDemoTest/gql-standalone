@@ -6,24 +6,24 @@ from uuid import UUID
 import uuid
 from bson import Binary
 from clients.cloudinaryapi.cloudinary import construct_route
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import CLOUDINARY_BASE_URL
 from logger.basic_logger import get_logger
 import pandas as pd
 
-from domain.interfaces.v2.services.image import ImageHandlerInterface, ImageRoute
-from domain.interfaces.v2.catalog.category import (
+from gqlapi.domain.interfaces.v2.services.image import ImageHandlerInterface, ImageRoute
+from gqlapi.domain.interfaces.v2.catalog.category import (
     CategoryRepositoryInterface,
     SupplierUnitCategoryRepositoryInterface,
 )
-from domain.interfaces.v2.catalog.product import ProductRepositoryInterface
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.catalog.product import ProductRepositoryInterface
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_suppliers import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_suppliers import (
     ProductsBatchGQL,
     RestaurantBusinessSupplierBusinessRelation,
     RestaurantSupplierAssignationHandlerInterface,
@@ -37,25 +37,25 @@ from domain.interfaces.v2.restaurant.restaurant_suppliers import (
     SupplierProductPriceInput,
     SupplierUnitRestoGQL,
 )
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserPermissionRepositoryInterface,
     RestaurantUserRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessAccountRepositoryInterface,
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductPriceRepositoryInterface,
     SupplierProductRepositoryInterface,
     SupplierProductStockRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import (
     SupplierUnitDeliveryRepositoryInterface,
     SupplierUnitRepositoryInterface,
 )
-from domain.models.v2.restaurant import RestaurantBranch, RestaurantSupplierRelation
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.restaurant import RestaurantBranch, RestaurantSupplierRelation
+from gqlapi.domain.models.v2.supplier import (
     MinimumOrderValue,
     SupplierBusiness,
     SupplierBusinessAccount,
@@ -66,7 +66,7 @@ from domain.models.v2.supplier import (
     SupplierUnitCategory,
     SupplierUnitDeliveryOptions,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CategoryType,
     CurrencyType,
     DataTypeTraslate,

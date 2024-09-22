@@ -5,7 +5,7 @@ from typing import Any, Dict, Optional
 from uuid import UUID
 
 import strawberry
-from domain.models.v2.authos import IUserSession
+from gqlapi.domain.models.v2.authos import IUserSession
 
 
 @strawberry.type

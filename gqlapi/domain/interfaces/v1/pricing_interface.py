@@ -3,7 +3,7 @@ from types import NoneType
 from typing import Dict, List
 from uuid import UUID
 
-from domain.models.v1.pricing import PriceRule, Price
+from gqlapi.domain.models.v1.pricing import PriceRule, Price
 
 
 class PricingServiceInterface(ABC):

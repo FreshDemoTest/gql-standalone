@@ -10,7 +10,7 @@ from typing import Any, Dict
 from uuid import UUID
 from databases import Database
 from fuzzywuzzy import fuzz
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchContactInfo,
 )
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
@@ -44,7 +44,7 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from integrations.scorpion import ScorpionClientApi, ScorpionToken
 from logger.basic_logger import get_logger
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import ENV as DEV_ENV, SCORPION_USER, SCORPION_PASSWORD
 
 # from lib.integrations.integrations.scorpion import ScorpionClientApi

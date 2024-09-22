@@ -28,7 +28,7 @@ from gqlapi.handlers.services.mails import (
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     PayProviderType,
 )
 from gqlapi.mongo import mongo_db as MongoDatabase

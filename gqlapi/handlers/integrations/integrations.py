@@ -1,18 +1,18 @@
 from types import NoneType
 from uuid import UUID
-from domain.interfaces.v2.integrations.integrations import (
+from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationPartnerHandlerInterface,
     IntegrationPartnerRepositoryInterface,
     IntegrationWebhookHandlerInterface,
     IntegrationWebhookRepositoryInterface,
 )
-from domain.models.v2.integrations import (
+from gqlapi.domain.models.v2.integrations import (
     IntegrationPartner,
     IntegrationWebhook,
     WorkflosVars,
     WorkflowIntegration,
 )
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 
 

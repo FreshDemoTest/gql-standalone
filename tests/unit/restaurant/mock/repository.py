@@ -3,21 +3,21 @@ import logging
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 import uuid
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserGQL,
     RestaurantUserPermissionRepositoryInterface,
     RestaurantUserRepositoryInterface,
 )
-from domain.models.v2.core import CoreUser
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBusiness,
     RestaurantBusinessAccount,
     RestaurantUserPermission,
 )
-from domain.models.v2.utils import RestaurantBusinessType
+from gqlapi.domain.models.v2.utils import RestaurantBusinessType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 
 

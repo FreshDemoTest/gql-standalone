@@ -14,10 +14,10 @@ import uuid
 from databases import Database
 import pandas as pd
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from logger.basic_logger import get_logger
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     PayMethodType,
     PayProviderType,
 )

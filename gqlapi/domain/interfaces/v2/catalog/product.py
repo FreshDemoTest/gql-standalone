@@ -3,8 +3,8 @@ from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 
-from domain.models.v2.core import Product
-from domain.models.v2.utils import UOMType
+from gqlapi.domain.models.v2.core import Product
+from gqlapi.domain.models.v2.utils import UOMType
 import strawberry
 
 

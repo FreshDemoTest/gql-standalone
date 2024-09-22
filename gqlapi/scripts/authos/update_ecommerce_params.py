@@ -17,9 +17,9 @@ from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
 from clients.vercelapi.vercel import (
     VercelUtils,
 )
-from domain.interfaces.v2.supplier.supplier_business import SupplierBusinessGQL
-from domain.models.v2.b2bcommerce import EcommerceParams, EcommerceSeller
-from environ.environ import Environment, get_env
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import SupplierBusinessGQL
+from gqlapi.domain.models.v2.b2bcommerce import EcommerceParams, EcommerceSeller
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.config import (
     ENV as DEV_ENV,
 )

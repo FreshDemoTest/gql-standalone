@@ -1,4 +1,4 @@
-from domain.models.v2.utils import NotificationChannelType
+from gqlapi.domain.models.v2.utils import NotificationChannelType
 
 
 mock_rest_supplier = {

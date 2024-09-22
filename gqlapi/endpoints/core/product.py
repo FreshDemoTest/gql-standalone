@@ -1,17 +1,17 @@
 import logging
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.catalog.product import (
+from gqlapi.domain.interfaces.v2.catalog.product import (
     ProductError,
     ProductInput,
     ProductResult,
 )
-from domain.interfaces.v2.catalog.product_family import (
+from gqlapi.domain.interfaces.v2.catalog.product_family import (
     MxSatProductCodeResult,
     ProductFamilyError,
     ProductFamilyResult,
 )
-from domain.models.v2.utils import UOMType
+from gqlapi.domain.models.v2.utils import UOMType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.core.product import ProductFamilyHandler, ProductHandler
 from gqlapi.repository.core.product import ProductFamilyRepository, ProductRepository

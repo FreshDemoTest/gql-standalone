@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 import pandas as pd
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 import requests
 

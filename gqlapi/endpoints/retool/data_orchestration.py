@@ -14,7 +14,7 @@ from starlette.endpoints import HTTPEndpoint
 from starlette.responses import JSONResponse
 from starlette.requests import Request
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 from gqlapi.repository.scripts.scripts_execution import ScriptExecutionRepository
 from gqlapi.scripts.personalized.supplier.send_consolidated_to_provider import (

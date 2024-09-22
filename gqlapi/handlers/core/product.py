@@ -1,20 +1,20 @@
 from typing import List, Optional
 from uuid import UUID
 import uuid
-from domain.interfaces.v2.catalog.product import (
+from gqlapi.domain.interfaces.v2.catalog.product import (
     ProductHandlerInterface,
     ProductInput,
     ProductRepositoryInterface,
 )
-from domain.interfaces.v2.catalog.product_family import (
+from gqlapi.domain.interfaces.v2.catalog.product_family import (
     MxSatProductCodeGQL,
     ProductFamilyHandlerInterface,
     ProductFamilyRepositoryInterface,
 )
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
-from domain.models.v2.core import Product, ProductFamily
-from domain.models.v2.utils import UOMType
+from gqlapi.domain.models.v2.core import Product, ProductFamily
+from gqlapi.domain.models.v2.utils import UOMType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 

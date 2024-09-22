@@ -7,7 +7,7 @@ from uuid import UUID
 import string
 import unicodedata
 
-from domain.models.v2.utils import UOMType
+from gqlapi.domain.models.v2.utils import UOMType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 
 

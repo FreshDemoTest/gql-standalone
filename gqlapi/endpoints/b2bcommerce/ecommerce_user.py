@@ -3,11 +3,11 @@ from types import NoneType
 from typing import List, Optional
 from uuid import UUID
 from clients.cloudinaryapi.cloudinary import ImageType
-from domain.interfaces.v2.authos.ecommerce_user import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUserError,
     EcommerceUserGQLResult,
 )
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchContactInfo,
 )
 
@@ -18,9 +18,9 @@ from starlette.background import BackgroundTasks
 from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     B2BEcommerceOrdenDetailsResult,
     B2BEcommerceOrdenesResult,
     B2BEcommerceUserError,
@@ -34,7 +34,7 @@ from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceSellerResult,
     EcommerceSellerUrlResult,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIUse,
     DeliveryTimeWindow,
     OrdenStatusType,
@@ -44,13 +44,13 @@ from domain.models.v2.utils import (
     RegimenSat,
     SellingOption,
 )
-from domain.interfaces.v2.orden.orden import (
+from gqlapi.domain.interfaces.v2.orden.orden import (
     CartProductInput,
     DeliveryTimeWindowInput,
     OrdenError,
     OrdenResult,
 )
-from domain.models.v2.core import CartProduct
+from gqlapi.domain.models.v2.core import CartProduct
 from gqlapi.handlers.core.orden import OrdenHandler, OrdenHookListener
 from gqlapi.repository.core.cart import CartProductRepository, CartRepository
 from gqlapi.repository.core.orden import (

@@ -37,14 +37,14 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.scripts.alima_account.create_supplier_alima_config_account import (
     create_alima_account_config,
 )
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from gqlapi.utils.helpers import list_into_strtuple
 from logger.basic_logger import get_logger
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     AlimaCustomerType,
     ChargeType,
     DiscountChargeType,

@@ -27,14 +27,14 @@ import numpy as np
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 import sys
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     Category,
     CoreUser,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierUnit,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIUse,
     CategoryType,
     DataTypeDecoder,

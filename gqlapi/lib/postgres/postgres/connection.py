@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 
 from databases import DatabaseURL
 from environ import environ
-from future.future import asyncio_run
+from gqlapi.lib.future.future.future import asyncio_run
 
 
 class ConnectionInterface(ABC):

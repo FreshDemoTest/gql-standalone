@@ -3,8 +3,8 @@ from types import NoneType
 from typing import Dict, Any
 from uuid import UUID
 
-from domain.models.v2.core import RestaurantEmployeeInfo, SupplierEmployeeInfo
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.core import RestaurantEmployeeInfo, SupplierEmployeeInfo
+from gqlapi.lib.future.future.deprecation import deprecated
 
 
 class EmployeeRepositoryInterface(ABC):

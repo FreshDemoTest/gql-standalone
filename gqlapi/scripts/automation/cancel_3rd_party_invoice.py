@@ -9,9 +9,9 @@ import asyncio
 import argparse
 from typing import Optional
 import uuid
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
 )
 from gqlapi.errors import GQLApiException

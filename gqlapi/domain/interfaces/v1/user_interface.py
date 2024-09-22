@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Dict
 
-from domain.models.v1.user import Session
+from gqlapi.domain.models.v1.user import Session
 
 
 class UserInterface(ABC):

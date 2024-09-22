@@ -3,20 +3,20 @@ import logging
 from types import NoneType
 from typing import Any, Dict, List, Optional, Type
 from uuid import UUID
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductPriceRepositoryInterface,
     SupplierProductRepositoryInterface,
     SupplierProductStockRepositoryInterface,
     SupplierProductStockWithAvailability,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierProduct,
     SupplierProductPrice,
     SupplierProductStock,
     SupplierProductTag,
 )
-from domain.models.v2.utils import UOMType
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.utils import UOMType
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain

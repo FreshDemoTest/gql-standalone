@@ -12,7 +12,7 @@ from starlette.background import BackgroundTasks
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.alima_account.account import (
+from gqlapi.domain.interfaces.v2.alima_account.account import (
     ALIMA_PLANS_WITH_ECOMM,
     AlimaAccountPlan,
     AlimaAccountPlanDiscount,
@@ -20,8 +20,8 @@ from domain.interfaces.v2.alima_account.account import (
     SupplierAlimaAccountError,
     SupplierAlimaAccountResult,
 )
-from domain.models.v2.utils import PayProviderType
-from environ.environ import get_app
+from gqlapi.domain.models.v2.utils import PayProviderType
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 from gqlapi.handlers.alima_account.account import (
     AlimaAccountHandler,

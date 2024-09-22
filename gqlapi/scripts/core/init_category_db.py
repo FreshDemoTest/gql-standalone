@@ -12,8 +12,8 @@ import asyncio
 import argparse
 import uuid
 
-from domain.models.v2.core import Category, CoreUser
-from domain.models.v2.utils import CategoryType
+from gqlapi.domain.models.v2.core import Category, CoreUser
+from gqlapi.domain.models.v2.utils import CategoryType
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 from gqlapi.repository.core.category import CategoryRepository
 from gqlapi.repository.user.core_user import CoreUserRepository

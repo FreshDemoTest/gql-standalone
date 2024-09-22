@@ -1,4 +1,4 @@
-from domain.models.v2.utils import CFDIUse, RegimenSat
+from gqlapi.domain.models.v2.utils import CFDIUse, RegimenSat
 
 mock_rest_branch = {
     "name": "LesTest",

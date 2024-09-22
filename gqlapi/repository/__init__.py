@@ -7,8 +7,8 @@ from bson import Binary
 from strawberry.types import Info as StrawberryInfo
 from databases.interfaces import Record as SQLRecord
 
-from future.deprecation import deprecated
-from domain.interfaces.v2.user.core_user import CoreRepositoryInterface
+from gqlapi.lib.future.future.deprecation import deprecated
+from gqlapi.domain.interfaces.v2.user.core_user import CoreRepositoryInterface
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from pymongo.results import DeleteResult, UpdateResult
 

@@ -11,7 +11,7 @@ import logging
 from typing import Optional
 import uuid
 
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
 )
 from gqlapi.errors import GQLApiException
@@ -33,7 +33,7 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase

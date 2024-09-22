@@ -14,8 +14,8 @@ from clients.vercelapi.vercel import (
     VercelClientApi,
 )
 from databases import Database
-from domain.models.v2.b2bcommerce import EcommerceEnvVars, EcommerceSeller
-from environ.environ import Environment, get_env
+from gqlapi.domain.models.v2.b2bcommerce import EcommerceEnvVars, EcommerceSeller
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.config import (
     VERCEL_TEAM,
     VERCEL_TOKEN,

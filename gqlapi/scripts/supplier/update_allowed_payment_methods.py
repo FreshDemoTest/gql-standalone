@@ -9,12 +9,12 @@ from typing import Any, Dict, List
 from uuid import UUID
 from bson import Binary
 from databases import Database
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     MinimumOrderValue,
     SupplierBusinessCommertialConditions,
 )
-from domain.models.v2.utils import OrderSize, PayMethodType
-from environ.environ import Environment, get_env
+from gqlapi.domain.models.v2.utils import OrderSize, PayMethodType
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.repository import CoreMongoRepository

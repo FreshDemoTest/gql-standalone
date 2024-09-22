@@ -19,8 +19,8 @@ from pymongo.database import Database as MongoDatabase
 
 from clients.firebaseapi.firebase_auth import FirebaseAuthApi
 from application.base import StarlettBaseApp
-from environ.environ import get_env
-from domain.models.v2.utils import T
+from gqlapi.lib.environ.environ.environ import get_env
+from gqlapi.domain.models.v2.utils import T
 from gqlapi.endpoints.retool.retool_resource import RetoolResource
 
 

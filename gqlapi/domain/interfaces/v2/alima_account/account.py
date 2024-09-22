@@ -5,13 +5,13 @@ from types import NoneType
 from typing import Any, Dict, List, Literal, Optional
 from uuid import UUID
 
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceSellerHandlerInterface,
 )
-from domain.interfaces.v2.orden.invoice import InvoiceStatus
-from domain.interfaces.v2.supplier.supplier_business import SupplierBusinessGQL
-from domain.models.v2.supplier import SupplierBusiness
-from domain.models.v2.utils import (
+from gqlapi.domain.interfaces.v2.orden.invoice import InvoiceStatus
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import SupplierBusinessGQL
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
+from gqlapi.domain.models.v2.utils import (
     AlimaCustomerType,
     InvoiceStatusType,
     InvoiceType,
@@ -20,7 +20,7 @@ from domain.models.v2.utils import (
 )
 import strawberry
 
-from domain.models.v2.alima_business import (
+from gqlapi.domain.models.v2.alima_business import (
     BillingInvoice,
     BillingInvoiceCharge,
     BillingInvoicePaystatus,

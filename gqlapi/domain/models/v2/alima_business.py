@@ -6,13 +6,13 @@ from datetime import datetime
 
 from strawberry import type as strawberry_type
 
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     ChargeType,
     DiscountChargeType,
     InvoiceType,
     PayStatusType,
 )
-from domain.models.v2 import (
+from gqlapi.domain.models.v2 import (
     PayMethodType,
     InvoiceStatusType,
     AlimaCustomerType,

@@ -3,12 +3,12 @@ from datetime import datetime
 import logging
 from queue import Empty
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessComplete,
 )
-from domain.models.v2.restaurant import RestaurantBusiness, RestaurantBusinessAccount
-from domain.models.v2.supplier import SupplierBusiness
-from domain.models.v2.utils import BusinessType, RestaurantBusinessType
+from gqlapi.domain.models.v2.restaurant import RestaurantBusiness, RestaurantBusinessAccount
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
+from gqlapi.domain.models.v2.utils import BusinessType, RestaurantBusinessType
 from gqlapi.errors import GQLApiException
 from gqlapi.handlers.restaurant.restaurant_business import MockRestaurantBusinessHandler
 from gqlapi.repository.restaurant.restaurant_business import (

@@ -1,4 +1,4 @@
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import CLOUDINARY_BASE_URL
 from logger.basic_logger import get_logger
 import os

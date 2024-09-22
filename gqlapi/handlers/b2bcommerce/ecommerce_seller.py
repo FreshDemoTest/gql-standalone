@@ -4,7 +4,7 @@ import unicodedata
 from uuid import UUID
 from gqlapi.config import ENV as DEV_ENV
 from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceAssignSellerUnitMsg,
     EcommercePublicSellerUrlInfo,
     EcommerceSellerCatalog,
@@ -13,19 +13,19 @@ from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceSellerRepositoryInterface,
     EcommerceUserRestaurantRelationRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessHandlerInterface,
 )
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     SupplierRestaurantsHandlerInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitHandlerInterface
-from domain.models.v2.b2bcommerce import EcommerceSeller
-from domain.models.v2.restaurant import RestaurantBranch
-from domain.models.v2.supplier import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitHandlerInterface
+from gqlapi.domain.models.v2.b2bcommerce import EcommerceSeller
+from gqlapi.domain.models.v2.restaurant import RestaurantBranch
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusinessAccount,
     SupplierBusinessCommertialConditions,
 )

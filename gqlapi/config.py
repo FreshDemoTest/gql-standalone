@@ -5,7 +5,7 @@ from pathlib import Path
 from databases import DatabaseURL
 import pytz
 from starlette.config import Config
-from environ.vault import set_vault_vars
+from gqlapi.lib.environ.environ.vault import set_vault_vars
 
 set_vault_vars()
 cfg = Config(environ=dict(os.environ))

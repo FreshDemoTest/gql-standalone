@@ -3,17 +3,17 @@ from datetime import date
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from domain.models.v2.utils import UOMType
+from gqlapi.domain.models.v2.utils import UOMType
 
 import strawberry
 
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierPriceList,
     SupplierProductImage,
     SupplierProductPrice,
     SupplierUnit,
 )
-from domain.models.v2.restaurant import RestaurantBranch
+from gqlapi.domain.models.v2.restaurant import RestaurantBranch
 
 
 @strawberry.type

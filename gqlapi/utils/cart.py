@@ -1,5 +1,5 @@
 from typing import Any, Dict, List
-from domain.interfaces.v2.orden.cart import CartProductGQL
+from gqlapi.domain.interfaces.v2.orden.cart import CartProductGQL
 
 
 def calculate_subtotal_without_tax(

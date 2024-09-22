@@ -17,7 +17,7 @@ import calendar
 import base64
 from datetime import datetime, timedelta, timezone
 import json
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from logger.basic_logger import get_logger
 from types import NoneType
 from typing import Any, Dict, List, Optional
@@ -36,9 +36,9 @@ from clients.facturamaapi.facturama import (
 )
 
 from databases import Database
-from domain.models.v2.alima_business import Charge, ChargeDiscount
-from domain.models.v2.supplier import SupplierBusinessAccount
-from domain.models.v2.alima_business import PaidAccount
+from gqlapi.domain.models.v2.alima_business import Charge, ChargeDiscount
+from gqlapi.domain.models.v2.supplier import SupplierBusinessAccount
+from gqlapi.domain.models.v2.alima_business import PaidAccount
 from gqlapi.config import (
     ALIMA_EXPEDITION_PLACE,
     FACT_PWD,
@@ -57,7 +57,7 @@ from gqlapi.repository.supplier.supplier_business import (
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     ChargeType,
     DataTypeDecoder,
     InvoiceStatusType,

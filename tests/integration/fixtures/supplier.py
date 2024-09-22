@@ -7,7 +7,7 @@ from uuid import UUID
 import uuid
 import pymongo
 from bson import Binary
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     UOMType,
 )
 import pytest

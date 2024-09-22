@@ -2,13 +2,13 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountInput,
     RestaurantBusinessGQL,
     RestaurantBusinessHandlerInterface,
 )
-from domain.models.v2.restaurant import RestaurantBusiness, RestaurantBusinessAccount
-from domain.models.v2.utils import RestaurantBusinessType
+from gqlapi.domain.models.v2.restaurant import RestaurantBusiness, RestaurantBusinessAccount
+from gqlapi.domain.models.v2.utils import RestaurantBusinessType
 
 
 class MockRestaurantBusinessHandler(RestaurantBusinessHandlerInterface):

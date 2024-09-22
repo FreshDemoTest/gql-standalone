@@ -2,16 +2,16 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Any, Dict, List, Optional, Sequence
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_user import PermissionDictInput
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import PermissionDictInput
 
 import strawberry
 
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     SupplierEmployeeInfo,
     SupplierEmployeeInfoPermission,
 )
-from domain.models.v2.supplier import SupplierUser, SupplierUserPermission
+from gqlapi.domain.models.v2.supplier import SupplierUser, SupplierUserPermission
 
 
 @strawberry.input

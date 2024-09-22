@@ -5,11 +5,11 @@ from bson import Binary
 
 from logger.basic_logger import get_logger
 from clients.firebaseapi.firebase_auth import FirebaseAuthApi
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierEmployeeHandlerInterface,
     SupplierUserEmployeeGQL,
     SupplierUserGQL,
@@ -18,15 +18,15 @@ from domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     PermissionDict,
     SupplierEmployeeInfo,
     SupplierEmployeeInfoPermission,
 )
-from domain.models.v2.supplier import SupplierUser, SupplierUserPermission
-from environ.environ import get_app
+from gqlapi.domain.models.v2.supplier import SupplierUser, SupplierUserPermission
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.utils.datetime import from_iso_format

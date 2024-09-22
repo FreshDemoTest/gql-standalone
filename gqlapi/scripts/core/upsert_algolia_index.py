@@ -12,8 +12,8 @@ import logging
 from typing import Any, Dict, List
 import uuid
 from bson import Binary
-from domain.models.v2.supplier import SupplierUnitDeliveryOptions
-from domain.models.v2.utils import SellingOption, ServiceDay
+from gqlapi.domain.models.v2.supplier import SupplierUnitDeliveryOptions
+from gqlapi.domain.models.v2.utils import SellingOption, ServiceDay
 from gqlapi.handlers.b2bcommerce.ecommerce_seller import EcommerceSellerHandler
 from gqlapi.handlers.supplier.supplier_business import SupplierBusinessHandler
 from gqlapi.handlers.supplier.supplier_restaurants import SupplierRestaurantsHandler
@@ -57,7 +57,7 @@ from gqlapi.utils.domain_mapper import domain_to_dict
 from gqlapi.utils.helpers import list_into_strtuple
 import pandas as pd
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from logger.basic_logger import get_logger
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 from gqlapi.mongo import mongo_db as MongoDatabase

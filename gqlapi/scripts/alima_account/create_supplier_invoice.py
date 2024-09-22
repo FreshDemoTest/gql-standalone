@@ -34,9 +34,9 @@ from clients.facturamaapi.facturama import (
 )
 
 from databases import Database
-from domain.models.v2.alima_business import Charge, ChargeDiscount
-from domain.models.v2.supplier import SupplierBusinessAccount
-from domain.models.v2.alima_business import PaidAccount
+from gqlapi.domain.models.v2.alima_business import Charge, ChargeDiscount
+from gqlapi.domain.models.v2.supplier import SupplierBusinessAccount
+from gqlapi.domain.models.v2.alima_business import PaidAccount
 from gqlapi.config import ALIMA_EXPEDITION_PLACE, FACT_PWD, FACT_USR, ENV as DEV_ENV
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.services.mails import send_new_alima_invoice_notification
@@ -46,7 +46,7 @@ from gqlapi.repository.supplier.supplier_business import (
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.scripts.billing.create_daily_alima_invoice_v2 import (
     compute_alima_comercial_total_amount_due,
     compute_fee_charge,
@@ -59,7 +59,7 @@ from gqlapi.scripts.billing.create_daily_alima_invoice_v2 import (
 )
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from logger.basic_logger import get_logger
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     ChargeType,
     DataTypeDecoder,
     InvoiceStatusType,

@@ -5,9 +5,9 @@ import json
 import re
 from types import NoneType
 from uuid import UUID
-from domain.interfaces.v2.orden.orden import OrdenGQL
-from domain.models.v2.utils import PayMethodType
-from environ.environ import get_app
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
+from gqlapi.domain.models.v2.utils import PayMethodType
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import APP_TZ
 from logger.basic_logger import get_logger
 from typing import Any, Dict, Optional

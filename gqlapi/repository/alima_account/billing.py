@@ -6,22 +6,22 @@ from types import NoneType
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
 import uuid
-from domain.interfaces.v2.alima_account.account import (
+from gqlapi.domain.interfaces.v2.alima_account.account import (
     AlimaBillingInvoiceComplementRepositoryInterface,
     AlimaBillingInvoiceRepositoryInterface,
 )
-from domain.models.v2.alima_business import (
+from gqlapi.domain.models.v2.alima_business import (
     BillingInvoice,
     BillingInvoiceCharge,
     BillingInvoicePaystatus,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     DataTypeDecoder,
     InvoiceStatusType,
     InvoiceType,
     PayStatusType,
 )
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.helpers import list_into_strtuple
 from logger.basic_logger import get_logger

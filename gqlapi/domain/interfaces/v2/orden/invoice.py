@@ -4,14 +4,14 @@ from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 
-# from domain.interfaces.v2.orden.orden import OrdenGQL
-from domain.models.v2.restaurant import RestaurantBranch
-from domain.models.v2.supplier import (
+# from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
+from gqlapi.domain.models.v2.restaurant import RestaurantBranch
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
 )
-from domain.models.v2.utils import InvoiceStatusType, InvoiceType, RegimenSat
+from gqlapi.domain.models.v2.utils import InvoiceStatusType, InvoiceType, RegimenSat
 import strawberry
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     MxInvoice,
     MxInvoiceComplement,

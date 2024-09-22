@@ -7,8 +7,8 @@ import argparse
 import asyncio
 import json
 import uuid
-from domain.models.v2.utils import PayStatusType
-from environ.environ import get_app
+from gqlapi.domain.models.v2.utils import PayStatusType
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.handlers.core.orden import OrdenHandler
 from gqlapi.repository.core.cart import CartProductRepository, CartRepository
 from gqlapi.repository.core.orden import (
@@ -40,12 +40,12 @@ from gqlapi.utils.helpers import list_into_strtuple
 from typing import Any, Dict, List
 from uuid import UUID
 import sys
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     Orden,
     OrdenPayStatus,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierUnit,
 )
 from gqlapi.db import database as SQLDatabase, db_startup, db_shutdown

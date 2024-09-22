@@ -2,7 +2,7 @@ import logging
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.user import TokenValidity
+from gqlapi.domain.interfaces.v2.user import TokenValidity
 from gqlapi.handlers.user.firebase import FirebaseTokenHandler
 from gqlapi.repository.user.firebase import MockTokenRepository
 

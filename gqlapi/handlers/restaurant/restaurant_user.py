@@ -6,13 +6,13 @@ import secrets
 import string
 from bson import Binary
 from logger.basic_logger import get_logger
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantEmployeeHandlerInterface,
     RestaurantUserEmployeeGQL,
     RestaurantUserGQL,
@@ -22,16 +22,16 @@ from domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserPermissionRepositoryInterface,
     RestaurantUserRepositoryInterface,
 )
-from domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     PermissionDict,
     RestaurantEmployeeInfo,
     RestaurantEmployeeInfoPermission,
 )
 from clients.firebaseapi.firebase_auth import FirebaseAuthApi
-from domain.models.v2.restaurant import RestaurantUserPermission
-from environ.environ import get_app
+from gqlapi.domain.models.v2.restaurant import RestaurantUserPermission
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.utils.datetime import from_iso_format

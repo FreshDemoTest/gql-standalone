@@ -1,6 +1,6 @@
 from typing import Any, Dict
 from starlette.requests import Request
-from future.future import asyncio_run
+from gqlapi.lib.future.future.future import asyncio_run
 
 
 def get_json(request: Request) -> Dict[Any, Any]:

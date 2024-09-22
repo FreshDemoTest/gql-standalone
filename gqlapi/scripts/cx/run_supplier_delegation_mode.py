@@ -11,10 +11,10 @@ import logging
 from typing import List
 import uuid
 from bson import Binary
-from domain.models.v2.core import SupplierEmployeeInfo, SupplierEmployeeInfoPermission
+from gqlapi.domain.models.v2.core import SupplierEmployeeInfo, SupplierEmployeeInfoPermission
 
-from domain.models.v2.supplier import SupplierUnit, SupplierUserPermission
-from environ.environ import Environment, get_env
+from gqlapi.domain.models.v2.supplier import SupplierUnit, SupplierUserPermission
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.repository.supplier.supplier_unit import SupplierUnitRepository
 from gqlapi.repository.supplier.supplier_user import (
     SupplierUserPermissionRepository,

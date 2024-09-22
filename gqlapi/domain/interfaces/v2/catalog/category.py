@@ -6,11 +6,11 @@ from uuid import UUID
 
 import strawberry
 
-from future.deprecation import deprecated
-from domain.models.v2.core import Category, ProductFamilyCategory
-from domain.models.v2.restaurant import RestaurantBranchCategory
-from domain.models.v2.supplier import SupplierUnitCategory
-from domain.models.v2.utils import CategoryType
+from gqlapi.lib.future.future.deprecation import deprecated
+from gqlapi.domain.models.v2.core import Category, ProductFamilyCategory
+from gqlapi.domain.models.v2.restaurant import RestaurantBranchCategory
+from gqlapi.domain.models.v2.supplier import SupplierUnitCategory
+from gqlapi.domain.models.v2.utils import CategoryType
 
 
 @strawberry.type

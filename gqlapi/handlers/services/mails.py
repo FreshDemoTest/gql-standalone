@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 from clients.email_api.mails import send_email, send_email_with_attachments_syncronous
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.config import app_path, ENV as DEV_ENV
 
 # Price Lists Emails

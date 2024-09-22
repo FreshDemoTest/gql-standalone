@@ -1,9 +1,9 @@
 import logging
 from queue import Empty
-from domain.models.v2.utils import NotificationChannelType
+from gqlapi.domain.models.v2.utils import NotificationChannelType
 from gqlapi.errors import GQLApiException
 from uuid import UUID
-from domain.models.v2.supplier import SupplierBusiness
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
 from .mock.handler import MockSupplierBusinessHandler
 from .mock.repository import MockSupplierBusinessRepository
 

@@ -20,7 +20,7 @@ from gqlapi.handlers.integrations.integrations import (
 from gqlapi.repository.integrarions.integrations import IntegrationWebhookRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from logger.basic_logger import get_logger
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.mongo import mongo_db as MongoDatabase
 
 # logger

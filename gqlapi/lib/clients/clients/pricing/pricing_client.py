@@ -6,9 +6,9 @@ from uuid import UUID
 
 from .consts import GET_BATCH_PRICES_ENDPOINT, GET_PRICE_RULES_ENDPOINT
 
-from environ.environ import Environment
-from domain.models.v1.pricing import Price, PriceRule
-from domain.interfaces.v1.pricing_interface import PricingServiceInterface
+from gqlapi.lib.environ.environ.environ import Environment
+from gqlapi.domain.models.v1.pricing import Price, PriceRule
+from gqlapi.domain.interfaces.v1.pricing_interface import PricingServiceInterface
 from logger.basic_logger import get_logger
 
 

@@ -19,19 +19,19 @@ from datetime import datetime, timedelta
 import logging
 import uuid
 
-from domain.interfaces.v2.orden.orden import OrdenGQL
-from domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
-from domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
-from domain.models.v2.core import CoreUser, MxSatInvoicingCertificateInfo
-from domain.models.v2.restaurant import RestaurantBranchMxInvoiceInfo
-from domain.models.v2.supplier import SupplierUnitDeliveryOptions
-from domain.models.v2.utils import (
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
+from gqlapi.domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
+from gqlapi.domain.models.v2.core import CoreUser, MxSatInvoicingCertificateInfo
+from gqlapi.domain.models.v2.restaurant import RestaurantBranchMxInvoiceInfo
+from gqlapi.domain.models.v2.supplier import SupplierUnitDeliveryOptions
+from gqlapi.domain.models.v2.utils import (
     CFDIType,
     SellingOption,
     ServiceDay,
 )
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.handlers.core.invoice import MxInvoiceHandler
 from gqlapi.handlers.core.orden import OrdenHandler
 from gqlapi.handlers.supplier.supplier_invoice import SupplierInvoiceHandler
@@ -67,7 +67,7 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase

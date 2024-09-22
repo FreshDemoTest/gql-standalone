@@ -2,12 +2,12 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Any, Optional, List, Dict
 from uuid import UUID
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBusiness,
     RestaurantBusinessAccount,
     RestaurantUserPermission,
 )
-from domain.models.v2.utils import RestaurantBusinessType
+from gqlapi.domain.models.v2.utils import RestaurantBusinessType
 import strawberry
 from strawberry.file_uploads import Upload
 

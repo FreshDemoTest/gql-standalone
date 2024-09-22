@@ -3,13 +3,13 @@ from types import NoneType
 from typing import Dict, Any
 from uuid import UUID
 from bson import Binary
-from domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
+from gqlapi.domain.models.v2.core import (
     PermissionDict,
     RestaurantEmployeeInfo,
     SupplierEmployeeInfo,
 )
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreMongoRepository
 from gqlapi.utils.domain_mapper import domain_to_dict

@@ -1,10 +1,10 @@
 import logging
 from bson import Binary
-from domain.interfaces.v2.catalog.category import (
+from gqlapi.domain.interfaces.v2.catalog.category import (
     CategoryRepositoryInterface,
     RestaurantBranchCategoryRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchGQL,
     RestaurantBranchHandlerInterface,
     RestaurantBranchInvoicingOptionsRepositoryInterface,
@@ -12,40 +12,40 @@ from domain.interfaces.v2.restaurant.restaurant_branch import (
 )
 from typing import Optional, List
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     SupplierRestaurantsHandlerInterface,
     SupplierRestaurantsRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
+from gqlapi.domain.models.v2.core import (
     Category,
     PermissionDict,
     RestaurantEmployeeInfo,
     RestaurantEmployeeInfoPermission,
 )
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranch,
     RestaurantBranchCategory,
     RestaurantBranchMxInvoiceInfo,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierRestaurantRelationMxInvoicingOptions,
     SupplierUnit,
     SupplierUser,
     SupplierUserPermission,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIUse,
     CategoryType,
     InvoiceConsolidation,

@@ -7,21 +7,21 @@ from typing import Any, Dict, List, Optional
 from uuid import UUID
 import uuid
 from bson import Binary
-from domain.models.v2.authos import IEcommerceUser
-from domain.models.v2.b2bcommerce import EcommerceUserRestaurantRelation
-from domain.models.v2.supplier import SupplierUnit
-from environ.environ import get_app
+from gqlapi.domain.models.v2.authos import IEcommerceUser
+from gqlapi.domain.models.v2.b2bcommerce import EcommerceUserRestaurantRelation
+from gqlapi.domain.models.v2.supplier import SupplierUnit
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.handlers.services.authos import EcommerceJWTHandler
 from gqlapi.repository.supplier.supplier_restaurants import (
     SupplierRestaurantsRepository,
 )
 from gqlapi.repository.supplier.supplier_unit import SupplierUnitRepository
 from logger.basic_logger import get_logger
-from domain.interfaces.v2.authos.ecommerce_user import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUser,
     EcommerceUserRepositoryInterface,
 )
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     B2BEcommerceHistorialOrdenes,
     B2BEcommerceOrdenInfo,
     B2BEcommerceUserHandlerInterface,
@@ -29,21 +29,21 @@ from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceSellerRepositoryInterface,
     EcommerceUserRestaurantRelationRepositoryInterface,
 )
-from domain.interfaces.v2.orden.invoice import MxInvoiceHandlerInterface
-from domain.interfaces.v2.orden.orden import OrdenGQL, OrdenHandlerInterface
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.orden.invoice import MxInvoiceHandlerInterface
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL, OrdenHandlerInterface
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchGQL,
     RestaurantBranchHandlerInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountRepositoryInterface,
     RestaurantBusinessHandlerInterface,
 )
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranchMxInvoiceInfo,
     RestaurantBusiness,
 )
-from domain.models.v2.utils import CFDIUse, RegimenSat
+from gqlapi.domain.models.v2.utils import CFDIUse, RegimenSat
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 
 

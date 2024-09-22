@@ -13,7 +13,7 @@ from typing import Any, Dict, List
 
 # from clients.sendgridapi.sendgridapi import SendgridClientApi
 from clients.email_api.mails import send_email, send_email_with_attachments_syncronous
-from domain.models.v2.supplier import SupplierBusiness
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
 from gqlapi.repository.supplier.supplier_business import (
     SupplierBusinessAccountRepository,
     SupplierBusinessRepository,
