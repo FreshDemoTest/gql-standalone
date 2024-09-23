@@ -11,7 +11,7 @@ from gqlapi.handlers.integrations.integrations import IntegrationsWebhookandler
 from gqlapi.repository.integrarions.integrations import IntegrationWebhookRepository
 from gqlapi.utils.helpers import serialize_encoded_file
 from gqlapi.utils.notifications import send_supplier_whatsapp_invoice_reminder
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import pandas as pd
 import strawberry

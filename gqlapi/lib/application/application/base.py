@@ -1,9 +1,8 @@
 from typing import Callable, List, Tuple
 from starlette.applications import Starlette
 
-from logger.basic_logger import get_logger
-from metrics.metrics_client import MetricsClient
-from environ import vault
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ import vault
 
 
 class BaseApp:
@@ -12,7 +11,6 @@ class BaseApp:
         _name = app_name if app_name else __name__
         self.app_name = _name
         self.logger = get_logger(_name)
-        self.metrics_client = MetricsClient()
 
 
 class StarlettBaseApp(BaseApp):

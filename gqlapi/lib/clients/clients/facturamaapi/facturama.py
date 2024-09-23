@@ -4,7 +4,7 @@ from datetime import datetime
 import json
 from enum import Enum
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 from gqlapi.domain.models.v2.utils import InvoiceType

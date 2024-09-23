@@ -4,7 +4,7 @@ import strawberry
 from strawberry.types import Info as StrawberryInfo
 
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.models.v2.core import PermissionDict, SupplierEmployeeInfoPermission
 from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierDisplayPermissionsInput,

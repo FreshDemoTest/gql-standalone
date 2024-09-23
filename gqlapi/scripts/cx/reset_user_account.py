@@ -19,7 +19,7 @@ from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup

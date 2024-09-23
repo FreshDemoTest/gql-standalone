@@ -26,7 +26,7 @@ from gqlapi.domain.models.v2.utils import (
     OrdenType,
 )
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository

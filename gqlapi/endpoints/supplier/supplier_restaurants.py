@@ -75,7 +75,7 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.app.permissions import IsAlimaSupplyAuthorized, IsAuthenticated
 
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

@@ -11,7 +11,7 @@ import argparse
 from pathlib import Path
 from typing import Any, Dict, List
 from uuid import UUID
-from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 from gqlapi.repository.supplier.supplier_business import SupplierBusinessRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
@@ -20,7 +20,7 @@ import pandas as pd
 from gqlapi.config import ENV as DEV_ENV
 
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

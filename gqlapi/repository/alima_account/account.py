@@ -22,7 +22,7 @@ from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

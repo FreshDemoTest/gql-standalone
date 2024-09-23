@@ -13,7 +13,7 @@ app_path = Path(__file__).parent
 
 # Server
 APP_HOST = "0.0.0.0"  # (do not change)
-APP_PORT = 8004  # (do not change)
+APP_PORT = 8000  # (do not change)
 LOG_LEVEL = cfg("LOG_LEVEL", cast=str, default="INFO")
 
 # application

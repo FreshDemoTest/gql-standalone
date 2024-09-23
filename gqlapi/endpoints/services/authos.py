@@ -19,7 +19,7 @@ from gqlapi.utils.notifications import (
     send_authos_email_restore_password_token,
     send_authos_email_welcome,
 )
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import strawberry
 from strawberry.types import Info as StrawberryInfo

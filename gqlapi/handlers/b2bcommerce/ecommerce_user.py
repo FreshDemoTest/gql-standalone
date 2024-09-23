@@ -16,7 +16,7 @@ from gqlapi.repository.supplier.supplier_restaurants import (
     SupplierRestaurantsRepository,
 )
 from gqlapi.repository.supplier.supplier_unit import SupplierUnitRepository
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUser,
     EcommerceUserRepositoryInterface,

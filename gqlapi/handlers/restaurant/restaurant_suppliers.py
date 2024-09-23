@@ -5,10 +5,10 @@ from typing import Any, Dict, Optional, List, Tuple
 from uuid import UUID
 import uuid
 from bson import Binary
-from clients.cloudinaryapi.cloudinary import construct_route
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import construct_route
 from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import CLOUDINARY_BASE_URL
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import pandas as pd
 
 from gqlapi.domain.interfaces.v2.services.image import ImageHandlerInterface, ImageRoute

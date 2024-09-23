@@ -6,7 +6,7 @@ from gqlapi.app.permissions import (
     IsAlimaSupplyAuthorized,
     IsAuthenticated,
 )
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.interfaces.v2.services.image import (
     SupplierImageMsg,
     SupplierProductImageError,

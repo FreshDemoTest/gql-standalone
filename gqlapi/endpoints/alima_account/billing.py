@@ -1,10 +1,10 @@
 from datetime import date
 from typing import Optional
-from clients.stripeapi.stripe_api import StripeApi
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi
 from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import STRIPE_API_SECRET
 from gqlapi.repository.alima_account.billing import AlimaBillingInvoiceRepository
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import strawberry
 from strawberry.types import Info as StrawberryInfo

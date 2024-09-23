@@ -22,7 +22,7 @@ from gqlapi.domain.interfaces.v2.alima_account.account import (
 )
 from gqlapi.domain.models.v2.utils import PayProviderType
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.handlers.alima_account.account import (
     AlimaAccountHandler,
     AlimaAccountListener,

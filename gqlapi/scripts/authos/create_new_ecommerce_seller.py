@@ -23,7 +23,7 @@ from gqlapi.db import (
 from gqlapi.mongo import mongo_db as MongoDatabase
 from motor.motor_asyncio import AsyncIOMotorClient
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(
     "scripts.create_new_ecommerce_seller ", logging.INFO, Environment(get_env())

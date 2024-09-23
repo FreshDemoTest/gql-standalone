@@ -9,7 +9,7 @@ from .consts import GET_BATCH_PRICES_ENDPOINT, GET_PRICE_RULES_ENDPOINT
 from gqlapi.lib.environ.environ.environ import Environment
 from gqlapi.domain.models.v1.pricing import Price, PriceRule
 from gqlapi.domain.interfaces.v1.pricing_interface import PricingServiceInterface
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 
 logger = get_logger(__name__)

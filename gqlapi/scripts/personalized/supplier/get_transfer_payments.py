@@ -11,7 +11,7 @@ from datetime import datetime
 import json
 import logging
 from uuid import UUID
-from clients.stripeapi.stripe_api import StripeApi
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.integrations.integrations import (
@@ -19,7 +19,7 @@ from gqlapi.handlers.integrations.integrations import (
 )
 from gqlapi.repository.integrarions.integrations import IntegrationWebhookRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.mongo import mongo_db as MongoDatabase
 

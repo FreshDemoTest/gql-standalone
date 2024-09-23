@@ -5,7 +5,7 @@ from uuid import UUID
 import secrets
 import string
 from bson import Binary
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchRepositoryInterface,
 )
@@ -29,7 +29,7 @@ from gqlapi.domain.models.v2.core import (
     RestaurantEmployeeInfo,
     RestaurantEmployeeInfoPermission,
 )
-from clients.firebaseapi.firebase_auth import FirebaseAuthApi
+from gqlapi.lib.clients.clients.firebaseapi.firebase_auth import FirebaseAuthApi
 from gqlapi.domain.models.v2.restaurant import RestaurantUserPermission
 from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException

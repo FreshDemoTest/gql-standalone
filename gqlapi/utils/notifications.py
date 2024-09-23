@@ -2,10 +2,10 @@ from types import NoneType
 from typing import Any, Dict, List, Optional
 from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from uuid import UUID
-from clients.email_api.mails import send_email
-from clients.whatsapp.hilos import HilosSender
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.whatsapp.hilos import HilosSender
 from gqlapi.domain.interfaces.v2.orden.cart import CartProductGQL
 from gqlapi.domain.models.v2.core import OrdenDetails
 from gqlapi.domain.models.v2.utils import DataTypeTraslate, OrdenStatusType

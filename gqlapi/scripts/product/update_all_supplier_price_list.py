@@ -50,7 +50,7 @@ from gqlapi.repository.supplier.supplier_product import (
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
 import pandas as pd
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

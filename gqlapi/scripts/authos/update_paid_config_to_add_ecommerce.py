@@ -19,7 +19,7 @@ from gqlapi.db import (
 )
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 
 logger = get_logger(

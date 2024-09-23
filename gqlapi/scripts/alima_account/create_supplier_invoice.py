@@ -22,7 +22,7 @@ import logging
 from types import NoneType
 from typing import Any, Dict, List, Optional
 import uuid
-from clients.facturamaapi.facturama import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import (
     Customer,
     CustomerAddress,
     FacturamaClientApi,
@@ -58,7 +58,7 @@ from gqlapi.scripts.billing.create_daily_alima_invoice_v2 import (
     get_month_invoice_folios,
 )
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.models.v2.utils import (
     ChargeType,
     DataTypeDecoder,

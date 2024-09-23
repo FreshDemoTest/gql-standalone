@@ -19,7 +19,7 @@ from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.repository import CoreMongoRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import pandas as pd
 

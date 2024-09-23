@@ -1,6 +1,6 @@
 from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import CLOUDINARY_BASE_URL
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import os
 from typing import Any, Dict, List
 from enum import Enum

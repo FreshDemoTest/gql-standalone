@@ -1,4 +1,4 @@
-from environ import __version__
+from gqlapi.lib.environ import __version__
 
 
 def test_version():

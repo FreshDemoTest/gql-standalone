@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 from uuid import UUID
 import uuid
-from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
 from gqlapi.domain.models.v2.supplier import SupplierProductImage
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 from gqlapi.repository.services.image import ImageRepository
@@ -22,7 +22,7 @@ import pandas as pd
 from gqlapi.config import ENV as DEV_ENV
 
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

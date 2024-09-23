@@ -7,7 +7,7 @@
 
 import asyncio
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import argparse
 import os
 from pathlib import Path

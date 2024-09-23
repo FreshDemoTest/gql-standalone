@@ -19,7 +19,7 @@ import argparse
 import asyncio
 import json
 from pprint import pprint
-from clients.stripeapi.stripe_api import StripeApi, StripeCurrency
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi, StripeCurrency
 from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
 from gqlapi.domain.models.v2.utils import DataTypeTraslate, OrdenStatusType, PayStatusType
 from gqlapi.lib.environ.environ.environ import get_app
@@ -58,7 +58,7 @@ from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
 import pandas as pd
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from tqdm import tqdm
 
 logger = get_logger(get_app())

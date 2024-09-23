@@ -18,12 +18,12 @@ import base64
 from datetime import datetime, timedelta, timezone
 import json
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from types import NoneType
 from typing import Any, Dict, List, Optional
 import uuid
 from uuid import UUID
-from clients.facturamaapi.facturama import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import (
     Customer,
     CustomerAddress,
     FacturamaClientApi,

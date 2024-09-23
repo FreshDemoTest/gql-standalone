@@ -11,7 +11,7 @@ import logging
 import uuid
 
 from gqlapi.lib.environ.environ.environ import Environment, get_env
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.utils.cx import send_business_docs
 

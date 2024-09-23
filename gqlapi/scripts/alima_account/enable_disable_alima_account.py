@@ -25,7 +25,7 @@ from gqlapi.repository.supplier.supplier_user import (
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.db import (
     database as SQLDatabase,

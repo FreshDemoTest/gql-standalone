@@ -3,7 +3,7 @@ import json
 import logging
 from typing import List, Optional
 from uuid import UUID, uuid4
-from clients.facturamaapi.facturama import PaymentForm
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
 from gqlapi.domain.interfaces.v2.orden.invoice import (
     CustomerMxInvoiceGQL,
     MxInvoiceHandlerInterface,

@@ -11,7 +11,7 @@ from dateutil.relativedelta import relativedelta
 
 from bson import Binary
 
-from clients.facturamaapi.facturama import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import (
     Customer as FacturamaCustomer,
     CustomerAddress as FacturamaCustomerAddress,
     FacturamaClientApi,
@@ -25,9 +25,9 @@ from clients.facturamaapi.facturama import (
     RelatedDocuments,
     SatTaxes,
 )
-from clients.godaddyapi.godaddy import GoDaddyClientApi
-from clients.stripeapi.stripe_api import StripeApi
-from clients.vercelapi.vercel import (
+from gqlapi.lib.clients.clients.godaddyapi.godaddy import GoDaddyClientApi
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi
+from gqlapi.lib.clients.clients.vercelapi.vercel import (
     VercelClientApi,
     VercelEnvironmentVariables,
     VercelGitRepository,
@@ -92,7 +92,7 @@ from gqlapi.domain.models.v2.utils import (
     PayStatusType,
 )
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 from gqlapi.handlers.services.mails import (
     send_alima_invoice_complement_notification_v2,

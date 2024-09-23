@@ -68,7 +68,7 @@ def main():
     )
     gql.attach_routes([("/", version_endp)])  # Version default server
     # Uvicorn server
-    server = StarletteServer(gql, __version__, gql.logger, gql.metrics_client)
+    server = StarletteServer(gql, __version__, gql.logger)
     server.add_cors_middleware()
     server.add_auth_middleware(
         AlimaAuthBackend(

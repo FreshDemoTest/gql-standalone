@@ -68,7 +68,7 @@ from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.utils.datetime import from_iso_format
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 # logger
 logger = get_logger(get_app())

@@ -38,7 +38,7 @@ from gqlapi.domain.models.v2.supplier import (
 )
 from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.config import ALIMA_ADMIN_BUSINESS
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.utils.batch_files import (

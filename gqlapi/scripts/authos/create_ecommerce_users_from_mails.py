@@ -9,7 +9,7 @@ import base64
 import secrets
 import string
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     SupplierRestaurantCreationGQL,
 )

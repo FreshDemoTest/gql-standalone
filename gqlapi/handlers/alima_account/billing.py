@@ -2,7 +2,7 @@ import calendar
 from datetime import datetime, timedelta, timezone
 from types import NoneType
 from typing import Any, Dict, List, Literal, Set, Tuple, Type
-from clients.stripeapi.stripe_api import (
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import (
     StripeApi,
     StripeCurrency,
     StripePaymentIntentError,
@@ -39,7 +39,7 @@ from gqlapi.domain.models.v2.utils import (
     PayStatusType,
 )
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.repository.alima_account.account import AlimaAccountRepository
 from gqlapi.repository.supplier.supplier_business import (
     SupplierBusinessAccountRepository,

@@ -12,7 +12,7 @@ from gqlapi.domain.interfaces.v2.catalog.product_family import (
     ProductFamilyRepositoryInterface,
 )
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.models.v2.core import Product, ProductFamily
 from gqlapi.domain.models.v2.utils import UOMType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException

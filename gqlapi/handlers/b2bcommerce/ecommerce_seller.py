@@ -3,7 +3,7 @@ from typing import List, Optional
 import unicodedata
 from uuid import UUID
 from gqlapi.config import ENV as DEV_ENV
-from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
 from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceAssignSellerUnitMsg,
     EcommercePublicSellerUrlInfo,

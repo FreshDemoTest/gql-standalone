@@ -7,15 +7,15 @@ from typing import Any, Dict, Optional, List
 from uuid import UUID, uuid4
 
 from bs4 import BeautifulSoup
-from clients.cloudinaryapi.cloudinary import (
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import (
     construct_route_jpg_to_invoice,
 )
-from clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.email_api.mails import send_email
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import pandas as pd
 
-from clients.facturamaapi.facturama import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import (
     Customer,
     CustomerAddress,
     FacturamaClientApi,

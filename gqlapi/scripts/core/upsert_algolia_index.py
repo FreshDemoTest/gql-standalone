@@ -58,7 +58,7 @@ from gqlapi.utils.helpers import list_into_strtuple
 import pandas as pd
 
 from gqlapi.lib.environ.environ.environ import Environment, get_env
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.algolia import algolia_idx as AlgoliaIndex

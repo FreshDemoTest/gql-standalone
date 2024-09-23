@@ -1,1 +1,1 @@
-url_test = "http://localhost:8004/graphql"
+url_test = "http://localhost:8000/graphql"

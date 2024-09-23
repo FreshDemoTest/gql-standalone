@@ -5,7 +5,7 @@ from bson import Binary
 from gqlapi.utils.automation import InjectedStrawberryInfo
 import pandas as pd
 from strawberry.types import Info as StrawberryInfo
-from clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.email_api.mails import send_email
 from gqlapi.domain.models.v2.supplier import SupplierBusiness
 
 from gqlapi.repository import CoreMongoBypassRepository, CoreRepository

@@ -13,8 +13,8 @@ import random
 import string
 from typing import Optional, Tuple
 from uuid import UUID
-from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
-from clients.vercelapi.vercel import (
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
+from gqlapi.lib.clients.clients.vercelapi.vercel import (
     VercelUtils,
 )
 from gqlapi.domain.interfaces.v2.supplier.supplier_business import SupplierBusinessGQL
@@ -46,7 +46,7 @@ from gqlapi.repository.supplier.supplier_user import (
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 
 logger = get_logger(

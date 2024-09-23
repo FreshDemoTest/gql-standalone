@@ -4,7 +4,7 @@ from gqlapi.domain.models.v2.core import MxInvoicingExecution
 
 import strawberry
 
-from clients.facturamaapi.facturama import PaymentForm
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
 from gqlapi.domain.interfaces.v2.orden.invoice import CustomerMxInvoiceGQL
 from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
 from gqlapi.domain.models.v2.utils import OrdenStatusType, PayMethodType

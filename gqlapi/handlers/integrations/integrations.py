@@ -13,7 +13,7 @@ from gqlapi.domain.models.v2.integrations import (
     WorkflowIntegration,
 )
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 
 logger = get_logger(get_app())

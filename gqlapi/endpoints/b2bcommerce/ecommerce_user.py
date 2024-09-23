@@ -2,7 +2,7 @@ from datetime import date, datetime
 from types import NoneType
 from typing import List, Optional
 from uuid import UUID
-from clients.cloudinaryapi.cloudinary import ImageType
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import ImageType
 from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUserError,
     EcommerceUserGQLResult,
@@ -19,7 +19,7 @@ from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
 
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     B2BEcommerceOrdenDetailsResult,
     B2BEcommerceOrdenesResult,

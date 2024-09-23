@@ -11,7 +11,7 @@ from gqlapi.config import RETOOL_SECRET_BYPASS
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.handlers.services.mails import send_monitor_alert
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import pandas as pd
 

@@ -1,7 +1,7 @@
 from abc import ABC
 from enum import Enum
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from typing import Any, Dict, List, Literal, Optional
 
 import requests

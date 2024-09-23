@@ -5,7 +5,7 @@ from typing import Any, Dict, List, Optional
 from uuid import UUID, uuid4
 from gqlapi.repository.supplier.supplier_price_list import DEFAULT_SP_PRICE_LIST_NAME
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import pandas as pd
 
 from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (

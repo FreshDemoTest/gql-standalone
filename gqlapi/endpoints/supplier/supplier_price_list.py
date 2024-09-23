@@ -2,7 +2,7 @@ from datetime import date
 from typing import List
 from uuid import UUID
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import strawberry
 from strawberry.types import Info as StrawberryInfo

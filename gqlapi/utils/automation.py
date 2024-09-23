@@ -2,7 +2,7 @@ import logging
 from typing import Optional
 from databases import Database
 from pymongo.database import Database as MongoDatabase
-from clients.firebaseapi.firebase_auth import FirebaseAuthApi
+from gqlapi.lib.clients.clients.firebaseapi.firebase_auth import FirebaseAuthApi
 
 
 class DataContext:

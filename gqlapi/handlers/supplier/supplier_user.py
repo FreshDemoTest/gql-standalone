@@ -3,8 +3,8 @@ from typing import Any, Dict, List, Optional
 from uuid import UUID
 from bson import Binary
 
-from logger.basic_logger import get_logger
-from clients.firebaseapi.firebase_auth import FirebaseAuthApi
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.clients.clients.firebaseapi.firebase_auth import FirebaseAuthApi
 from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
 )

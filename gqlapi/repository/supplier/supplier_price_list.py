@@ -3,7 +3,7 @@ from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
     SupplierPriceListRepositoryInterface,

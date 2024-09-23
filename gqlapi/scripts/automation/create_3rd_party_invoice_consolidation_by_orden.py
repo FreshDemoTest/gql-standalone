@@ -38,7 +38,7 @@ from gqlapi.repository.supplier.supplier_unit import (
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.models.v2.utils import (
     PayMethodType,
 )

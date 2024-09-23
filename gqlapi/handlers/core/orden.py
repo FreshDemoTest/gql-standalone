@@ -5,14 +5,14 @@ from types import NoneType
 from typing import Any, Dict, Optional, List
 from uuid import UUID
 import uuid
-from clients.email_api.mails import send_email
-from clients.stripeapi.stripe_api import StripeApi, StripeCurrency
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi, StripeCurrency
 from gqlapi.repository.scripts.scripts_execution import ScriptExecutionRepository
 
 from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationWebhookHandlerInterface,
 )
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.db import database as SQLDatabase
 from gqlapi.domain.interfaces.v2.orden.cart import (

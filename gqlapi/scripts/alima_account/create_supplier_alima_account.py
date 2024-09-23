@@ -19,7 +19,7 @@ import logging
 from typing import Any, Dict, List, Optional
 import uuid
 import datetime
-from clients.stripeapi.stripe_api import StripeApi
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi
 from dateutil.relativedelta import relativedelta
 from databases import Database
 from gqlapi.config import STRIPE_API_SECRET
@@ -43,7 +43,7 @@ from gqlapi.scripts.alima_account.create_supplier_alima_config_account import (
 )
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.domain.models.v2.utils import (
     AlimaCustomerType,
     ChargeType,

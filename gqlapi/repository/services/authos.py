@@ -17,7 +17,7 @@ from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
 from gqlapi.repository import CoreRepository
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

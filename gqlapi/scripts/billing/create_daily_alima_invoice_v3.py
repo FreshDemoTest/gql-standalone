@@ -19,7 +19,7 @@ import uuid
 from gqlapi.utils.notifications import format_email_table
 import pandas as pd
 
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.config import (
     RETOOL_SECRET_BYPASS,
 )

@@ -4,7 +4,7 @@ from datetime import datetime
 import uuid
 from uuid import UUID
 from gqlapi.lib.environ.environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from strawberry.file_uploads import Upload
 from bson.binary import Binary
 
