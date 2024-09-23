@@ -2,19 +2,19 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
-from domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.core import CoreUser
 
 import strawberry
 
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierProduct,
     SupplierProductImage,
     SupplierProductPrice,
     SupplierProductStock,
     SupplierProductTag,
 )
-from domain.models.v2.utils import UOMType
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.utils import UOMType
+from gqlapi.lib.future.future.deprecation import deprecated
 
 
 @strawberry.input

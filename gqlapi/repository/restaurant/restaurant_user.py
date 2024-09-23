@@ -5,17 +5,17 @@ from types import NoneType
 from typing import Any, Optional, Dict, List
 import uuid
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserGQL,
     RestaurantUserPermissionRepositoryInterface,
     RestaurantUserRepositoryInterface,
 )
-from domain.models.v2.core import CoreUser
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantUser,
     RestaurantUserPermission,
 )
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.datetime import from_iso_format

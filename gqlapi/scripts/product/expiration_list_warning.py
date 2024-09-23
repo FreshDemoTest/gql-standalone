@@ -8,8 +8,8 @@ import datetime
 import logging
 from typing import Any, Dict, List, Optional
 from bson import Binary
-from clients.email_api.mails import send_email
-from domain.models.v2.supplier import SupplierBusiness
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.handlers.services.mails import send_notification_price_list_expiration
 from gqlapi.repository import CoreMongoBypassRepository

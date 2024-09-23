@@ -1,13 +1,13 @@
 from typing import List
 
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.app.permissions import (
     IsAlimaRestaurantAuthorized,
     IsAlimaSupplyAuthorized,
     IsAuthenticated,
 )
-from logger.basic_logger import get_logger
-from domain.interfaces.v2.services.image import (
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.domain.interfaces.v2.services.image import (
     SupplierImageMsg,
     SupplierProductImageError,
     SupplierProductImageInput,

@@ -12,11 +12,11 @@ from firebase_admin import credentials
 from firebase_admin import initialize_app
 from firebase_admin import App as FirebaseApp
 
-from domain.models.v2.utils import AlimaCustomerType
-from domain.interfaces.v2.authos.ecommerce_session import (
+from gqlapi.domain.models.v2.utils import AlimaCustomerType
+from gqlapi.domain.interfaces.v2.authos.ecommerce_session import (
     AuthosTokenHandlerInterface,
 )
-from domain.interfaces.v2.user.firebase import FirebaseTokenRepositoryInterface
+from gqlapi.domain.interfaces.v2.user.firebase import FirebaseTokenRepositoryInterface
 
 
 def initialize_firebase(fb_service_account: str) -> FirebaseApp:

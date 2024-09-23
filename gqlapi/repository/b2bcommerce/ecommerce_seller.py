@@ -3,14 +3,14 @@ import logging
 from types import NoneType
 from typing import Any, Dict, List
 from uuid import UUID, uuid4
-from domain.models.v2.b2bcommerce import (
+from gqlapi.domain.models.v2.b2bcommerce import (
     EcommerceSeller,
     EcommerceUserRestaurantRelation,
 )
 from gqlapi.utils.domain_mapper import sql_to_domain
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceSellerRepositoryInterface,
     EcommerceUserRestaurantRelationRepositoryInterface,
 )

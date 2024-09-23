@@ -2,18 +2,18 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import List, Optional, Dict, Any
 from uuid import UUID
-from domain.models.v2.utils import PayMethodType, SellingOption, ServiceDay
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.utils import PayMethodType, SellingOption, ServiceDay
 
 import strawberry
 
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     DeliveryOptions,
     SupplierUnit,
     SupplierUnitCategory,
     SupplierUnitDeliveryOptions,
 )
-from domain.models.v2.core import MxSatInvoicingCertificateInfo, SupplierEmployeeInfo
+from gqlapi.domain.models.v2.core import MxSatInvoicingCertificateInfo, SupplierEmployeeInfo
+from gqlapi.lib.future.future.deprecation import deprecated
 
 
 @strawberry.type
@@ -74,7 +74,7 @@ class SupplierUnitHandlerInterface(ABC):
         category_id: UUID,
         delivery_options: DeliveryOptions,
         allowed_payment_methods: List[PayMethodType],
-        account_number: str
+        account_number: str,
     ) -> SupplierUnitGQL:
         raise NotImplementedError
 
@@ -196,7 +196,7 @@ class SupplierUnitRepositoryInterface(ABC):
         country: Optional[str] = None,
         zip_code: Optional[str] = None,
         allowed_payment_methods: Optional[List[PayMethodType]] = None,
-        account_number: Optional[str] = None
+        account_number: Optional[str] = None,
     ) -> UUID:  # type: ignore
         raise NotImplementedError
 

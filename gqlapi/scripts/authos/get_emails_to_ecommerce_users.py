@@ -10,8 +10,8 @@ from typing import Any, Dict, List
 from uuid import UUID
 from bson import Binary
 from databases import Database
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.repository import CoreMongoRepository

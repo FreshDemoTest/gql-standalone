@@ -1,13 +1,13 @@
 from types import NoneType
 from typing import List, Optional
 from uuid import UUID, uuid4
-from domain.interfaces.v2.integrations.integrations import (
+from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationOrdenRepositoryInterface,
 )
-from domain.models.v2.integrations import IntegrationOrden
-from environ.environ import get_app
-from integrations.scorpion import ScorpionHandlerInterface
-from logger.basic_logger import get_logger
+from gqlapi.domain.models.v2.integrations import IntegrationOrden
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.integrations.integrations.scorpion import ScorpionHandlerInterface
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 
 logger = get_logger(get_app())

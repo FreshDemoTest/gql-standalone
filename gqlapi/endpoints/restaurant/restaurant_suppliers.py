@@ -1,14 +1,14 @@
 from typing import List, Optional
 from uuid import UUID
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import strawberry
 from strawberry.file_uploads import Upload
 from strawberry.types import Info as StrawberryInfo
 import pandas as pd
 
-from domain.interfaces.v2.restaurant.restaurant_suppliers import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_suppliers import (
     RestaurantSupplierAssignationResult,
     RestaurantSupplierBatchGQL,
     RestaurantSupplierBatchResult,
@@ -18,7 +18,7 @@ from domain.interfaces.v2.restaurant.restaurant_suppliers import (
     RestaurantSuppliersResult,
     SupplierProductCreationInput,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     NotificationChannelType,
 )
 from gqlapi.config import ALIMA_ADMIN_BRANCH

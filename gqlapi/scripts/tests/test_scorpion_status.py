@@ -6,9 +6,9 @@ import logging
 from typing import List
 from uuid import UUID
 
-from domain.models.v2.core import CoreUser
-from domain.models.v2.supplier import SupplierUnit
-from domain.models.v2.utils import OrdenStatusType
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.supplier import SupplierUnit
+from gqlapi.domain.models.v2.utils import OrdenStatusType
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.core.orden import OrdenHandler
@@ -31,9 +31,9 @@ from gqlapi.repository.supplier.supplier_business import (
 from gqlapi.repository.supplier.supplier_unit import SupplierUnitRepository
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from integrations.scorpion import ScorpionClientApi, ScorpionToken
-from logger.basic_logger import get_logger
-from environ.environ import get_app
+from gqlapi.lib.integrations.integrations.scorpion import ScorpionClientApi, ScorpionToken
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.config import (
     ENV as DEV_ENV,
     RETOOL_SECRET_BYPASS,

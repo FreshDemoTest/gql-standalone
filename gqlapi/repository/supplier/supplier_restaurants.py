@@ -1,14 +1,14 @@
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     SupplierRestaurantsRepositoryInterface,
 )
-from domain.models.v2.supplier import SupplierRestaurantRelation
+from gqlapi.domain.models.v2.supplier import SupplierRestaurantRelation
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

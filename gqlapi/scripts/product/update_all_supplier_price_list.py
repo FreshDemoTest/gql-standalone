@@ -6,7 +6,7 @@ import datetime
 import argparse
 import asyncio
 import json
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.handlers.supplier.supplier_price_list import SupplierPriceListHandler
 from gqlapi.handlers.supplier.supplier_product import SupplierProductHandler
 from gqlapi.handlers.supplier.supplier_restaurants import SupplierRestaurantsHandler
@@ -31,10 +31,10 @@ from gqlapi.utils.helpers import list_into_strtuple
 from typing import Any, Dict, List
 from uuid import UUID
 import sys
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierUnit,
 )
 from gqlapi.db import database as SQLDatabase, db_startup, db_shutdown
@@ -50,7 +50,7 @@ from gqlapi.repository.supplier.supplier_product import (
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
 import pandas as pd
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

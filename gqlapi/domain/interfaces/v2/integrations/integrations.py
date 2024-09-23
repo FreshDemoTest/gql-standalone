@@ -4,7 +4,7 @@ from types import NoneType
 from typing import List, Optional
 from uuid import UUID
 
-from domain.models.v2.integrations import (
+from gqlapi.domain.models.v2.integrations import (
     IntegrationOrden,
     IntegrationPartner,
     IntegrationWebhook,

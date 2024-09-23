@@ -2,8 +2,7 @@ from typing import List
 import logging
 from starlette.routing import Router
 
-from future.future import asynchronize
-from metrics.metrics_client import MetricsClient
+from gqlapi.lib.future.future.future import asynchronize
 
 
 class AsyncRoute:
@@ -17,10 +16,9 @@ class AsyncRoute:
 
 
 class AsyncRouter:
-    def __init__(self, logger: logging.Logger, metrics: MetricsClient):
+    def __init__(self, logger: logging.Logger):
         self._router = Router()
         self.logger = logger
-        self.metrics = metrics
 
     def attach_routes(self, routes: List[AsyncRoute]):
         """ Add routes to Starlette Server

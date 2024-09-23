@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from uuid import UUID
 from typing import List
 
-from domain.models.v1.segments import CustomerSegment, ProductSegment
+from gqlapi.domain.models.v1.segments import CustomerSegment, ProductSegment
 
 
 class SegmentsServiceInterface(ABC):

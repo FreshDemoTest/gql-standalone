@@ -3,17 +3,17 @@ from datetime import date, datetime
 from types import NoneType
 from typing import List, Dict, Any, Optional, Sequence
 from uuid import UUID
-from domain.interfaces.v2.integrations.integrations import (
+from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationWebhookHandlerInterface,
 )
-from domain.interfaces.v2.orden.invoice import MxInvoiceGQL
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
+from gqlapi.domain.interfaces.v2.orden.invoice import MxInvoiceGQL
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
 
 import strawberry
 
-from domain.interfaces.v2.orden.cart import CartProductGQL
-from domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.orden.cart import CartProductGQL
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
+from gqlapi.domain.models.v2.core import (
     CartProduct,
     CoreUser,
     Orden,
@@ -23,11 +23,11 @@ from domain.models.v2.core import (
     PaymentReceipt,
     PaymentReceiptOrden,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
     SupplierBusinessAccount,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     DeliveryTimeWindow,
     OrdenStatusType,
     OrdenType,

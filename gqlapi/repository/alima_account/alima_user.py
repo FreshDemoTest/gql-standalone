@@ -2,8 +2,8 @@ from types import NoneType
 from typing import Any, Dict
 from uuid import UUID
 
-from domain.interfaces.v2.alima_admin.user import AlimaUserRepositoryInterface
-from domain.models.v2.alima_business import AlimaUser
+from gqlapi.domain.interfaces.v2.alima_admin.user import AlimaUserRepositoryInterface
+from gqlapi.domain.models.v2.alima_business import AlimaUser
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
 

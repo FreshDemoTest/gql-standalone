@@ -3,12 +3,12 @@ import logging
 from types import NoneType
 from typing import List, Optional, Dict, Any
 from uuid import UUID
-from domain.interfaces.v2.integrations.integrations import (
+from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationOrdenRepositoryInterface,
     IntegrationPartnerRepositoryInterface,
     IntegrationWebhookRepositoryInterface,
 )
-from domain.models.v2.integrations import (
+from gqlapi.domain.models.v2.integrations import (
     IntegrationOrden,
     IntegrationPartner,
     IntegrationWebhook,

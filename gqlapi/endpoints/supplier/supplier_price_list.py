@@ -1,14 +1,14 @@
 from datetime import date
 from typing import List
 from uuid import UUID
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
 
-from domain.interfaces.v2.supplier.supplier_price_list import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
     SupplierPriceInput,
     SupplierPriceListBatchGQL,
     SupplierPriceListBatchResult,

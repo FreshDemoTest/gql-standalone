@@ -11,14 +11,14 @@ import logging
 from typing import List
 import uuid
 from bson import Binary
-from domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
+from gqlapi.domain.models.v2.core import (
     RestaurantEmployeeInfo,
     RestaurantEmployeeInfoPermission,
 )
-from domain.models.v2.restaurant import RestaurantUserPermission
+from gqlapi.domain.models.v2.restaurant import RestaurantUserPermission
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.repository.restaurant.restaurant_branch import RestaurantBranchRepository
 from gqlapi.repository.restaurant.restaurant_user import (
     RestaurantUserPermissionRepository,
@@ -27,7 +27,7 @@ from gqlapi.repository.restaurant.restaurant_user import (
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.repository.user.employee import EmployeeRepository, default_branch_perms
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 

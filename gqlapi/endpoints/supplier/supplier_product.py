@@ -4,16 +4,16 @@ from io import BytesIO, StringIO
 import json
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.catalog.product import ProductError
+from gqlapi.domain.interfaces.v2.catalog.product import ProductError
 import pandas as pd
 
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
-from domain.models.v2.utils import UOMType
+from gqlapi.domain.models.v2.utils import UOMType
 from gqlapi.handlers.supplier.supplier_price_list import SupplierPriceListHandler
 from gqlapi.repository.restaurant.restaurant_branch import RestaurantBranchRepository
 from gqlapi.repository.supplier.supplier_price_list import SupplierPriceListRepository
@@ -33,7 +33,7 @@ from gqlapi.repository.supplier.supplier_user import (
     SupplierUserRepository,
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     ExportProductGQL,
     ExportSupplierProductResult,
     SupplierProductDetailsListResult,

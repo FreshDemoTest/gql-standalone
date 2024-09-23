@@ -7,7 +7,7 @@ from datetime import datetime, date
 
 from strawberry import type as strawberry_type
 
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     InvoiceConsolidation,
     InvoiceTriggerTime,
     InvoiceType,
@@ -17,7 +17,7 @@ from domain.models.v2.utils import (
     ServiceDay,
     SupplierBusinessType,
 )
-from domain.models.v2 import (
+from gqlapi.domain.models.v2 import (
     UOMType,
     NotificationChannelType,
     CurrencyType,

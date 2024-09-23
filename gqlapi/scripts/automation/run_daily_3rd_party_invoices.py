@@ -27,21 +27,21 @@ from typing import List
 import uuid
 from bson import Binary
 
-from domain.interfaces.v2.orden.orden import OrdenGQL
-from domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
-from domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
+from gqlapi.domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     MxInvoicingExecution,
     MxSatInvoicingCertificateInfo,
 )
-from domain.models.v2.restaurant import RestaurantBranchMxInvoiceInfo
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.restaurant import RestaurantBranchMxInvoiceInfo
+from gqlapi.domain.models.v2.supplier import (
     InvoicingOptions,
     SupplierUnitDeliveryOptions,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIType,
     ExecutionStatusType,
     InvoiceConsolidation,
@@ -80,9 +80,9 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 

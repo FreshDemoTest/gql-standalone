@@ -3,15 +3,15 @@ from datetime import date
 from types import NoneType
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.orden.invoice import MxInvoiceGQL
-from domain.interfaces.v2.orden.orden import OrdenGQL
-from domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
-from domain.interfaces.v2.supplier.supplier_product import SupplierProductDetails
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
-from domain.models.v2.authos import IEcommerceUser
-from domain.models.v2.restaurant import RestaurantBusiness
-from domain.models.v2.supplier import MinimumOrderValue, SupplierBusiness
-from domain.models.v2.utils import (
+from gqlapi.domain.interfaces.v2.orden.invoice import MxInvoiceGQL
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import RestaurantBranchGQL
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import SupplierProductDetails
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitGQL
+from gqlapi.domain.models.v2.authos import IEcommerceUser
+from gqlapi.domain.models.v2.restaurant import RestaurantBusiness
+from gqlapi.domain.models.v2.supplier import MinimumOrderValue, SupplierBusiness
+from gqlapi.domain.models.v2.utils import (
     CFDIUse,
     PayMethodType,
     RegimenSat,
@@ -20,7 +20,7 @@ from domain.models.v2.utils import (
 
 import strawberry
 from strawberry.file_uploads import Upload
-from domain.models.v2.b2bcommerce import (
+from gqlapi.domain.models.v2.b2bcommerce import (
     EcommerceSeller,
     EcommerceUserRestaurantRelation,
 )

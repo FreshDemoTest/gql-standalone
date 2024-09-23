@@ -25,10 +25,10 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
-from domain.models.v2.utils import (
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.domain.models.v2.utils import (
     ChargeType,
 )
 from gqlapi.mongo import mongo_db as MongoDatabase

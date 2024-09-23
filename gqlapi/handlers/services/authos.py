@@ -4,29 +4,29 @@ import logging
 from types import NoneType
 from typing import Any, Dict, Optional
 from uuid import UUID, uuid4
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceUserRestaurantRelationRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountInput,
     RestaurantBusinessHandlerInterface,
 )
-from domain.models.v2.utils import RestaurantBusinessType
+from gqlapi.domain.models.v2.utils import RestaurantBusinessType
 
 from jose import jwt, JWTError
 from passlib.context import CryptContext
-from domain.interfaces.v2.authos.ecommerce_pwd import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_pwd import (
     EcommercePassword,
     EcommercePasswordHandlerInterface,
     PwdRestoreRepositoryInterface,
 )
-from domain.interfaces.v2.authos.ecommerce_user import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUser,
     EcommerceUserHandlerInterface,
     EcommerceUserRepositoryInterface,
 )
-from domain.models.v2.authos import IEcommerceUser, IPwdRestore, IUserSession
-from domain.interfaces.v2.authos.ecommerce_session import (
+from gqlapi.domain.models.v2.authos import IEcommerceUser, IPwdRestore, IUserSession
+from gqlapi.domain.interfaces.v2.authos.ecommerce_session import (
     AuthosTokenHandlerInterface,
     EcommerceSession,
     EcommerceSessionHandlerInterface,

@@ -4,22 +4,22 @@ from uuid import UUID
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     MinimumOrderValue,
     SupplierBusinessAccount,
     SupplierBusinessCommertialConditions,
 )
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessError,
     SupplierBusinessAccountInput,
     SupplierBusinessImageResult,
     SupplierBusinessImageStatus,
     SupplierBusinessResult,
 )
-from domain.models.v2.utils import NotificationChannelType, PayMethodType
+from gqlapi.domain.models.v2.utils import NotificationChannelType, PayMethodType
 from gqlapi.utils.helpers import serialize_encoded_file
 from gqlapi.app.permissions import IsAlimaSupplyAuthorized, IsAuthenticated
 from gqlapi.repository.supplier.supplier_user import (

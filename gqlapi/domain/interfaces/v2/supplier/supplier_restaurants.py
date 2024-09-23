@@ -2,12 +2,12 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from domain.interfaces.v2.authos.ecommerce_user import EcommerceUser
-from domain.interfaces.v2.supplier.supplier_product import SupplierProductDetails
+from gqlapi.domain.interfaces.v2.authos.ecommerce_user import EcommerceUser
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import SupplierProductDetails
 
 import strawberry
 
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranch,
     RestaurantBranchCategory,
     RestaurantBranchMxInvoiceInfo,
@@ -15,7 +15,7 @@ from domain.models.v2.restaurant import (
     RestaurantBusiness,
     RestaurantBusinessAccount,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierRestaurantRelation,
     SupplierRestaurantRelationMxInvoicingOptions,
 )

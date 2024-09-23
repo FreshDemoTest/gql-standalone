@@ -3,7 +3,7 @@ import math
 from typing import Any, Dict, Set
 from uuid import UUID
 
-from domain.models.v2.utils import DataTypeDecoder, DataTypeTraslate, UOMType
+from gqlapi.domain.models.v2.utils import DataTypeDecoder, DataTypeTraslate, UOMType
 from gqlapi.utils.helpers import format_price_to_float
 
 SUPPLIER_PRODUCT_BATCH_FILE_COLS = [

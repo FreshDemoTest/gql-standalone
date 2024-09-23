@@ -2,10 +2,10 @@ from datetime import datetime
 import json
 from uuid import UUID
 import uuid
-from clients.email_api.mails import send_email
-from clients.facturamaapi.facturama import PaymentForm
-from domain.models.v2.core import OrdenPayStatus
-from domain.models.v2.utils import DataTypeDecoder, PayStatusType
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
+from gqlapi.domain.models.v2.core import OrdenPayStatus
+from gqlapi.domain.models.v2.utils import DataTypeDecoder, PayStatusType
 from gqlapi.handlers.alima_account.account import AlimaAccountHandler
 from gqlapi.handlers.core.orden import OrdenHandler
 from gqlapi.handlers.integrations.integrations import IntegrationsWebhookandler
@@ -43,9 +43,9 @@ from starlette.endpoints import HTTPEndpoint
 from starlette.responses import PlainTextResponse
 from starlette.requests import Request
 
-from clients.stripeapi.stripe_api import StripeApi
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.handlers.services.mails import send_reports_alert
 from gqlapi.utils.notifications import format_email_table
 from gqlapi import config

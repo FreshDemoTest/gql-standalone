@@ -2,15 +2,15 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Optional, List, Dict, Any
 from uuid import UUID
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 import strawberry
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CoreUser,
     PermissionDict,
     RestaurantEmployeeInfo,
     RestaurantEmployeeInfoPermission,
 )
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantUser,
     RestaurantUserPermission,
 )

@@ -1,12 +1,12 @@
 from typing import List, Optional
 from uuid import UUID
 import uuid
-from domain.interfaces.v2.catalog.category import (
+from gqlapi.domain.interfaces.v2.catalog.category import (
     CategoryHandlerInterface,
     CategoryRepositoryInterface,
 )
-from domain.models.v2.core import Category
-from domain.models.v2.utils import CategoryType
+from gqlapi.domain.models.v2.core import Category
+from gqlapi.domain.models.v2.utils import CategoryType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 

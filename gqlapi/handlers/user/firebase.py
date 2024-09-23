@@ -1,4 +1,4 @@
-from domain.interfaces.v2.user import (
+from gqlapi.domain.interfaces.v2.user import (
     FirebaseTokenHandlerInterface,
     TokenValidity,
     FirebaseTokenRepositoryInterface

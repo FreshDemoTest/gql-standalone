@@ -1,6 +1,6 @@
 import logging
 # import sentry_sdk
-from environ.environ import Environment, get_app
+from gqlapi.lib.environ.environ.environ import Environment, get_app
 
 formatter = "%(asctime)s: %(pathname)s %(lineno)d [" + get_app() + "] %(levelname)s: %(message)s"
 logging.basicConfig(level=logging.INFO, format=formatter)

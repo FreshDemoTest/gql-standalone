@@ -1,11 +1,12 @@
 import sys
-from clients.firebaseapi.firebase_auth import FirebaseAuthApi
 from databases import Database
 from gqlapi.handlers.services.authos import (
     AuthosTokenHandler,
     EcommerceSessionHandler,
     EcommerceUserHandler,
 )
+from gqlapi.lib.clients.clients.firebaseapi.firebase_auth import FirebaseAuthApi
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.repository.services.authos import (
     AuthosEcommerceUserRepository,
     AuthosUserSessionRepository,
@@ -13,8 +14,7 @@ from gqlapi.repository.services.authos import (
 
 from starlette.responses import JSONResponse
 
-from environ.environ import get_app
-from application.server import StarletteServer
+from gqlapi.lib.application.application.server import StarletteServer
 from gqlapi import __version__
 from gqlapi import config
 from gqlapi.app import GraphqlAPIApp
@@ -68,7 +68,7 @@ def main():
     )
     gql.attach_routes([("/", version_endp)])  # Version default server
     # Uvicorn server
-    server = StarletteServer(gql, __version__, gql.logger, gql.metrics_client)
+    server = StarletteServer(gql, __version__, gql.logger)
     server.add_cors_middleware()
     server.add_auth_middleware(
         AlimaAuthBackend(

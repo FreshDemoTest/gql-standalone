@@ -1,4 +1,4 @@
-from domain.models.v2.utils import RestaurantBusinessType
+from gqlapi.domain.models.v2.utils import RestaurantBusinessType
 
 
 mock_rest_bus = {

@@ -5,11 +5,11 @@ from typing import Optional, List, Dict, Any
 from uuid import UUID
 import uuid
 
-from domain.interfaces.v2.restaurant.restaurant_suppliers import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_suppliers import (
     RestaurantBusinessSupplierBusinessRelation,
     RestaurantSupplierAssignationRepositoryInterface,
 )
-from domain.models.v2.restaurant import RestaurantSupplierRelation
+from gqlapi.domain.models.v2.restaurant import RestaurantSupplierRelation
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import sql_to_domain
 

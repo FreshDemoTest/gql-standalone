@@ -11,7 +11,7 @@ from dateutil.relativedelta import relativedelta
 
 from bson import Binary
 
-from clients.facturamaapi.facturama import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import (
     Customer as FacturamaCustomer,
     CustomerAddress as FacturamaCustomerAddress,
     FacturamaClientApi,
@@ -25,15 +25,15 @@ from clients.facturamaapi.facturama import (
     RelatedDocuments,
     SatTaxes,
 )
-from clients.godaddyapi.godaddy import GoDaddyClientApi
-from clients.stripeapi.stripe_api import StripeApi
-from clients.vercelapi.vercel import (
+from gqlapi.lib.clients.clients.godaddyapi.godaddy import GoDaddyClientApi
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi
+from gqlapi.lib.clients.clients.vercelapi.vercel import (
     VercelClientApi,
     VercelEnvironmentVariables,
     VercelGitRepository,
     VercelUtils,
 )
-from domain.interfaces.v2.alima_account.account import (
+from gqlapi.domain.interfaces.v2.alima_account.account import (
     AlimaAccountHandlerInterface,
     AlimaAccountListenerInterface,
     AlimaAccountPlan,
@@ -48,25 +48,25 @@ from domain.interfaces.v2.alima_account.account import (
     SupplierAlimaAccountConfig,
     SupplierAlimaBillingInvoice,
 )
-from domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
+from gqlapi.domain.interfaces.v2.b2bcommerce.ecommerce_seller import (
     EcommerceSellerHandlerInterface,
     EcommerceSellerRepositoryInterface,
 )
-from domain.interfaces.v2.integrations.integrations import (
+from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationWebhookRepositoryInterface,
 )
-from domain.interfaces.v2.orden.invoice import InvoiceStatus
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.orden.invoice import InvoiceStatus
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessAccountRepositoryInterface,
     SupplierBusinessGQL,
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.models.v2.alima_business import (
+from gqlapi.domain.models.v2.alima_business import (
     BillingInvoice,
     BillingInvoiceCharge,
     BillingPaymentMethod,
@@ -74,14 +74,14 @@ from domain.models.v2.alima_business import (
     ChargeDiscount,
     PaidAccount,
 )
-from domain.models.v2.b2bcommerce import (
+from gqlapi.domain.models.v2.b2bcommerce import (
     EcommerceParams,
     EcommerceSeller,
     NewEcommerceEnvVars,
 )
-from domain.models.v2.core import CoreUser
-from domain.models.v2.supplier import SupplierBusiness, SupplierBusinessAccount
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.supplier import SupplierBusiness, SupplierBusinessAccount
+from gqlapi.domain.models.v2.utils import (
     AlimaCustomerType,
     ChargeType,
     CurrencyType,
@@ -91,8 +91,8 @@ from domain.models.v2.utils import (
     PayProviderType,
     PayStatusType,
 )
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 from gqlapi.handlers.services.mails import (
     send_alima_invoice_complement_notification_v2,

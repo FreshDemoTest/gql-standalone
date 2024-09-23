@@ -3,9 +3,9 @@ from datetime import datetime
 from types import NoneType
 from typing import Optional, List, Dict, Any
 from uuid import UUID
-from domain.interfaces.v2.services.image import ImageRoute
-from domain.interfaces.v2.supplier.supplier_product import SupplierProductStockWithAvailability
-from domain.models.v2.supplier import (
+from gqlapi.domain.interfaces.v2.services.image import ImageRoute
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import SupplierProductStockWithAvailability
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
     SupplierBusinessAccount,
     SupplierProduct,
@@ -14,9 +14,9 @@ from domain.models.v2.supplier import (
     SupplierUnitCategory,
     SupplierUnitDeliveryOptions,
 )
-from domain.models.v2.utils import CurrencyType, NotificationChannelType, UOMType
+from gqlapi.domain.models.v2.utils import CurrencyType, NotificationChannelType, UOMType
 import strawberry
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantSupplierRelation,
 )
 

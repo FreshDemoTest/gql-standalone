@@ -9,7 +9,7 @@ from io import BytesIO
 import logging
 from typing import Any, Dict, List
 from uuid import UUID
-from clients.email_api.mails import send_email, send_email_with_attachments_syncronous
+from gqlapi.lib.clients.clients.email_api.mails import send_email, send_email_with_attachments_syncronous
 from databases import Database
 from gqlapi.config import RETOOL_SECRET_BYPASS
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase

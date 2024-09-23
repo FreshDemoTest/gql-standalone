@@ -5,8 +5,8 @@ import uuid
 from uuid import UUID
 from types import NoneType
 
-from domain.models.v2.core import CoreUser
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
 from gqlapi.utils.helpers import list_into_strtuple

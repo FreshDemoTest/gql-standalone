@@ -7,16 +7,16 @@ from uuid import UUID
 import uuid
 from bson import Binary
 
-from domain.interfaces.v2.supplier.supplier_unit import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import (
     SupplierUnitDeliveryRepositoryInterface,
     SupplierUnitRepositoryInterface,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     DeliveryOptions,
     SupplierUnit,
 )
-from domain.models.v2.utils import PayMethodType, ServiceDay
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.utils import PayMethodType, ServiceDay
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.repository import CoreMongoRepository, CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
 

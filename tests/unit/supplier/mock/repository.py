@@ -3,11 +3,11 @@ from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
 )
-from domain.models.v2.supplier import SupplierBusiness
-from domain.models.v2.utils import NotificationChannelType
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
+from gqlapi.domain.models.v2.utils import NotificationChannelType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 
 

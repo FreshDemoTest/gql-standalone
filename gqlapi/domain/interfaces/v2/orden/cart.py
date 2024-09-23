@@ -4,8 +4,8 @@ from types import NoneType
 from typing import Any, Dict, List, Optional, Sequence
 from uuid import UUID
 
-from domain.models.v2.core import Cart, CartProduct
-from domain.models.v2.supplier import SupplierProduct, SupplierProductPrice
+from gqlapi.domain.models.v2.core import Cart, CartProduct
+from gqlapi.domain.models.v2.supplier import SupplierProduct, SupplierProductPrice
 import strawberry
 
 

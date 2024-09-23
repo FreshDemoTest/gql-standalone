@@ -1,24 +1,24 @@
 from typing import Dict, List, Optional
 from uuid import UUID, uuid4
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
-from clients.cloudinaryapi.cloudinary import (
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import (
     CloudinaryApi,
     Folders,
     construct_route,
 )
-from domain.models.v2.supplier import SupplierProductImage
+from gqlapi.domain.models.v2.supplier import SupplierProductImage
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from strawberry.file_uploads import Upload
 
-from domain.interfaces.v2.services.image import (
+from gqlapi.domain.interfaces.v2.services.image import (
     ImageHandlerInterface,
     ImageRepositoryInterface,
     ImageRoute,
     SupplierProductImageInput,
 )
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductRepositoryInterface,
 )
 

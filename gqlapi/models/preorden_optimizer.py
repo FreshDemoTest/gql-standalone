@@ -2,15 +2,15 @@ import logging
 from types import NoneType
 from typing import Any, Dict, List
 from uuid import UUID
-from domain.interfaces.v2.orden.cart import CartProductGQL
+from gqlapi.domain.interfaces.v2.orden.cart import CartProductGQL
 
-from domain.interfaces.v2.orden.orden import OrdenGQL, OrdenSupplierGQL
-from domain.interfaces.v2.restaurant.restaurant_suppliers import (
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL, OrdenSupplierGQL
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_suppliers import (
     RestaurantSupplierCreationGQL,
     SupplierProductCreation,
 )
-from domain.models.v2.supplier import SupplierProduct
-from domain.models.v2.utils import OrdenType, UOMType
+from gqlapi.domain.models.v2.supplier import SupplierProduct
+from gqlapi.domain.models.v2.utils import OrdenType, UOMType
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.utils.helpers import serialize_product_description
 

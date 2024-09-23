@@ -3,26 +3,26 @@ import json
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID, uuid4
-from domain.interfaces.v2.alima_account.account import AlimaAccountRepositoryInterface
-from domain.models.v2.alima_business import (
+from gqlapi.domain.interfaces.v2.alima_account.account import AlimaAccountRepositoryInterface
+from gqlapi.domain.models.v2.alima_business import (
     BillingPaymentMethod,
     Charge,
     ChargeDiscount,
     PaidAccount,
     PaidAccountConfig,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     AlimaCustomerType,
     ChargeType,
     DiscountChargeType,
     PayMethodType,
     PayProviderType,
 )
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

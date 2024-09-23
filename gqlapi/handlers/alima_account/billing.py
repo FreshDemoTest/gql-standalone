@@ -2,12 +2,12 @@ import calendar
 from datetime import datetime, timedelta, timezone
 from types import NoneType
 from typing import Any, Dict, List, Literal, Set, Tuple, Type
-from clients.stripeapi.stripe_api import (
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import (
     StripeApi,
     StripeCurrency,
     StripePaymentIntentError,
 )
-from domain.models.v2.alima_business import BillingPaymentMethod
+from gqlapi.domain.models.v2.alima_business import BillingPaymentMethod
 from gqlapi.config import STRIPE_API_SECRET
 from gqlapi.handlers.alima_account.account import (
     AlimaAccountHandler,
@@ -27,19 +27,19 @@ from gqlapi.repository.b2bcommerce.ecommerce_seller import EcommerceSellerReposi
 from gqlapi.repository.integrarions.integrations import IntegrationWebhookRepository
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.alima_account.account import (
+from gqlapi.domain.interfaces.v2.alima_account.account import (
     BillingAccount,
     BillingReport,
     BillingTotalDue,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     InvoiceStatusType,
     InvoiceType,
     PayProviderType,
     PayStatusType,
 )
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.repository.alima_account.account import AlimaAccountRepository
 from gqlapi.repository.supplier.supplier_business import (
     SupplierBusinessAccountRepository,

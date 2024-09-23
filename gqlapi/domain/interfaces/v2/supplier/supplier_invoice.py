@@ -1,13 +1,13 @@
 from typing import Optional
 from uuid import UUID
-from domain.models.v2.core import MxInvoicingExecution
+from gqlapi.domain.models.v2.core import MxInvoicingExecution
 
 import strawberry
 
-from clients.facturamaapi.facturama import PaymentForm
-from domain.interfaces.v2.orden.invoice import CustomerMxInvoiceGQL
-from domain.interfaces.v2.orden.orden import OrdenGQL
-from domain.models.v2.utils import OrdenStatusType, PayMethodType
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
+from gqlapi.domain.interfaces.v2.orden.invoice import CustomerMxInvoiceGQL
+from gqlapi.domain.interfaces.v2.orden.orden import OrdenGQL
+from gqlapi.domain.models.v2.utils import OrdenStatusType, PayMethodType
 
 
 INVOICE_PAYMENT_MAP = {

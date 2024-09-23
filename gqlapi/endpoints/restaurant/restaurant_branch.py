@@ -12,14 +12,14 @@ from gqlapi.repository.user.employee import EmployeeRepository
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchError,
     RestaurantBranchResult,
     RestaurantBranchTaxResult,
     RestaurantCategories,
     RestaurantCategoryResult,
 )
-from domain.models.v2.utils import CFDIUse, RegimenSat
+from gqlapi.domain.models.v2.utils import CFDIUse, RegimenSat
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.restaurant.restaurant_branch import (
     RestaurantBranchHandler,

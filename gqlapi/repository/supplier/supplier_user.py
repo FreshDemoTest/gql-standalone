@@ -6,12 +6,12 @@ from typing import Any, List, Optional, Dict
 import uuid
 from uuid import UUID
 
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.models.v2.core import CoreUser
-from domain.models.v2.supplier import SupplierUser, SupplierUserPermission
+from gqlapi.domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.supplier import SupplierUser, SupplierUserPermission
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository, MongoRecord
 from gqlapi.utils.datetime import from_iso_format

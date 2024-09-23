@@ -13,7 +13,7 @@ from uuid import UUID, uuid4
 import secrets
 from bson import Binary
 from databases import Database
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.db import (
     db_shutdown,
     db_startup,
@@ -23,7 +23,7 @@ from gqlapi.db import (
 from gqlapi.mongo import mongo_db as MongoDatabase
 from motor.motor_asyncio import AsyncIOMotorClient
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(
     "scripts.create_new_ecommerce_seller ", logging.INFO, Environment(get_env())

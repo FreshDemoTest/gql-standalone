@@ -4,7 +4,7 @@ import json
 from typing import Dict, List
 import stripe
 
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import stripe.error
 
 

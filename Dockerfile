@@ -25,9 +25,6 @@ RUN poetry install --no-dev
 # Copy the rest of the application code to the working directory
 COPY . /app
 
-# Set the PYTHONPATH to include the 'lib' directory
-ENV PYTHONPATH=/app/lib:$PYTHONPATH
-
 # Expose the correct port for Render
 EXPOSE 8000
 

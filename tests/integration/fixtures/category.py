@@ -1,7 +1,7 @@
 import asyncio
 from uuid import UUID
 import uuid
-from domain.models.v2.utils import CategoryType
+from gqlapi.domain.models.v2.utils import CategoryType
 import pytest
 from typing import Any, Dict
 from gqlapi import __version__  # noqa

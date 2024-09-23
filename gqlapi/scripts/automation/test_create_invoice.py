@@ -11,8 +11,8 @@ import json
 import logging
 from typing import List
 import uuid
-from clients.facturamaapi.facturama import PaymentForm
-from domain.models.v2.core import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
+from gqlapi.domain.models.v2.core import (
     CartProduct,
     CoreUser,
     Orden,
@@ -21,7 +21,7 @@ from domain.models.v2.core import (
     OrdenStatus,
 )
 
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIType,
     DeliveryTimeWindow,
     InvoiceType,
@@ -75,10 +75,10 @@ from gqlapi.repository.user.core_user import CoreUserRepository
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 

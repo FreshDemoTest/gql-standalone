@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 
 
 class CoreRepositoryInterface(ABC):

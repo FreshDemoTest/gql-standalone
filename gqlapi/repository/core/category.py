@@ -3,17 +3,17 @@ import logging
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from domain.interfaces.v2.catalog.category import (
+from gqlapi.domain.interfaces.v2.catalog.category import (
     CategoryRepositoryInterface,
     ProductFamilyCategoryRepositoryInterface,
     RestaurantBranchCategoryRepositoryInterface,
     SupplierUnitCategoryRepositoryInterface,
 )
-from domain.models.v2.core import Category, ProductFamilyCategory
-from domain.models.v2.restaurant import RestaurantBranchCategory
-from domain.models.v2.supplier import SupplierUnitCategory
-from domain.models.v2.utils import CategoryType
-from future.deprecation import deprecated
+from gqlapi.domain.models.v2.core import Category, ProductFamilyCategory
+from gqlapi.domain.models.v2.restaurant import RestaurantBranchCategory
+from gqlapi.domain.models.v2.supplier import SupplierUnitCategory
+from gqlapi.domain.models.v2.utils import CategoryType
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain

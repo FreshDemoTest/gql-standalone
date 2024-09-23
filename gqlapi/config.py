@@ -5,7 +5,7 @@ from pathlib import Path
 from databases import DatabaseURL
 import pytz
 from starlette.config import Config
-from environ.vault import set_vault_vars
+from gqlapi.lib.environ.environ.vault import set_vault_vars
 
 set_vault_vars()
 cfg = Config(environ=dict(os.environ))
@@ -13,7 +13,7 @@ app_path = Path(__file__).parent
 
 # Server
 APP_HOST = "0.0.0.0"  # (do not change)
-APP_PORT = 8004  # (do not change)
+APP_PORT = 8000  # (do not change)
 LOG_LEVEL = cfg("LOG_LEVEL", cast=str, default="INFO")
 
 # application

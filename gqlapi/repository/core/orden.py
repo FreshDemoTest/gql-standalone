@@ -3,7 +3,7 @@ from datetime import date, datetime
 from types import NoneType
 from typing import Any, Dict, List, Optional, Sequence
 from uuid import UUID
-from domain.interfaces.v2.orden.orden import (
+from gqlapi.domain.interfaces.v2.orden.orden import (
     MxInvoiceComplementGQL,
     OrdenDetailsRepositoryInterface,
     OrdenPaymentStatusRepositoryInterface,
@@ -12,7 +12,7 @@ from domain.interfaces.v2.orden.orden import (
     PaymentReceiptGQL,
     PaymentReceiptOrdenGQL,
 )
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     Orden,
     OrdenDetails,
     OrdenPayStatus,
@@ -20,14 +20,14 @@ from domain.models.v2.core import (
     PaymentReceipt,
     PaymentReceiptOrden,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     DataTypeDecoder,
     OrdenSourceType,
     OrdenType,
 )
-from environ.environ import get_app
-from logger.basic_logger import get_logger
-from future.deprecation import deprecated
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain

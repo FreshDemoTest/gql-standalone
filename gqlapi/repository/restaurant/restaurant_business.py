@@ -8,15 +8,15 @@ from uuid import UUID
 
 from bson import Binary
 
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountRepositoryInterface,
     RestaurantBusinessRepositoryInterface,
 )
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBusiness,
     RestaurantBusinessAccount,
 )
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.repository import CoreMongoRepository, CoreRepository
 from gqlapi.utils.domain_mapper import sql_to_domain
 

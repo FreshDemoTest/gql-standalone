@@ -10,12 +10,12 @@ import json
 import logging
 from typing import List
 import unicodedata
-from clients.vercelapi.vercel import (
+from gqlapi.lib.clients.clients.vercelapi.vercel import (
     VercelClientApi,
 )
 from databases import Database
-from domain.models.v2.b2bcommerce import EcommerceEnvVars, EcommerceSeller
-from environ.environ import Environment, get_env
+from gqlapi.domain.models.v2.b2bcommerce import EcommerceEnvVars, EcommerceSeller
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.config import (
     VERCEL_TEAM,
     VERCEL_TOKEN,
@@ -44,7 +44,7 @@ from gqlapi.repository.supplier.supplier_user import (
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(
     "scripts.update_ecommerce_seller_to_vercel ", logging.INFO, Environment(get_env())

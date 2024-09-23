@@ -2,22 +2,22 @@ from abc import ABC, abstractmethod
 from types import NoneType
 from typing import Optional, List, Dict, Any
 from uuid import UUID
-from domain.models.v2.core import Category, RestaurantEmployeeInfo
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.core import Category, RestaurantEmployeeInfo
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranch,
     RestaurantBranchCategory,
     RestaurantBranchMxInvoiceInfo,
     RestaurantBranchTag,
 )
-from domain.models.v2.supplier import SupplierRestaurantRelationMxInvoicingOptions
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.supplier import SupplierRestaurantRelationMxInvoicingOptions
+from gqlapi.domain.models.v2.utils import (
     CFDIUse,
     InvoiceConsolidation,
     InvoiceTriggerTime,
     InvoiceType,
     RegimenSat,
 )
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 import strawberry
 
 

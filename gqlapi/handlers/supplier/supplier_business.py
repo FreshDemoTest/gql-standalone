@@ -1,20 +1,20 @@
 from typing import Any, List, Optional, Dict
 from uuid import UUID
-from clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import CloudinaryApi, Folders
 from strawberry.file_uploads import Upload
-from environ.environ import get_app
-from logger.basic_logger import get_logger
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessGQL,
     SupplierBusinessHandlerInterface,
     SupplierBusinessRepositoryInterface,
     SupplierBusinessAccountRepositoryInterface,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     MinimumOrderValue,
     SupplierBusiness,
     SupplierBusinessAccount,
@@ -22,7 +22,7 @@ from domain.models.v2.supplier import (
     SupplierUser,
     SupplierUserPermission,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     NotificationChannelType,
     PayMethodType,
     SupplierBusinessType,

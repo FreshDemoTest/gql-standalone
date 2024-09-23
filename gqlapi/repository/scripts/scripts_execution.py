@@ -4,7 +4,7 @@ from types import NoneType
 from typing import Any, Dict, Optional
 from uuid import UUID
 import uuid
-from domain.interfaces.v2.scripts.scrips_execution import (
+from gqlapi.domain.interfaces.v2.scripts.scrips_execution import (
     ScriptExecutionRepositoryInterface,
 )
 from gqlapi.repository import CoreDataOrchestationRepository

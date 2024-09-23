@@ -1,11 +1,11 @@
 from typing import List, Optional
 from uuid import UUID
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessGQL,
     SupplierBusinessHandlerInterface,
 )
-from domain.models.v2.supplier import SupplierBusiness
-from domain.models.v2.utils import NotificationChannelType
+from gqlapi.domain.models.v2.supplier import SupplierBusiness
+from gqlapi.domain.models.v2.utils import NotificationChannelType
 
 
 class MockSupplierBusinessHandler(SupplierBusinessHandlerInterface):

@@ -17,7 +17,7 @@ from gqlapi.repository.supplier.supplier_business import (
     SupplierBusinessRepository,
 )
 from gqlapi.repository.supplier.supplier_product import SupplierProductRepository
-from domain.models.v2.core import CoreUser
+from gqlapi.domain.models.v2.core import CoreUser
 from gqlapi.repository.core.invoice import (
     MxInvoiceRepository,
     MxSatCertificateRepository,
@@ -36,10 +36,10 @@ from gqlapi.repository.supplier.supplier_unit import (
     SupplierUnitRepository,
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
-from domain.models.v2.utils import (
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.domain.models.v2.utils import (
     PayMethodType,
 )
 from gqlapi.mongo import mongo_db as MongoDatabase

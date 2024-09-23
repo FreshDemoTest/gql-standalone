@@ -4,17 +4,17 @@ from io import BytesIO, StringIO
 import json
 from typing import List, Optional
 from uuid import UUID
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 import pandas as pd
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
 
-from clients.facturamaapi.facturama import PaymentForm
-from domain.models.v2.utils import CFDIType, InvoiceType, RegimenSat
-from domain.interfaces.v2.orden.invoice import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
+from gqlapi.domain.models.v2.utils import CFDIType, InvoiceType, RegimenSat
+from gqlapi.domain.interfaces.v2.orden.invoice import (
     CustomerMxInvoiceResult,
     ExportMxInvoiceGQL,
     ExportMxInvoiceResult,

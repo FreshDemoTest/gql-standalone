@@ -1,7 +1,7 @@
 import logging
 from uuid import UUID
 from bson import Binary
-from clients.email_api.mails import send_email_with_attachments_syncronous
+from gqlapi.lib.clients.clients.email_api.mails import send_email_with_attachments_syncronous
 from gqlapi.utils.helpers import deserialize_encoded_file
 from motor.motor_asyncio import AsyncIOMotorClient
 

@@ -1,14 +1,14 @@
 from types import NoneType
 from typing import Any, Dict, List, Optional
-from future.deprecation import deprecated
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.future.future.deprecation import deprecated
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from uuid import UUID
-from clients.email_api.mails import send_email
-from clients.whatsapp.hilos import HilosSender
-from domain.interfaces.v2.orden.cart import CartProductGQL
-from domain.models.v2.core import OrdenDetails
-from domain.models.v2.utils import DataTypeTraslate, OrdenStatusType
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.whatsapp.hilos import HilosSender
+from gqlapi.domain.interfaces.v2.orden.cart import CartProductGQL
+from gqlapi.domain.models.v2.core import OrdenDetails
+from gqlapi.domain.models.v2.utils import DataTypeTraslate, OrdenStatusType
 from gqlapi.config import (
     ALIMA_EXTERNAL_RESTO_REVIEW,
     ALIMA_EXTERNAL_SUPPLIER_REVIEW,

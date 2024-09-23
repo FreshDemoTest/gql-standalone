@@ -1,7 +1,7 @@
 import logging
 import pytest
 
-from clients.firebaseapi.firebase_auth import FirebaseAuthApi
+from gqlapi.lib.clients.clients.firebaseapi.firebase_auth import FirebaseAuthApi
 from gqlapi.auth import initialize_firebase
 from gqlapi.config import FIREBASE_SERVICE_ACCOUNT, FIREBASE_SECRET_KEY
 

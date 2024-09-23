@@ -24,8 +24,8 @@ import argparse
 import logging
 import uuid
 
-from clients.facturamaapi.facturama import PaymentForm
-from domain.models.v2.utils import PayStatusType
+from gqlapi.lib.clients.clients.facturamaapi.facturama import PaymentForm
+from gqlapi.domain.models.v2.utils import PayStatusType
 from gqlapi.handlers.alima_account.account import AlimaAccountHandler
 from gqlapi.repository.alima_account.account import AlimaAccountRepository
 from gqlapi.repository.alima_account.billing import (
@@ -39,14 +39,14 @@ from gqlapi.repository.supplier.supplier_business import (
 
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-from environ.environ import Environment, get_env
+from gqlapi.lib.environ.environ.environ import Environment, get_env
 from gqlapi.repository.supplier.supplier_user import (
     SupplierUserPermissionRepository,
     SupplierUserRepository,
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.mongo import mongo_db as MongoDatabase
 from gqlapi.db import database as SQLDatabase, db_shutdown, db_startup
 

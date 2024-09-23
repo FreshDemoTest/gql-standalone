@@ -2,13 +2,13 @@ import json
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
-from domain.interfaces.v2.supplier.supplier_price_list import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
     SupplierPriceListRepositoryInterface,
 )
-from domain.models.v2.supplier import SupplierPriceList
+from gqlapi.domain.models.v2.supplier import SupplierPriceList
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict

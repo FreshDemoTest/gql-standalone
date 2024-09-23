@@ -1,5 +1,5 @@
 import typing
-from domain.models.v2.utils import AlimaCustomerType
+from gqlapi.domain.models.v2.utils import AlimaCustomerType
 
 from starlette.requests import Request
 from starlette.websockets import WebSocket

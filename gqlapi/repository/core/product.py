@@ -3,11 +3,11 @@ import logging
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from domain.interfaces.v2.catalog.product import ProductRepositoryInterface
-from domain.interfaces.v2.catalog.product_family import ProductFamilyRepositoryInterface
-from domain.models.v2.core import Product, ProductFamily
-from domain.models.v2.utils import UOMType
-from future.deprecation import deprecated
+from gqlapi.domain.interfaces.v2.catalog.product import ProductRepositoryInterface
+from gqlapi.domain.interfaces.v2.catalog.product_family import ProductFamilyRepositoryInterface
+from gqlapi.domain.models.v2.core import Product, ProductFamily
+from gqlapi.domain.models.v2.utils import UOMType
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain

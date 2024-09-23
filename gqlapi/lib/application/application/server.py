@@ -6,10 +6,9 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.authentication import AuthenticationMiddleware
 from starlette.authentication import AuthenticationBackend
 
-from application.router import AsyncRouter
-from application.base import StarlettBaseApp
-from metrics.metrics_client import MetricsClient
-from environ import environ
+from gqlapi.lib.application.application.router import AsyncRouter
+from gqlapi.lib.application.application.base import StarlettBaseApp
+from gqlapi.lib.environ.environ import environ
 
 HOST_DEFAULT = '0.0.0.0'
 
@@ -30,13 +29,11 @@ class AsyncRouterServer(ServerInterface):
                  version: str,
                  router: AsyncRouter,
                  logger: logging.Logger,
-                 metrics_client: MetricsClient
                  ):
         self.app_name = app_name
         self.version = version
         self.app = router._router
         self.logger = logger
-        self.metrics_client = metrics_client
         self.port = environ.get_port()
         self.host = HOST_DEFAULT
 
@@ -90,12 +87,10 @@ class StarletteServer(ServerInterface):
                  app: StarlettBaseApp,
                  version: str,
                  logger: logging.Logger,
-                 metrics_client: MetricsClient
                  ):
         self.version = version
         self.app = app
         self.logger = logger
-        self.metrics_client = metrics_client
         self.port = environ.get_port()
         self.host = HOST_DEFAULT
 

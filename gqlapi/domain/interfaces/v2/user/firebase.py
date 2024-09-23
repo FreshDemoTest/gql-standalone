@@ -4,7 +4,7 @@ from datetime import datetime
 
 import strawberry
 
-from domain.models.v2 import CoreUser
+from gqlapi.domain.models.v2 import CoreUser
 
 
 @strawberry.type

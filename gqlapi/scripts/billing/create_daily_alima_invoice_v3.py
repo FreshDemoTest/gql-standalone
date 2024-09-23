@@ -19,7 +19,7 @@ import uuid
 from gqlapi.utils.notifications import format_email_table
 import pandas as pd
 
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from gqlapi.config import (
     RETOOL_SECRET_BYPASS,
 )
@@ -28,7 +28,7 @@ from gqlapi.handlers.services.mails import (
 )
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     PayProviderType,
 )
 from gqlapi.mongo import mongo_db as MongoDatabase

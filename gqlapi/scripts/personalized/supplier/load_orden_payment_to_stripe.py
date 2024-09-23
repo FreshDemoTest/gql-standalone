@@ -12,12 +12,12 @@ import logging
 from types import NoneType
 from typing import List
 from uuid import UUID
-from domain.models.v2.utils import OrdenStatusType, PayMethodType
+from gqlapi.domain.models.v2.utils import OrdenStatusType, PayMethodType
 import pandas as pd
 
-from clients.email_api.mails import send_email
-from clients.stripeapi.stripe_api import StripeApi, StripeCurrency
-from domain.models.v2.restaurant import RestaurantBranchTag
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi, StripeCurrency
+from gqlapi.domain.models.v2.restaurant import RestaurantBranchTag
 from gqlapi.db import db_shutdown, db_startup, database as SQLDatabase
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.core.orden import OrdenHandler
@@ -44,8 +44,8 @@ from gqlapi.repository.supplier.supplier_business import (
 from gqlapi.repository.supplier.supplier_unit import SupplierUnitRepository
 from gqlapi.repository.user.core_user import CoreUserRepository
 from gqlapi.utils.automation import InjectedStrawberryInfo
-from logger.basic_logger import get_logger
-from environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.mongo import mongo_db as MongoDatabase
 
 # logger

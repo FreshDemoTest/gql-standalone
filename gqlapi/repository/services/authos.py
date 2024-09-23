@@ -5,19 +5,19 @@ from uuid import UUID
 from databases import Database as SQLDatabase
 from strawberry.types import Info as StrawberryInfo
 
-from domain.interfaces.v2.authos.ecommerce_pwd import PwdRestoreRepositoryInterface
-from domain.interfaces.v2.authos.ecommerce_user import (
+from gqlapi.domain.interfaces.v2.authos.ecommerce_pwd import PwdRestoreRepositoryInterface
+from gqlapi.domain.interfaces.v2.authos.ecommerce_user import (
     EcommerceUser,
     EcommerceUserRepositoryInterface,
 )
-from domain.interfaces.v2.authos.ecommerce_session import UserSessionRepositoryInterface
-from domain.models.v2.authos import IEcommerceUser, IPwdRestore, IUserSession
+from gqlapi.domain.interfaces.v2.authos.ecommerce_session import UserSessionRepositoryInterface
+from gqlapi.domain.models.v2.authos import IEcommerceUser, IPwdRestore, IUserSession
 from gqlapi.config import DATABASE_AUTHOS_URL
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain
 from gqlapi.repository import CoreRepository
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

@@ -7,15 +7,15 @@ from typing import Any, Dict, Optional, List
 from uuid import UUID, uuid4
 
 from bs4 import BeautifulSoup
-from clients.cloudinaryapi.cloudinary import (
+from gqlapi.lib.clients.clients.cloudinaryapi.cloudinary import (
     construct_route_jpg_to_invoice,
 )
-from clients.email_api.mails import send_email
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 import pandas as pd
 
-from clients.facturamaapi.facturama import (
+from gqlapi.lib.clients.clients.facturamaapi.facturama import (
     Customer,
     CustomerAddress,
     FacturamaClientApi,
@@ -31,11 +31,11 @@ from clients.facturamaapi.facturama import (
     RelatedDocuments,
     SatTaxes,
 )
-from domain.interfaces.v2.orden.cart import (
+from gqlapi.domain.interfaces.v2.orden.cart import (
     CartProductGQL,
     CartProductRepositoryInterface,
 )
-from domain.interfaces.v2.orden.invoice import (
+from gqlapi.domain.interfaces.v2.orden.invoice import (
     CustomerMxInvoiceGQL,
     FacturamaData,
     InvoiceStatus,
@@ -51,30 +51,30 @@ from domain.interfaces.v2.orden.invoice import (
     MxUploadInvoiceMsg,
     ReceiverGQL,
 )
-from domain.interfaces.v2.orden.orden import (
+from gqlapi.domain.interfaces.v2.orden.orden import (
     OrdenDetailsRepositoryInterface,
     OrdenGQL,
     OrdenPaymentStatusRepositoryInterface,
     OrdenRepositoryInterface,
     PaymentReceiptGQL,
 )
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchInvoicingOptionsRepositoryInterface,
     RestaurantBranchRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_invoice import INVOICE_PAYMENT_MAP
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     CartProduct,
     CoreUser,
     MxInvoice,
@@ -84,14 +84,14 @@ from domain.models.v2.core import (
     Orden,
     OrdenDetails,
 )
-from domain.models.v2.restaurant import RestaurantBranch, RestaurantBranchMxInvoiceInfo
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.restaurant import RestaurantBranch, RestaurantBranchMxInvoiceInfo
+from gqlapi.domain.models.v2.supplier import (
     InvoicingOptions,
     SupplierBusiness,
     SupplierProduct,
     SupplierUnit,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIType,
     DataTypeDecoder,
     InvoiceStatusType,

@@ -3,8 +3,8 @@ from types import NoneType
 from uuid import UUID
 from typing import Optional, List
 from datetime import datetime, date
-from domain.models.v2.supplier import InvoicingOptions
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.supplier import InvoicingOptions
+from gqlapi.domain.models.v2.utils import (
     ExecutionStatusType,
     InvoiceType,
     OrdenSourceType,
@@ -15,7 +15,7 @@ from domain.models.v2.utils import (
 from strawberry import type as strawberry_type
 
 
-from domain.models.v2 import (
+from gqlapi.domain.models.v2 import (
     OrdenType,
     OrdenStatusType,
     PayStatusType,

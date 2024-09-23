@@ -5,27 +5,27 @@ from types import NoneType
 from typing import Any, Dict, Optional, List
 from uuid import UUID
 import uuid
-from clients.email_api.mails import send_email
-from clients.stripeapi.stripe_api import StripeApi, StripeCurrency
+from gqlapi.lib.clients.clients.email_api.mails import send_email
+from gqlapi.lib.clients.clients.stripeapi.stripe_api import StripeApi, StripeCurrency
 from gqlapi.repository.scripts.scripts_execution import ScriptExecutionRepository
 
-from domain.interfaces.v2.integrations.integrations import (
+from gqlapi.domain.interfaces.v2.integrations.integrations import (
     IntegrationWebhookHandlerInterface,
 )
-from logger.basic_logger import get_logger
-from environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.db import database as SQLDatabase
-from domain.interfaces.v2.orden.cart import (
+from gqlapi.domain.interfaces.v2.orden.cart import (
     CartProductGQL,
     CartProductRepositoryInterface,
     CartRepositoryInterface,
 )
-from domain.interfaces.v2.orden.invoice import (
+from gqlapi.domain.interfaces.v2.orden.invoice import (
     MxInvoiceComplementRepositoryInterface,
     MxInvoiceGQL,
     MxSatCertificateRepositoryInterface,
 )
-from domain.interfaces.v2.orden.orden import (
+from gqlapi.domain.interfaces.v2.orden.orden import (
     MxInvoiceComplementGQL,
     OrdenDetailsRepositoryInterface,
     OrdenGQL,
@@ -39,31 +39,31 @@ from domain.interfaces.v2.orden.orden import (
     PaymentReceiptGQL,
     PaymentReceiptOrdenGQL,
 )
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchGQL,
     RestaurantBranchRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountRepositoryInterface,
     RestaurantBusinessRepositoryInterface,
 )
 
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessAccountRepositoryInterface,
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     SupplierRestaurantsRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import (
     SupplierUnitGQL,
     SupplierUnitRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     Cart,
     CartProduct,
     CoreUser,
@@ -74,17 +74,17 @@ from domain.models.v2.core import (
     PaymentReceipt,
     PaymentReceiptOrden,
 )
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranch,
     RestaurantBranchTag,
     RestaurantBusiness,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
     SupplierBusinessAccount,
     SupplierProduct,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     DataTypeDecoder,
     DataTypeTraslate,
     DeliveryTimeWindow,

@@ -1,6 +1,6 @@
-from environ.environ import Environment
-from domain.models.v1.user import User
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import Environment
+from gqlapi.domain.models.v1.user import User
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(__name__)
 endpoints = {

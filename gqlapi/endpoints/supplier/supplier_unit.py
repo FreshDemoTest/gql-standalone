@@ -5,9 +5,9 @@ from gqlapi.repository.core.invoice import MxSatCertificateRepository
 import strawberry
 from strawberry.types import Info as StrawberryInfo
 
-from domain.models.v2.supplier import DeliveryOptions
-from domain.models.v2.utils import PayMethodType, ServiceDay
-from domain.interfaces.v2.supplier.supplier_unit import (
+from gqlapi.domain.models.v2.supplier import DeliveryOptions
+from gqlapi.domain.models.v2.utils import PayMethodType, ServiceDay
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import (
     SupplierUnitContactInfo,
     SupplierUnitDeliveryOptionsInput,
     SupplierUnitError,
@@ -37,8 +37,8 @@ from gqlapi.repository.user.employee import EmployeeRepository
 from gqlapi.app.permissions import IsAlimaSupplyAuthorized, IsAuthenticated
 from gqlapi.utils.domain_mapper import domain_inp_to_out
 
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 logger = get_logger(get_app())
 

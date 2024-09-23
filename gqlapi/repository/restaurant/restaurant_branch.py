@@ -6,29 +6,29 @@ from typing import Optional, List, Dict, Any, Type
 from uuid import UUID
 import uuid
 
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchGQL,
     RestaurantBranchInvoicingOptionsRepositoryInterface,
     RestaurantBranchRepositoryInterface,
 )
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranch,
     RestaurantBranchCategory,
     RestaurantBranchMxInvoiceInfo,
     RestaurantBranchTag,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     InvoicingOptions,
     SupplierRestaurantRelationMxInvoicingOptions,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CFDIUse,
     InvoiceConsolidation,
     InvoiceTriggerTime,
     InvoiceType,
     RegimenSat,
 )
-from future.deprecation import deprecated
+from gqlapi.lib.future.future.deprecation import deprecated
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.datetime import from_iso_format

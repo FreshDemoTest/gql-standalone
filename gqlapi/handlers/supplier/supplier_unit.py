@@ -2,37 +2,37 @@ from typing import Any, Dict, List, Optional
 from uuid import UUID
 from bson import Binary
 
-from domain.interfaces.v2.catalog.category import (
+from gqlapi.domain.interfaces.v2.catalog.category import (
     CategoryRepositoryInterface,
     SupplierUnitCategoryRepositoryInterface,
 )
-from domain.interfaces.v2.orden.invoice import MxSatCertificateRepositoryInterface
-from domain.interfaces.v2.supplier.supplier_business import (
+from gqlapi.domain.interfaces.v2.orden.invoice import MxSatCertificateRepositoryInterface
+from gqlapi.domain.interfaces.v2.supplier.supplier_business import (
     SupplierBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import (
     SupplierUnitDeliveryRepositoryInterface,
     SupplierUnitGQL,
     SupplierUnitHandlerInterface,
     SupplierUnitRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
-from domain.models.v2.core import (
+from gqlapi.domain.interfaces.v2.user.employee import EmployeeRepositoryInterface
+from gqlapi.domain.models.v2.core import (
     MxSatInvoicingCertificateInfo,
     PermissionDict,
     SupplierEmployeeInfo,
     SupplierEmployeeInfoPermission,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     DeliveryOptions,
     SupplierUnitCategory,
     SupplierUnitDeliveryOptions,
 )
-from domain.models.v2.utils import PayMethodType, SellingOption, ServiceDay
+from gqlapi.domain.models.v2.utils import PayMethodType, SellingOption, ServiceDay
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.repository.user.employee import default_unit_perms

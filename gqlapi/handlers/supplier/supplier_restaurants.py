@@ -5,21 +5,21 @@ from uuid import UUID, uuid4
 import uuid
 from bson import Binary
 
-from domain.interfaces.v2.catalog.category import (
+from gqlapi.domain.interfaces.v2.catalog.category import (
     CategoryRepositoryInterface,
     RestaurantBranchCategoryRepositoryInterface,
 )
-from domain.interfaces.v2.catalog.product import ProductRepositoryInterface
-from domain.interfaces.v2.orden.invoice import MxSatCertificateRepositoryInterface
-from domain.interfaces.v2.restaurant.restaurant_branch import (
+from gqlapi.domain.interfaces.v2.catalog.product import ProductRepositoryInterface
+from gqlapi.domain.interfaces.v2.orden.invoice import MxSatCertificateRepositoryInterface
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_branch import (
     RestaurantBranchInvoicingOptionsRepositoryInterface,
     RestaurantBranchRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountRepositoryInterface,
     RestaurantBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_product import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductDetails,
     SupplierProductHandlerInterface,
     SupplierProductPriceRepositoryInterface,
@@ -27,19 +27,19 @@ from domain.interfaces.v2.supplier.supplier_product import (
     SupplierProductStockRepositoryInterface,
     SupplierProductStockWithAvailability,
 )
-from domain.interfaces.v2.supplier.supplier_restaurants import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_restaurants import (
     RestaurantBranchSupGQL,
     SupplierRestaurantCreationGQL,
     SupplierRestaurantsHandlerInterface,
     SupplierRestaurantsRepositoryInterface,
 )
-from domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
-from domain.interfaces.v2.supplier.supplier_user import (
+from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
+from gqlapi.domain.interfaces.v2.supplier.supplier_user import (
     SupplierUserPermissionRepositoryInterface,
     SupplierUserRepositoryInterface,
 )
-from domain.models.v2.core import CoreUser, MxSatInvoicingCertificateInfo
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.core import CoreUser, MxSatInvoicingCertificateInfo
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBranch,
     RestaurantBranchCategory,
     RestaurantBranchMxInvoiceInfo,
@@ -47,7 +47,7 @@ from domain.models.v2.restaurant import (
     RestaurantBusiness,
     RestaurantBusinessAccount,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
     SupplierProductPrice,
     SupplierProductTag,
@@ -56,19 +56,19 @@ from domain.models.v2.supplier import (
     SupplierUser,
     SupplierUserPermission,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CategoryType,
     CurrencyType,
     DataTypeDecoder,
     InvoiceTriggerTime,
     UOMType,
 )
-from environ.environ import get_app
+from gqlapi.lib.environ.environ.environ import get_app
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.utils.datetime import from_iso_format
 from gqlapi.utils.helpers import list_into_strtuple
-from logger.basic_logger import get_logger
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 
 # logger
 logger = get_logger(get_app())

@@ -3,7 +3,7 @@ from types import NoneType
 from typing import Any, Dict
 from uuid import UUID
 
-from domain.models.v2.alima_business import AlimaUser
+from gqlapi.domain.models.v2.alima_business import AlimaUser
 
 
 class AlimaUserRepositoryInterface(ABC):

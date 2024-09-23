@@ -3,17 +3,17 @@ import base64
 from datetime import datetime
 import json
 from enum import Enum
-from environ.environ import get_app
-from logger.basic_logger import get_logger
+from gqlapi.lib.environ.environ.environ import get_app
+from gqlapi.lib.logger.logger.basic_logger import get_logger
 from typing import Any, Dict, List, Optional
 from uuid import UUID
-from domain.models.v2.utils import InvoiceType
+from gqlapi.domain.models.v2.utils import InvoiceType
 
 import requests
 import strawberry
 from strawberry import type as strawberry_type
 
-from domain.models.v2.core import MxSatInvoicingCertificateInfo
+from gqlapi.domain.models.v2.core import MxSatInvoicingCertificateInfo
 from gqlapi.utils.domain_mapper import domain_to_dict
 
 logger = get_logger(get_app())

@@ -2,11 +2,11 @@ from datetime import datetime
 from types import NoneType
 from typing import Any, Dict, List, Optional, Sequence
 from uuid import UUID
-from domain.interfaces.v2.orden.cart import (
+from gqlapi.domain.interfaces.v2.orden.cart import (
     CartProductRepositoryInterface,
     CartRepositoryInterface,
 )
-from domain.models.v2.core import Cart, CartProduct
+from gqlapi.domain.models.v2.core import Cart, CartProduct
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository import CoreRepository
 from gqlapi.utils.domain_mapper import domain_to_dict, sql_to_domain

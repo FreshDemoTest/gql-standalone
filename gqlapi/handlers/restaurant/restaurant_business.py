@@ -1,7 +1,7 @@
 import logging
 from typing import Optional
 from uuid import UUID
-from domain.interfaces.v2.restaurant.restaurant_business import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessAccountInput,
     RestaurantBusinessAccountRepositoryInterface,
     RestaurantBusinessAdminGQL,
@@ -9,12 +9,12 @@ from domain.interfaces.v2.restaurant.restaurant_business import (
     RestaurantBusinessHandlerInterface,
     RestaurantBusinessRepositoryInterface,
 )
-from domain.interfaces.v2.restaurant.restaurant_user import (
+from gqlapi.domain.interfaces.v2.restaurant.restaurant_user import (
     RestaurantUserPermissionRepositoryInterface,
     RestaurantUserRepositoryInterface,
 )
 
-from domain.models.v2.restaurant import (
+from gqlapi.domain.models.v2.restaurant import (
     RestaurantBusinessAccount,
 )
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException

@@ -11,18 +11,18 @@ from typing import Any, Dict, List
 import uuid
 from uuid import UUID
 import sys
-from domain.models.v2.core import (
+from gqlapi.domain.models.v2.core import (
     Category,
     CoreUser,
     Product,
     ProductFamily,
     ProductFamilyCategory,
 )
-from domain.models.v2.supplier import (
+from gqlapi.domain.models.v2.supplier import (
     SupplierBusiness,
     SupplierProduct,
 )
-from domain.models.v2.utils import (
+from gqlapi.domain.models.v2.utils import (
     CategoryType,
     DataTypeDecoder,
     DataTypeTraslate,

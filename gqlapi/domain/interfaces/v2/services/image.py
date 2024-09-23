@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Dict, Any
 from uuid import UUID
-from domain.models.v2.supplier import SupplierProductImage
+from gqlapi.domain.models.v2.supplier import SupplierProductImage
 
 
 import strawberry
