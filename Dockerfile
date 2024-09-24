@@ -5,11 +5,6 @@ RUN apt-get update && apt-get install -y curl && \
     curl -sSL https://install.python-poetry.org | python3 - && \
     apt-get remove -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-
-RUN echo "INSTALL POETRY..."
-# Install Poetry
-RUN pip install --no-cache-dir poetry
-
 # Add Poetry to the PATH
 ENV PATH="/root/.local/bin:$PATH"
 
@@ -17,16 +12,16 @@ ENV PATH="/root/.local/bin:$PATH"
 WORKDIR /app
 
 # Copy the pyproject.toml and poetry.lock files to the working directory
-COPY pyproject.toml poetry.lock /app/
+COPY pyproject.toml poetry.lock ./
 
 # Install dependencies without dev dependencies
-RUN poetry install --no-dev
+RUN poetry install --no-dev --no-root
 
 # Copy the rest of the application code to the working directory
-COPY . /app
+COPY . .
 
 # Expose the correct port for Render
 EXPOSE 8000
 
 # Start the app using Render's $PORT environment variable
-CMD ["python", "-m", "gqlapi.main", "serve", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["poetry", "run", "python", "-m", "gqlapi.main", "serve"]
