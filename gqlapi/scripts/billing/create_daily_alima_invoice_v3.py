@@ -109,12 +109,6 @@ async def send_create_supplier_billing_invoices_v3(
         html_table = format_email_table(
             df.to_html(index=False, classes="table table-bordered table-striped ")
         )
-        if not await send_reports_alert(
-            email_to="automations@alima.la",
-            subject=f"[{DEV_ENV}] Reporte Ejecucion de Facturas Alima ({current_date.date().isoformat()})",
-            content=html_table,
-        ):
-            logger.error("Issues to send report email")
     return True
 
 

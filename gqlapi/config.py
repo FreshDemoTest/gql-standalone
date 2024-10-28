@@ -56,6 +56,7 @@ FIREBASE_SERVICE_ACCOUNT = cfg(
 )
 FIREBASE_SECRET_KEY = cfg("FIREBASE_SECRET_KEY", cast=str, default="")
 SENDGRID_API_KEY = cfg("SENDGRID_API_KEY", cast=str, default="")
+SENDGRID_SINGLE_SENDER = cfg("SENDGRID_SINGLE_SENDER", cast=str, default="")
 HILOS_API_KEY = cfg("HILOS_API_KEY", cast=str, default="")
 CLOUDINARY_BASE_URL = (
     "https://res.cloudinary.com/neutro-mx/image/upload/c_scale,f_auto,q_auto,"

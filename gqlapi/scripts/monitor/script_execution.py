@@ -55,13 +55,6 @@ async def update_ordenes(db: Database, vals: List[Dict[str, Any]]) -> bool:
 async def send_scripts_alert_email(invoices_failed_list: List[Dict[Any, Any]]) -> bool:
     df = pd.DataFrame(invoices_failed_list)
     html_table = df.to_html(index=False)
-    if not await send_monitor_alert(
-        email_to="automations@alima.la",
-        subject="Error al correr scripts",
-        content=html_table,
-    ):
-        print("Issues to send email")
-        return False
     return True
 
 

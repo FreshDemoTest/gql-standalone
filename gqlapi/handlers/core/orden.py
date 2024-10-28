@@ -97,6 +97,7 @@ from gqlapi.domain.models.v2.utils import (
     UOMType,
 )
 from gqlapi.config import ALIMA_SUPPORT_PHONE, APP_TZ
+from gqlapi.config import SENDGRID_SINGLE_SENDER
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.utils.datetime import from_iso_format
@@ -781,28 +782,27 @@ class OrdenHandler(OrdenHandlerInterface):
             if orden_type == OrdenType.NORMAL:
                 # send confirmation to the user that created the orden
                 try:
-                    await send_unformat_restaurant_email_confirmation(
-                        f"Pedido para {sup_business.name if sup_business else 'Proveedor'}",
-                        from_email={
-                            "email": "no-reply@alima.la",
-                            "name": sup_business.name,
-                        },
-                        to_email={
-                            "email": (
-                                rest_buss_acc.email
-                                if rest_buss_acc.email
-                                else "automations@alima.la"
-                            ),
-                            "name": rest_buss_obj.name
-                            + " - "
-                            + rest_branch.branch_name,
-                        },
-                        orden_details=OrdenDetails(**orden_details),
-                        cart_products=cart_res["cart_product_res"],
-                        orden_number=orden["orden_number"],
-                        rest_branch_name=rest_branch.branch_name,
-                        cel_contact=supp_bus_acc.phone_number,  # type: ignore
-                    )
+                    if rest_buss_acc.email:
+                        await send_unformat_restaurant_email_confirmation(
+                            f"Pedido para {sup_business.name if sup_business else 'Proveedor'}",
+                            from_email={
+                                "email": SENDGRID_SINGLE_SENDER,
+                                "name": sup_business.name,
+                            },
+                            to_email={
+                                "email": (
+                                    rest_buss_acc.email
+                                ),
+                                "name": rest_buss_obj.name
+                                + " - "
+                                + rest_branch.branch_name,
+                            },
+                            orden_details=OrdenDetails(**orden_details),
+                            cart_products=cart_res["cart_product_res"],
+                            orden_number=orden["orden_number"],
+                            rest_branch_name=rest_branch.branch_name,
+                            cel_contact=supp_bus_acc.phone_number,  # type: ignore
+                        )
                 except Exception as e:
                     logger.warning("Issues sending restaurant confirmation email")
                     logger.error(e)
@@ -1051,7 +1051,7 @@ class OrdenHandler(OrdenHandlerInterface):
                 # send confirmation to the user that created the orden
                 try:
                     _from = {
-                        "email": "no-reply@alima.la",
+                        "email": SENDGRID_SINGLE_SENDER,
                         "name": sup_business.name if sup_business.name else "Alima",
                     }
                     if source_type == OrdenSourceType.ECOMMERCE:
@@ -1344,7 +1344,7 @@ class OrdenHandler(OrdenHandlerInterface):
                 await send_unformat_restaurant_email_confirmation(
                     f"Pedido Actualizado para {supp_bus.name if supp_bus else 'Proveedor'}",
                     from_email={
-                        "email": "no-reply@alima.la",
+                        "email": SENDGRID_SINGLE_SENDER,
                         "name": supp_bus.name,
                     },
                     to_email={
@@ -1366,33 +1366,32 @@ class OrdenHandler(OrdenHandlerInterface):
                     status == OrdenStatusType.CANCELED
                     or status == OrdenStatusType.DELIVERED
                 ):
-                    # send email to supplier and restaurant
-                    await send_supplier_changed_status_v2(
-                        to_email={
-                            "email": (
-                                supp_bus_acc.email
-                                if supp_bus_acc.email
-                                else "automations@alima.la"
-                            ),
-                            "name": supp_bus.name,
-                        },
-                        status=status,
-                        from_email={
-                            "email": "no-reply@alima.la",
-                            "name": "Alima",
-                        },
-                        orden_details=OrdenDetails(**orden_details),
-                        orden_number=orden["orden_number"],
-                        rest_branch_name=rest_branch.branch_name,
-                        cel_contact=supp_bus_acc.phone_number,  # type: ignore
-                    )
+                    if supp_bus_acc.email:
+                        # send email to supplier and restaurant
+                        await send_supplier_changed_status_v2(
+                            to_email={
+                                "email": (
+                                    supp_bus_acc.email
+                                ),
+                                "name": supp_bus.name,
+                            },
+                            status=status,
+                            from_email={
+                                "email": SENDGRID_SINGLE_SENDER,
+                                "name": "Alima",
+                            },
+                            orden_details=OrdenDetails(**orden_details),
+                            orden_number=orden["orden_number"],
+                            rest_branch_name=rest_branch.branch_name,
+                            cel_contact=supp_bus_acc.phone_number,  # type: ignore
+                        )
                 await send_restaurant_changed_status_v2(
                     to_email={
                         "email": client_email,
                         "name": rest_branch.branch_name,
                     },
                     from_email={
-                        "email": "no-reply@alima.la",
+                        "email": SENDGRID_SINGLE_SENDER,
                         "name": supp_bus.name,
                     },
                     status=status,
@@ -2560,11 +2559,6 @@ async def orden_delivered_script_execution_wrapper(
     except Exception as e:
         logger.warning(f"Error en script_execution_wrapper: {exec_id}")
         logger.error(e)
-        await send_email(
-            subject="Error al procesar el pago",
-            email_to="automations@alima.la",
-            content=f"Ocurrio un error al procesar el pago de la orden {_resp[0].orden_number}: {e}",
-        )
         result = {"status": "error", "error": str(e)}
     try:
         # [TODO] validate if result ok
@@ -2791,14 +2785,5 @@ class OrdenHookListener(OrdenHookListenerInterface):
                 except Exception as e:
                     logger.warning(f"Error al actualizar registro en DB: {e_id}")
                     logger.error(e)
-            await send_email(
-                subject="Error al procesar el pago",
-                email_to="automations@alima.la",
-                content=f"Ocurrio un error al procesar el pago de la orden {_resp[0].orden_number}: {ge.msg}",
-            )
         except Exception as e:
-            await send_email(
-                subject="Error al procesar el pago",
-                email_to="automations@alima.la",
-                content=f"Ocurrio un error al procesar el pago de la orden {_resp[0].orden_number}: {e}",
-            )
+            logger.info(e)

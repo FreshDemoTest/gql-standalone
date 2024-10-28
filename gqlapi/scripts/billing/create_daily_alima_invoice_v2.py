@@ -1173,12 +1173,6 @@ async def create_supplier_billing_invoice_v2(
             rep_dict.append(r.__dict__)
         df = pd.DataFrame(rep_dict)
         html_table = df.to_html(index=False)
-        if not await send_reports_alert(
-            email_to="automations@alima.la",
-            subject="Reporte facturas mensuales Alima",
-            content=html_table,
-        ):
-            logger.error("Issues to send email")
     return True
 
 
@@ -1452,12 +1446,6 @@ async def create_supplier_anual_billing_invoice_v2(
             rep_dict.append(r.__dict__)
         df = pd.DataFrame(rep_dict)
         html_table = df.to_html(index=False)
-        if not await send_reports_alert(
-            email_to="automations@alima.la",
-            subject="Reporte facturas anuales Alima",
-            content=html_table,
-        ):
-            logger.error("Issues to send email")
     return True
 
 

@@ -128,12 +128,6 @@ class StripeWebHookListener(HTTPEndpoint):
                         index=False, classes="table table-bordered table-striped "
                     )
                 )
-                if not await send_reports_alert(
-                    email_to="automations@alima.la",
-                    subject=f"[{config.ENV}] Reporte Conciliación SPEI Stripe - Alima",
-                    content=html_table,
-                ):
-                    logger.error("Issues to send report email")
             elif stripe_event.type == "payment_intent.partially_funded":
                 payment_intent = (
                     stripe_event.data.object
@@ -159,12 +153,6 @@ class StripeWebHookListener(HTTPEndpoint):
                         index=False, classes="table table-bordered table-striped "
                     )
                 )
-                if not await send_reports_alert(
-                    email_to="automations@alima.la",
-                    subject=f"[{config.ENV}] Reporte Conciliación SPEI Stripe - Alima",
-                    content=html_table,
-                ):
-                    logger.error("Issues to send report email")
             elif stripe_event.type == "payment_intent.succeeded":
                 payment_intent = (
                     stripe_event.data.object
@@ -251,12 +239,6 @@ class StripeWebHookListener(HTTPEndpoint):
                         index=False, classes="table table-bordered table-striped "
                     )
                 )
-                if not await send_reports_alert(
-                    email_to="automations@alima.la",
-                    subject=f"[{config.ENV}] Reporte Conciliación SPEI Stripe - Alima",
-                    content=html_table,
-                ):
-                    logger.error("Issues to send report email")
             else:
                 logger.error("Unhandled event type {}".format(stripe_event.type))
                 raise Exception("Error:  Unhandled event type")
@@ -278,12 +260,6 @@ class StripeWebHookListener(HTTPEndpoint):
                     ]
                 ).to_html(index=False, classes="table table-bordered table-striped ")
             )
-            if not await send_reports_alert(
-                email_to="automations@alima.la",
-                subject=f"[{config.ENV}] Reporte Conciliación SPEI Stripe - Alima",
-                content=html_table,
-            ):
-                logger.error("Issues to send report email")
             return PlainTextResponse(f"Error: {str(e)}", 400)
 
 
@@ -396,11 +372,4 @@ class StripeWebHookListenerTransferAutoPayments(HTTPEndpoint):
             return PlainTextResponse("OK", 200)
         except Exception as e:
             logger.error(e)
-
-            if not await send_email(
-                email_to="automations@alima.la",
-                subject="Error al conciliar orden con Stripe",
-                content=str(e),
-            ):
-                logger.error("Issues to send report email")
             return PlainTextResponse(f"Error: {str(e)}", 400)

@@ -10,14 +10,14 @@ from sendgrid.helpers.mail import (
     FileType,
     Disposition,
 )
-from gqlapi.config import SENDGRID_API_KEY
+from gqlapi.config import SENDGRID_API_KEY, SENDGRID_SINGLE_SENDER
 
 
 async def send_email(
     email_to: str,
     subject: str,
     content: str,
-    from_email: Dict[str, str] = {"email": "no-reply@alima.la", "name": "Alima"},
+    from_email: Dict[str, str] = {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"},
 ) -> bool:
     """Send Email
 
@@ -54,7 +54,7 @@ def send_email_syncronous(email_to: str, subject: str, content: str) -> bool:
         True if correctly sent
     """
     message = Mail(
-        from_email=From(email="no-reply@alima.la", name="Alima"),
+        from_email=From(email=SENDGRID_SINGLE_SENDER, name="Alima"),
         to_emails=email_to,
         subject=subject,
         html_content=content,
@@ -82,7 +82,7 @@ def send_email_with_attachments_syncronous(
         True if correctly sent
     """
     message = Mail(
-        from_email=From(email="no-reply@alima.la", name=sender_name),
+        from_email=From(email=SENDGRID_SINGLE_SENDER, name=sender_name),
         to_emails=email_to,
         subject=subject,
         html_content=content,

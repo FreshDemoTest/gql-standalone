@@ -84,23 +84,11 @@ async def send_notification(
         content = ""
         for name, unit_name in zip(epl["name"], epl["unit_name"]):
             content = content + name + " - (" + unit_name + ")\n"
-        if await send_notification_price_list_expiration(
+        await send_notification_price_list_expiration(
             email_to=supplier_business_account["email"],
             name=supplier_business.name,
             price_list=content,
-        ):
-            await send_notification_price_list_expiration(
-                email_to="automations@alima.la",
-                name=supplier_business.name,
-                price_list=content,
-            )
-        else:
-            await send_email(
-                email_to="automations@alima.la",
-                subject="Error to send expiration price list to: "
-                + supplier_business_account["email"],
-                content=content,
-            )
+        )
 
 
 async def send_warning(info: InjectedStrawberryInfo, date: str, tolerance: Optional[int] = 1) -> bool:  # type: ignore

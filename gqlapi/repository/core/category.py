@@ -205,7 +205,6 @@ class CategoryRepository(CoreRepository, CategoryRepositoryInterface):
         else:
             filter_values = " ".join(category_atributes).split()
             filter_values = " ".join(filter_values[:-1])
-
         _resp = await super().find(
             core_element_name="Category",
             core_element_tablename="""category""",

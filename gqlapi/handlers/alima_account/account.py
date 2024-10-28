@@ -2352,12 +2352,6 @@ class AlimaAccountListener(AlimaAccountListenerInterface):
             if domain_resp_gd.status == "error":
                 logger.warning("ISSUES CREATING GODADDY DOMAIN!!")
                 logger.error(domain_resp_gd.msg)
-                if not await send_reports_alert(
-                    email_to="automations@alima.la",
-                    subject=f"[{DEV_ENV}] Error de Creacion de Subdominio en Godaddy para {ecomm_domain}",
-                    content=f"Error al crear el subdominio {ecomm_domain} en Godaddy",
-                ):
-                    logger.error("Issues to send report email")
 
         # create new project in vercel
         project_resp = vercel_api.new_project(
@@ -2470,20 +2464,7 @@ class AlimaAccountListener(AlimaAccountListenerInterface):
                 default_supplier_unit_id,
                 e_seller,
             )
-            if ecom_deployed:
-                await send_reports_alert(
-                    email_to="automations@alima.la",
-                    subject=f"[{DEV_ENV}] Ecommerce Seller Created and Deployed for {supplier_business.name}",
-                    content=f"Se ha creado un nuevo ecommerce seller para {supplier_business.name}",
-                )
-            else:
-                raise Exception("Error al crear el ecommerce y deployearlo en Vercel")
             return ecom_deployed
         except Exception as e:
             logger.error(str(e))
-            await send_reports_alert(
-                email_to="automations@alima.la",
-                subject=f"[{DEV_ENV}] Error al dar de alta Ecommerce para {supplier_business.name}",
-                content=f"Error al crear el ecommerce y deployearlo en Vercel para {supplier_business.name}. Error: {str(e)}",
-            )
             return False

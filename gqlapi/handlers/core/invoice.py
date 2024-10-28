@@ -2534,12 +2534,6 @@ class MxSatCertificateHandler(MxSatCertificateHandlerInterface):
         if fact_data["status"] == "ok":
             _resp = await facturma_api.edit_csd(mx_sat_invoice_certificate=mx_info)
             if "status" in _resp and _resp["status"] == "error":
-                await send_email(
-                    email_to="automations@alima.la",
-                    subject=f"Error to CSD updated ({rfc})",
-                    content=json.dumps(_resp["msg"]),
-                )
-                logger.warning(f"Error to update CSD {rfc}")
                 raise GQLApiException(
                     msg=_resp.get("msg", "error edit csd"),
                     error_code=GQLApiErrorCodeType.FACTURAMA_NO_VALID_DATA.value,
