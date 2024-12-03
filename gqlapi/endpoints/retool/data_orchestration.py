@@ -39,7 +39,7 @@ from gqlapi.scripts.orden.convert_orden_confirm import confirm_orden_status
 from gqlapi.scripts.product.expiration_list_warning import (
     send_warning as send_expiration_list_warning,
 )
-from gqlapi.scripts.core.upsert_algolia_index import run_upsert_algolia_index
+# from gqlapi.scripts.core.upsert_algolia_index import run_upsert_algolia_index
 from gqlapi.scripts.tests.get_scorpion_orden_status import update_orden_scorpion
 from gqlapi.scripts.tests.new_orden_scorpion import new_orden_scorpion
 from gqlapi.utils.automation import InjectedStrawberryInfo
@@ -57,7 +57,7 @@ scripts_map = {
     "run_daily_3rd_party_invoices": run_daily_3rd_party_invoices,
     "run_daily_alima_invoices_v2": send_create_supplier_billing_invoice_v2,
     "run_daily_alima_invoices_v3": send_create_supplier_billing_invoices_v3,
-    "run_daily_algolia_index": run_upsert_algolia_index,
+    # "run_daily_algolia_index": run_upsert_algolia_index,
     # Monitors
     "invoice_monitor": invoice_monitor,
     "script_monitor": scripts_monitor,

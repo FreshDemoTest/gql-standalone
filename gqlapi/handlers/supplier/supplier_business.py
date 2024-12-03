@@ -229,17 +229,6 @@ class SupplierBusinessHandler(SupplierBusinessHandlerInterface):
                     msg="Supplier Business Account not updated",
                     error_code=GQLApiErrorCodeType.UPDATE_MONGO_DB_ERROR.value,
                 )
-            # send docs to email
-            try:
-                await send_business_docs(
-                    self.account_repository.db,  # type: ignore (safe)
-                    "sellers@alima.la",
-                    "supplier",
-                    id,
-                )
-            except Exception as e:
-                logger.info("Issues sending Supplier Business docs to email")
-                logger.warning(e)
         # build response
         return await self._build_supplier_business_gql(id, sup_user.id)
 

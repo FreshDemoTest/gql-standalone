@@ -181,6 +181,7 @@ class SupplierRestaurantsHandler(SupplierRestaurantsHandlerInterface):
         ) = None,
         branch: RestaurantBranchSupGQL | Dict[str, Any] | NoneType = None,
         products: List[SupplierProductDetails] | List[Dict[str, Any]] = [],
+        pl_name: Optional[str] = None
     ) -> SupplierRestaurantCreationGQL:
         # restaurant business
         rb = None
@@ -229,6 +230,7 @@ class SupplierRestaurantsHandler(SupplierRestaurantsHandlerInterface):
             restaurant_business_account=rba,
             branch=br,
             products=pr,
+            price_list_name=pl_name
         )
 
     async def fetch_supplier_unit_info(
@@ -757,6 +759,9 @@ class SupplierRestaurantsHandler(SupplierRestaurantsHandlerInterface):
             inv_info = await self.restaurant_branch_repo.get_tax_info(
                 _rbc["restaurant_branch_id"]
             )
+            spec_pl_name = await self.find_business_specific_price_list_name(
+                supplier_business_id, _rbc["restaurant_branch_id"]
+            )
 
             restaurant_branch_tags = tags_idx.get(_rbc["restaurant_branch_id"], None)
             _tax_info = None
@@ -789,6 +794,7 @@ class SupplierRestaurantsHandler(SupplierRestaurantsHandlerInterface):
                     restaurant_business_account=rba,
                     branch=rb_branch,
                     products=[],
+                    pl_name=spec_pl_name
                 )
             )
         # return built response
@@ -879,6 +885,83 @@ class SupplierRestaurantsHandler(SupplierRestaurantsHandlerInterface):
             # get default prices
         return [UUID(p) for p in json.loads(spec_pl[0]["supplier_product_price_ids"])]
 
+    async def find_business_specific_price_list_name(
+        self,
+        supplier_business_id: UUID,
+        restaurant_branch_id: UUID,
+    ) -> str | NoneType:
+        # verify if restaurant branch has a price list assigned
+        spec_pl_qry = """
+            WITH last_price_list AS (
+                WITH rcos AS (
+                    SELECT *,
+                        ROW_NUMBER() OVER (
+                            PARTITION BY name, supplier_unit_id
+                            ORDER BY last_updated DESC
+                        ) row_num
+                    FROM supplier_price_list
+                )
+                SELECT * FROM rcos WHERE row_num = 1
+            ),
+                expanded_restaurant_pls AS (
+                    SELECT
+                        id, supplier_unit_id, name, valid_upto,
+                        json_array_elements(supplier_restaurant_relation_ids) as branch_id
+                    FROM last_price_list
+            )
+            SELECT id, supplier_unit_id, name,
+                REPLACE(branch_id::varchar, '"', '')::UUID as branch_id,
+                valid_upto
+            FROM expanded_restaurant_pls
+            WHERE
+                valid_upto::date >= current_date
+            AND
+                supplier_unit_id IN (SELECT id FROM supplier_unit WHERE supplier_business_id = :supplier_business_id)
+            AND
+                REPLACE(branch_id::varchar, '"', '')::UUID = :branch_id
+            """        
+        spec_pl = await self.supplier_restaurants_repo.raw_query(
+            spec_pl_qry,
+            {
+                "supplier_business_id": supplier_business_id,
+                "branch_id": restaurant_branch_id,
+            },
+        )
+        if not spec_pl:
+            # fetch default price list
+            def_pl_qry = """
+                WITH last_price_list AS (
+                    WITH rcos AS (
+                        SELECT *,
+                            ROW_NUMBER() OVER (
+                                PARTITION BY name, supplier_unit_id
+                                ORDER BY last_updated DESC
+                            ) row_num
+                        FROM supplier_price_list
+                    )
+                    SELECT * FROM rcos WHERE row_num = 1
+                )
+                SELECT id, supplier_unit_id,
+                    name,
+                    valid_upto
+                FROM last_price_list
+                WHERE
+                    valid_upto::date >= current_date
+                AND
+                    is_default = 't'
+                AND
+                    supplier_unit_id IN (SELECT id FROM supplier_unit WHERE supplier_business_id = :supplier_business_id)
+                """
+            spec_pl = await self.supplier_restaurants_repo.raw_query(
+                def_pl_qry,
+                {
+                    "supplier_business_id": supplier_business_id,
+                },
+            )
+            if not spec_pl:
+                return None
+        return spec_pl[0]["name"]
+    
     async def find_supplier_restaurant_products(
         self,
         firebase_id: str,

@@ -9,6 +9,8 @@ from strawberry.types import Info as StrawberryInfo
 from strawberry.file_uploads import Upload
 
 from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
+    DeleteSupplierPriceListResult,
+    DeleteSupplierPriceListStatus,
     SupplierPriceInput,
     SupplierPriceListBatchGQL,
     SupplierPriceListBatchResult,
@@ -17,6 +19,8 @@ from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
     SupplierPriceListsResult,
     SupplierUnitDefaultPriceListsGQL,
     SupplierUnitsDefaultPriceListsResult,
+    UpdateOneSupplierPriceListResult,
+    UpdateOneSupplierPriceListStatus,
 )
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.handlers.supplier.supplier_price_list import SupplierPriceListHandler
@@ -291,6 +295,119 @@ class SupplierPriceListMutation:
                 msg=f"Hubo un error actualizando tu lista de precio ({str(e)})",
                 prices=[],
             )
+            
+    @strawberry.mutation(
+        name="editProductSupplierPriceList",
+        permission_classes=[IsAuthenticated, IsAlimaSupplyAuthorized],
+    )
+    async def patch_edit_product_of_supplier_price_list(
+        self,
+        info: StrawberryInfo,
+        supplier_price_list_id: UUID,
+        supplier_product_price_id: UUID,
+        price: float,
+    ) -> UpdateOneSupplierPriceListResult:  # type: ignore
+        logger.info("Edit product supplier price list")
+        # map input data
+
+        # instantiate handlers
+        sp_handler = SupplierProductHandler(
+            supplier_business_repo=SupplierBusinessRepository(info),
+            core_user_repo=CoreUserRepository(info),
+            supplier_user_repo=SupplierUserRepository(info),
+            supplier_user_permission_repo=SupplierUserPermissionRepository(info),
+            product_repo=ProductRepository(info),
+            category_repo=CategoryRepository(info),
+            supplier_product_repo=SupplierProductRepository(info),
+            supplier_product_price_repo=SupplierProductPriceRepository(info),
+            # supplier_product_stock_repo=SupplierProductStockRepository(info),
+        )
+        _handler = SupplierPriceListHandler(
+            supplier_price_list_repo=SupplierPriceListRepository(info),
+            supplier_unit_repo=SupplierUnitRepository(info),
+            restaurant_branch_repo=RestaurantBranchRepository(info),
+            supplier_product_repo=SupplierProductRepository(info),
+            supplier_product_price_repo=SupplierProductPriceRepository(info),
+            supplier_product_handler=sp_handler,
+        )
+        sp_handler.supplier_price_list_handler = _handler
+        try:
+            firebase_id = info.context["request"].user.firebase_user.firebase_id
+            prices_feedback = await _handler.edit_product_supplier_price_list(
+                firebase_id, supplier_price_list_id, supplier_product_price_id, price
+            )
+            return UpdateOneSupplierPriceListStatus(
+                msg="ok",
+            )
+        except GQLApiException as ge:
+            logger.warning(f"Error updating supplier price list: {ge.msg}")
+            return SupplierPriceListError(
+                msg=f"Hubo un error actualizando tu lista de precio ({ge.msg})",
+                code=ge.error_code,
+            )
+        except Exception as e:
+            logger.error(e)
+            return SupplierPriceListError(
+                msg=f"Hubo un error actualizando tu lista de precio ({str(e)})",
+                code=GQLApiErrorCodeType.UNEXPECTED_ERROR.value,
+            )
+
+    @strawberry.mutation(
+        name="deleteSupplierPriceList",
+        permission_classes=[IsAuthenticated, IsAlimaSupplyAuthorized],
+    )
+    async def delete_supplier_price_list(
+        self,
+        info: StrawberryInfo,
+        unit_id: UUID,
+        supplier_product_price_list_id: UUID,
+    ) -> DeleteSupplierPriceListResult:  # type: ignore
+        logger.info("Delete supplier price list")
+        # instantiate handlers
+        sp_handler = SupplierProductHandler(
+            supplier_business_repo=SupplierBusinessRepository(info),
+            core_user_repo=CoreUserRepository(info),
+            supplier_user_repo=SupplierUserRepository(info),
+            supplier_user_permission_repo=SupplierUserPermissionRepository(info),
+            product_repo=ProductRepository(info),
+            category_repo=CategoryRepository(info),
+            supplier_product_repo=SupplierProductRepository(info),
+            supplier_product_price_repo=SupplierProductPriceRepository(info),
+            # supplier_product_stock_repo=SupplierProductStockRepository(info),
+        )
+        _handler = SupplierPriceListHandler(
+            supplier_price_list_repo=SupplierPriceListRepository(info),
+            supplier_unit_repo=SupplierUnitRepository(info),
+            restaurant_branch_repo=RestaurantBranchRepository(info),
+            supplier_product_repo=SupplierProductRepository(info),
+            supplier_product_price_repo=SupplierProductPriceRepository(info),
+            supplier_product_handler=sp_handler,
+        )
+        sp_handler.supplier_price_list_handler = _handler
+        try:
+            firebase_id = info.context["request"].user.firebase_user.firebase_id
+            await _handler.delete_supplier_price_list(
+                firebase_id,
+                unit_id=unit_id,
+                supplier_product_price_list_id=supplier_product_price_list_id,
+            )
+            # count successful loads
+
+            return DeleteSupplierPriceListStatus(
+                msg="ok",
+            )
+        except GQLApiException as ge:
+            logger.warning(f"Error deleting supplier price list: {ge.msg}")
+            return SupplierPriceListError(
+                msg=f"{ge.msg}",
+                code=ge.error_code,
+            )
+        except Exception as e:
+            logger.error(e)
+            return SupplierPriceListError(
+                msg=f"Hubo un error eliminando tu lista de precio ({str(e)})",
+                code=GQLApiErrorCodeType.UNEXPECTED_ERROR.value,
+            )
 
 
 @strawberry.type
@@ -353,7 +470,7 @@ class SupplierPriceListQuery:
         self,
         info: StrawberryInfo,
         supplier_product_id: UUID,
-    ) -> SupplierUnitsDefaultPriceListsResult:  # type: ignore
+    ) -> List[SupplierUnitsDefaultPriceListsResult]:  # type: ignore
         logger.info("Get supplier product price lists")
         # instantiate handler
         sp_handler = SupplierProductHandler(
@@ -386,15 +503,15 @@ class SupplierPriceListQuery:
                 supplier_business_id=supplier_business_id["id"],
             )
             # compute results
-            return SupplierUnitDefaultPriceListsGQL(
-                units=sp_prices,
-            )
+            return sp_prices
         except GQLApiException as ge:
             logger.warning(f"Error fetching supplier price lists: {ge.msg}")
-            return SupplierPriceListError(msg=ge.msg, code=ge.error_code)
+            return [SupplierPriceListError(msg=ge.msg, code=ge.error_code)]
         except Exception as e:
             logger.error(e)
-            return SupplierPriceListError(
-                msg="Error upserting supplier price lists",
-                code=GQLApiErrorCodeType.UNEXPECTED_ERROR.value,
-            )
+            return [
+                SupplierPriceListError(
+                    msg="Error upserting supplier price lists",
+                    code=GQLApiErrorCodeType.UNEXPECTED_ERROR.value,
+                )
+            ]

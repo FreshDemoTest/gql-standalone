@@ -67,7 +67,20 @@ class SupplierPriceListsGQL:
 
 @strawberry.type
 class SupplierUnitDefaultPriceListsGQL:
-    units: List[SupplierUnit]
+    unit: SupplierUnit | NoneType
+    price_list: SupplierPriceList
+    price: SupplierProductPrice
+    
+    
+@strawberry.type
+class DeleteSupplierPriceListStatus:
+    msg: str
+
+
+@strawberry.type
+class UpdateOneSupplierPriceListStatus:
+    msg: str
+
 
 
 SupplierPriceListBatchResult = strawberry.union(
@@ -82,6 +95,16 @@ SupplierPriceListsResult = strawberry.union(
 SupplierUnitsDefaultPriceListsResult = strawberry.union(
     "SupplierUnitsDefaultPriceListsResult",
     [SupplierUnitDefaultPriceListsGQL, SupplierPriceListError],
+)
+
+DeleteSupplierPriceListResult = strawberry.union(
+    "DeleteSupplierPriceListResult",
+    [DeleteSupplierPriceListStatus, SupplierPriceListError],
+)
+
+UpdateOneSupplierPriceListResult = strawberry.union(
+    "UpdateOneSupplierPriceListResult",
+    [UpdateOneSupplierPriceListStatus, SupplierPriceListError],
 )
 
 
@@ -202,4 +225,10 @@ class SupplierPriceListRepositoryInterface(ABC):
     async def fetch_all_price_list_to_export(
         self, supplier_business_id: UUID
     ) -> List[Dict[str, Any]]:
+        raise NotImplementedError
+
+    @abstractmethod
+    async def delete(
+        self, supplier_price_list_name: str, supplier_business_id: UUID
+    ) -> bool | NoneType:
         raise NotImplementedError

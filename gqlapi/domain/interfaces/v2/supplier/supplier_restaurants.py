@@ -50,6 +50,7 @@ class SupplierRestaurantCreationGQL:
     branch: Optional[RestaurantBranchSupGQL] = None
     products: List[SupplierProductDetails]
     ecommerce_user: Optional[EcommerceUser] = None
+    price_list_name: Optional[str] = None
 
 
 SupplierRestaurantAssignationResult = strawberry.union(
@@ -262,6 +263,14 @@ class SupplierRestaurantsHandlerInterface(ABC):
     async def fetch_restaurant_branch_infocing_options(
         self, supplier_business_id: UUID, restaurant_branch_id: UUID
     ) -> SupplierRestaurantRelationMxInvoicingOptions | NoneType:
+        raise NotImplementedError
+    
+    @abstractmethod
+    async def find_business_specific_price_list_name(
+        self,
+        supplier_business_id: UUID,
+        restaurant_branch_id: UUID,
+    ) -> str:
         raise NotImplementedError
 
 

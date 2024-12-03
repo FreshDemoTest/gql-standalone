@@ -1,5 +1,6 @@
 from datetime import date, datetime, timedelta
 import json
+import ast
 from types import NoneType
 from typing import Any, Dict, List, Optional
 from uuid import UUID, uuid4
@@ -25,6 +26,7 @@ from gqlapi.domain.interfaces.v2.supplier.supplier_price_list import (
     SupplierPriceListDetails,
     SupplierPriceListHandlerInterface,
     SupplierPriceListRepositoryInterface,
+    SupplierUnitDefaultPriceListsGQL
 )
 from gqlapi.domain.interfaces.v2.supplier.supplier_unit import SupplierUnitRepositoryInterface
 from gqlapi.domain.interfaces.v2.supplier.supplier_product import (
@@ -325,7 +327,7 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
 
     async def fetch_supplier_product_default_price_list(
         self, supplier_product_id: UUID, supplier_business_id: UUID
-    ) -> List[SupplierUnit]:
+    ) -> List[SupplierUnitDefaultPriceListsGQL]:
         """Fetch supplier product default price lists
             - It takes all latest supplier price lists
               - the query groups by name to get the latest (by valid_upto) price list
@@ -355,7 +357,6 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
             WHERE supplier_unit_id IN (
                 SELECT id FROM supplier_unit WHERE supplier_business_id = :supplier_business_id
             )
-            AND is_default = 't'
             """
         supplier_price_lists = await self.supplier_price_list_repo.raw_query(
             qry, {"supplier_business_id": supplier_business_id}
@@ -365,6 +366,7 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
         # parse supplier price lists & restaurant branch ids
 
         parsed_su_ids = set()
+        price_list_result=[]
         for _spl in supplier_price_lists:
             parsed_price_ids = []
             parsed_price_ids.extend(json.loads(_spl["supplier_product_price_ids"]))
@@ -374,8 +376,7 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
                 pr_qry = f"""
                     SELECT
                         last_price.id, supplier_product_id, price, currency,valid_from,
-                        valid_upto, last_price.created_by, last_price.created_at,
-                        spr.description as spr_description, spr.sell_unit as spr_sell_unit, spr.sku as spr_sku
+                        valid_upto, last_price.created_by, last_price.created_at
                     FROM supplier_product_price as last_price
                     JOIN supplier_product spr on spr.id = last_price.supplier_product_id
                     WHERE last_price.id IN {list_into_strtuple(parsed_price_ids)}
@@ -387,6 +388,15 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
                 if not sp_prices:
                     continue
                 parsed_su_ids.add(_spl_dict["supplier_unit_id"])
+                spl_dict = dict(_spl)
+                del spl_dict["row_num"]
+                price_list_result.append(
+                    SupplierUnitDefaultPriceListsGQL(
+                        unit=None,
+                        price=SupplierProductPrice(**sp_prices[0]),
+                        price_list=SupplierPriceList(**spl_dict),
+                    )
+                )
             else:
                 continue
         # get restaurant branches
@@ -400,14 +410,13 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
             runits = []
         runits_idx = {su["id"]: SupplierUnit(**su) for su in runits}
         # build response
-        su_gql_list = []
-        for spl in supplier_price_lists:
-            su_find = runits_idx.get(spl["supplier_unit_id"], None)
+        for spl in price_list_result:
+            su_find = runits_idx.get(spl.price_list.supplier_unit_id, None)
             if not su_find:
                 continue
-            su_gql_list.append(su_find)
+            spl.unit = su_find
         # return supplier price lists
-        return su_gql_list
+        return price_list_result
 
     async def fetch_last_supplier_price_list(
         self,
@@ -822,7 +831,7 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
                 )
         # return feedbacks
         return feedbacks
-
+    
     async def edit_supplier_price_list(
         self,
         firebase_id: str,
@@ -890,6 +899,94 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
         # return feedbacks
         return feedbacks
 
+    async def edit_product_supplier_price_list(
+        self,
+        firebase_id: str,
+        supplier_price_list_id: UUID,
+        supplier_product_price_id: UUID,
+        price: float,
+    ) -> bool:
+        """Edit Product Of Supplier Price List
+
+        - It is a passthrough method, it will always create a new price list
+        as the way to query it is by taking lastest version by the name and supplier_unit_id
+        """
+        # fetch core user
+        
+        core_user_id = await self._fetch_core_user_id(firebase_id)
+        if not core_user_id:
+            raise GQLApiException(
+                msg="Could not find Core User",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        # for speed we will assume all supplier_product_ids are valid
+        supplier_product_price = await self.supplier_product_price_repo.get(
+            supplier_product_price_id
+        )
+        if not supplier_product_price:
+            raise GQLApiException(
+                msg="Could not find Product Price",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        supplier_product_price_obj = SupplierProductPrice(**supplier_product_price)
+        new_supp_prod_price = await self.supplier_product_price_repo.add(
+            SupplierProductPrice(
+                id=uuid4(),
+                supplier_product_id=supplier_product_price_obj.supplier_product_id,
+                price=price,
+                currency=CurrencyType(supplier_product_price_obj.currency),
+                valid_from=supplier_product_price_obj.valid_from,
+                valid_upto=supplier_product_price_obj.valid_upto,
+                created_by=core_user_id,
+            )
+        )
+        price_list = await self.supplier_price_list_repo.raw_query(
+            query="SELECT * from supplier_price_list WHERE id = :id",
+            vals={"id": supplier_price_list_id},
+        )
+        if not price_list:
+            raise GQLApiException(
+                msg="Could not find Price List",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        price_list_obj = SupplierPriceList(**price_list[0])
+        uuid_replacements = {
+            supplier_product_price_id: new_supp_prod_price,
+        }
+
+        # Replace UUIDs in the list
+        updated_uuid_list = price_list_obj.supplier_product_price_ids.replace(str(supplier_product_price_id), str(new_supp_prod_price))
+        list_products = ast.literal_eval(updated_uuid_list)
+        relation_list = ast.literal_eval(price_list_obj.supplier_restaurant_relation_ids)
+
+        # Step 2: Convert each string to a UUID object
+        uuid_list_products = [UUID(uuid_str) for uuid_str in list_products]
+        uuid_relation_list = [UUID(uuid_str) for uuid_str in relation_list]
+        
+        if not updated_uuid_list:
+            raise GQLApiException(
+                msg="Could not find Price in Price ListList",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        spl = SupplierPriceList(
+            id=uuid4(),
+            name=price_list_obj.name,
+            supplier_unit_id=price_list_obj.supplier_unit_id,
+            supplier_restaurant_relation_ids=uuid_relation_list,
+            supplier_product_price_ids=uuid_list_products,
+            is_default=price_list_obj.is_default,
+            valid_from=datetime.utcnow(),
+            valid_upto=price_list_obj.valid_upto,
+            created_by=core_user_id,
+        )
+        if not await self.supplier_price_list_repo.add(spl):
+            raise GQLApiException(
+                msg="Could not create Supplier Price List",
+                error_code=GQLApiErrorCodeType.INSERT_SQL_DB_ERROR.value,
+            )
+        # return feedbacks
+        return True
+
     async def get_customer_product_price_list_to_export(
         self, supplier_product_price_list_id: UUID, supplier_unit_id: UUID
     ) -> List[Dict[Any, Any]]:
@@ -932,3 +1029,39 @@ class SupplierPriceListHandler(SupplierPriceListHandlerInterface):
             logger.warning("No price list fetch")
             return []
         return _prods
+
+    async def delete_supplier_price_list(
+        self, firebase_id: str, unit_id: UUID, supplier_product_price_list_id: UUID
+    ) -> bool | NoneType:
+        """Delete Supplier Price List
+
+        - It is a passthrough method, it will always create a new price list
+        as the way to query it is by taking lastest version by the name and supplier_unit_id
+        """
+        # fetch core user
+        unit = await self.supplier_unit_repo.fetch(unit_id)
+        if not unit:
+            raise GQLApiException(
+                msg="Could not find Unit",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        unit_obj = SupplierUnit(**unit)
+        # validate input data
+        supplier_product_price_list = await self.fetch_last_supplier_price_list(
+            supplier_product_price_list_id
+        )
+        # for speed we will assume all supplier_product_ids are valid
+        if not supplier_product_price_list:
+            raise GQLApiException(
+                msg="Could not find Supplier Price List",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        if supplier_product_price_list.name == "Lista General de Precios":
+            raise GQLApiException(
+                msg="Could not delete defauls Supplier Price List",
+                error_code=GQLApiErrorCodeType.FETCH_SQL_DB_NOT_FOUND.value,
+            )
+        if await self.supplier_price_list_repo.delete(
+            supplier_product_price_list.name, unit_obj.supplier_business_id
+        ):
+            return True

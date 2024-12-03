@@ -368,3 +368,34 @@ class SupplierPriceListRepository(CoreRepository, SupplierPriceListRepositoryInt
             return [dict(_prod_price_list) for _prod_price_list in _prods_price_list]
         else:
             return []
+
+    async def delete (
+        self,
+        supplier_price_list_name: str,
+        supplier_business_id: UUID
+    ) -> bool | NoneType:
+        """Delete SupplierPriceList
+
+        Parameters
+        ----------
+        supplier_price_list_name: str
+        supplier_business_id : UUID
+
+        Returns
+        -------
+        UUID | NoneType
+        """
+        # call super method
+        await super().execute(
+            core_element_name = "supplier_price_list",
+            query="""
+                DELETE FROM supplier_price_list
+                WHERE name = :name AND supplier_unit_id IN (
+                    SELECT id FROM supplier_unit WHERE supplier_business_id = :supplier_business_id
+                )
+                """,
+            values={
+                    "name": supplier_price_list_name,
+                    "supplier_business_id": supplier_business_id},
+        )
+        return True
