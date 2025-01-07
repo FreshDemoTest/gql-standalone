@@ -10,7 +10,8 @@ from sendgrid.helpers.mail import (
     FileType,
     Disposition,
 )
-from gqlapi.config import SENDGRID_API_KEY, SENDGRID_SINGLE_SENDER
+import resend
+from gqlapi.config import RESEND_API_KEY, SENDGRID_SINGLE_SENDER
 
 
 async def send_email(
@@ -27,44 +28,16 @@ async def send_email(
         True if correctly sent
     """
     #
-    message = Mail(
-        to_emails=email_to,
-        from_email=From(email=from_email["email"], name=from_email["name"]),
-        subject=subject,
-        html_content=content,
-    )
+    resend.api_key = RESEND_API_KEY
+    params: resend.Emails.SendParams = {
+        "from": SENDGRID_SINGLE_SENDER,
+        "to": [email_to],
+        "subject": subject,
+        "html": content,
+    }
     try:
-        sg = SendGridAPIClient(SENDGRID_API_KEY)
-        response = sg.send(message)
-        logging.info(response.status_code)
-        logging.info(response.body)
-        logging.info(response.headers)
-        return True
-    except Exception as e:
-        logging.info(e)
-        return False
-
-
-def send_email_syncronous(email_to: str, subject: str, content: str) -> bool:
-    """Send Email
-
-    Returns
-    -------
-    Bool
-        True if correctly sent
-    """
-    message = Mail(
-        from_email=From(email=SENDGRID_SINGLE_SENDER, name="Alima"),
-        to_emails=email_to,
-        subject=subject,
-        html_content=content,
-    )
-    try:
-        sg = SendGridAPIClient(SENDGRID_API_KEY)
-        response = sg.send(message)
-        logging.info(response.status_code)
-        logging.info(response.body)
-        logging.info(response.headers)
+        email = resend.Emails.send(params)
+        print(email)
         return True
     except Exception as e:
         logging.info(e)
@@ -81,30 +54,18 @@ def send_email_with_attachments_syncronous(
     Bool
         True if correctly sent
     """
-    message = Mail(
-        from_email=From(email=SENDGRID_SINGLE_SENDER, name=sender_name),
-        to_emails=email_to,
-        subject=subject,
-        html_content=content,
-    )
-    _attchms = []
-    for atc in attchs:
-        _attchms.append(
-            Attachment(
-                FileContent(atc["content"]),
-                FileName(atc["filename"]),
-                FileType(atc["mimetype"]),
-                Disposition("attachment"),
-            )
-        )
-    message.attachment = _attchms
+    resend.api_key = RESEND_API_KEY
+    params: resend.Emails.SendParams = {
+        "from": SENDGRID_SINGLE_SENDER,
+        "to": [email_to],
+        "subject": subject,
+        "html": content,
+        "attachments": attchs
+    }
 
     try:
-        sg = SendGridAPIClient(SENDGRID_API_KEY)
-        response = sg.send(message)
-        logging.info(response.status_code)
-        logging.info(response.body)
-        logging.info(response.headers)
+        email = resend.Emails.send(params)
+        print(email)
         return True
     except Exception as e:
         logging.info(e)

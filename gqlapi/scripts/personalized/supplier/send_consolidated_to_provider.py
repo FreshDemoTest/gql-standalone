@@ -198,6 +198,7 @@ async def send_supplier_consolidated_to_provider(
             ]
 
             # send mail with html
+            # NEED UPDATE ATTCH TO SEND EMAILS BY RESEND APP
             if not send_email_with_attachments_syncronous(
                 email_to=str(email),
                 sender_name=supp_info.name,

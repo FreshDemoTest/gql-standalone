@@ -319,6 +319,10 @@ class RestaurantBranchRepositoryInterface(ABC):
     @abstractmethod
     async def fetch_tax_info(self, restaurant_branch_id: UUID) -> Dict[Any, Any]:
         raise NotImplementedError
+    
+    @abstractmethod
+    async def fetch_tax_info_from_many(self, restaurant_branch_id_list: List[UUID]) -> List[RestaurantBranchMxInvoiceInfo]:
+        raise NotImplementedError
 
     @abstractmethod
     async def get_restaurant_branches(

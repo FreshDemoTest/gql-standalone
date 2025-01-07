@@ -468,6 +468,10 @@ class SupplierUnitRepository(CoreRepository, SupplierUnitRepositoryInterface):
                 filter_values += " AND"
             filter_values += " unit_name=:unit_name"
             sunit_values["unit_name"] = unit_name
+            
+        if unit_name or supplier_business_id:
+            filter_values += " AND"
+        filter_values += " deleted = 'f' ORDER BY created_at ASC"
 
         _data = await super().find(
             core_element_name="Supplier Unit",

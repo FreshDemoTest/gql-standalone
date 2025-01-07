@@ -268,9 +268,16 @@ class SupplierRestaurantsHandlerInterface(ABC):
     @abstractmethod
     async def find_business_specific_price_list_name(
         self,
-        supplier_business_id: UUID,
+        supplier_unit_id: UUID,
         restaurant_branch_id: UUID,
     ) -> str:
+        raise NotImplementedError
+    
+    @abstractmethod
+    async def find_business_default_price_list_name(
+        self,
+        supplier_unit_id: UUID,
+    ) -> str | NoneType:
         raise NotImplementedError
 
 

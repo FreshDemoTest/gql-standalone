@@ -76,6 +76,7 @@ async def send_business_docs(
         <p>Alima Team</p>
     """
     # send email
+    # NEED UPDATE ATTCH TO SEND EMAILS BY RESEND APP
     return send_email_with_attachments_syncronous(
         email,
         f"Documentos legales ({business_info.get('legal_rep_name')})",

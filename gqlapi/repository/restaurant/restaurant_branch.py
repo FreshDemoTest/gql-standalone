@@ -684,6 +684,51 @@ class RestaurantBranchRepository(CoreRepository, RestaurantBranchRepositoryInter
                 ),
             },
         )
+        
+    async def fetch_tax_info_from_many(
+        self, restaurant_branch_id_list: List[UUID]
+    ) -> List[RestaurantBranchMxInvoiceInfo]:
+        """Fetch Restaurant Tax Info From Many
+        Args:
+            restaurant_branch_id_list (List[UUID]): restaurant_branch_id_list
+        Returns:
+            Dict[Any, Any]: UUID: RestaurantBranchMxInvoiceInfo
+        """
+        db_mx_info = await self.find_many(
+            cols=["*"],
+            filter_values=[
+                {
+                    "column": "branch_id",
+                    "operator": "in",
+                    "value": list_into_strtuple(restaurant_branch_id_list),
+                }
+            ],
+            tablename="restaurant_branch_mx_invoice_info",
+            cast_type=RestaurantBranchMxInvoiceInfo,
+        )
+        if not db_mx_info:
+            return []
+        return [
+            RestaurantBranchMxInvoiceInfo(
+                **sql_to_domain(
+                    mx_inf,
+                    RestaurantBranchMxInvoiceInfo,
+                    special_casts={
+                        "sat_regime": SQLDomainMapping(
+                            "sat_regime",
+                            "sat_regime",
+                            lambda s: RegimenSat(int(s)),
+                        ),
+                        "cfdi_use": SQLDomainMapping(
+                            "cfdi_use",
+                            "cfdi_use",
+                            lambda s: CFDIUse(int(s)),
+                        ),
+                    },
+                )
+            )
+            for mx_inf in db_mx_info
+        ]
 
     async def fetch_tax_info(self, restaurant_branch_id: UUID) -> Dict[Any, Any]:
         """Fetch restaurant branch Tax info

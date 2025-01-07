@@ -260,6 +260,7 @@ async def send_error_mails_to_automations(error_emails_df: pd.DataFrame) -> None
         }
     ]
     # Send the email with the error emails
+    # NEED UPDATE ATTCH TO SEND EMAILS BY RESEND APP
     send_email_with_attachments_syncronous(
         email_to=email_to,
         subject=f"Reporte Semanal - Error Mails - {datetime.now(APP_TZ).strftime('%Y-%m-%d')}",
@@ -301,6 +302,7 @@ async def send_mails_to_suppliers(
 
         # subject = "test"
         if not supplier:
+            # NEED UPDATE ATTCH TO SEND EMAILS BY RESEND APP
             send_email_with_attachments_syncronous(
                 email_to=email_to,
                 subject=subject,
@@ -314,6 +316,7 @@ async def send_mails_to_suppliers(
         supplier_account = await supplier_business_account_repo.fetch(supplier_obj.id)
 
         if not supplier_account or "email" not in supplier_account:
+            # NEED UPDATE ATTCH TO SEND EMAILS BY RESEND APP
             send_email_with_attachments_syncronous(
                 email_to=email_to,
                 subject=subject,
@@ -322,6 +325,7 @@ async def send_mails_to_suppliers(
                 sender_name="Alima",
             )
             continue
+        # NEED UPDATE ATTCH TO SEND EMAILS BY RESEND APP
         send_email_with_attachments_syncronous(
             email_to=email_to,  # [TODO] supplier_account.email,
             subject=subject,

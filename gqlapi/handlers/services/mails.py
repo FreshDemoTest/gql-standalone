@@ -36,7 +36,7 @@ async def send_notification_price_list_expiration(
 
 # Alima Billing Emails
 
-
+@deprecated("Need update attchs for Resend", "gqlapi.handlers.services.mails")
 async def send_new_alima_invoice_notification_v2(
     email_to: str | List[str], name: str, attchs: List[Dict[Any, Any]]
 ) -> bool:
@@ -67,7 +67,7 @@ async def send_new_alima_invoice_notification_v2(
         sender_name="Alima",
     )
 
-
+@deprecated("Need update attchs for Resend", "gqlapi.handlers.services.mails")
 async def send_alima_invoice_complement_notification_v2(
     email_to: str | List[str], name: str, attchs: List[Dict[Any, Any]]
 ) -> bool:
@@ -225,7 +225,7 @@ async def send_alima_invoice_pending_notification(
         content=msg_content,
     )
 
-
+@deprecated("Need update attchs for Resend", "gqlapi.handlers.services.mails") #[TODO Fer]
 async def send_restaurant_new_invoice_complement_notification(
     email_to: str,
     supplier_business_name: str,
@@ -340,6 +340,7 @@ async def send_account_inactive(email_to: str, name: str, month: str) -> bool:
 # Supply Invoices Emails
 
 
+@deprecated("Need update attchs for Resend", "gqlapi.handlers.services.mails") #[TODO Fer]
 async def send_new_consolidated_invoice_notification(
     email_to: str,
     supplier_business_name: str,
@@ -389,7 +390,7 @@ async def send_new_consolidated_invoice_notification(
         sender_name=supplier_business_name,
     )
 
-
+@deprecated("Need update attchs for Resend", "gqlapi.handlers.services.mails") #[TODO Fer]
 async def send_restaurant_new_invoice_notification(
     email_to: str,
     supplier_business_name: str,
