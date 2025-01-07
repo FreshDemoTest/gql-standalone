@@ -1,15 +1,5 @@
 import logging
 from typing import Any, Dict, List, Optional
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail.from_email import From
-from sendgrid.helpers.mail import (
-    Mail,
-    Attachment,
-    FileContent,
-    FileName,
-    FileType,
-    Disposition,
-)
 import resend
 from gqlapi.config import RESEND_API_KEY, SENDGRID_SINGLE_SENDER
 

@@ -2039,17 +2039,18 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "resend"
-version = "0.1.0"
+version = "2.5.1"
 description = "Resend Python SDK"
 optional = false
-python-versions = ">3.7.5"
+python-versions = ">=3.7"
 files = [
-    {file = "resend-0.1.0-py2.py3-none-any.whl", hash = "sha256:9535eeb1377bc31a5b00be2ed9df02b4bad0eb246f01b6d135bef6f77a02e32b"},
-    {file = "resend-0.1.0.tar.gz", hash = "sha256:b44f59e17bbf05e8f9e2e04ea82372f40c3763a57881301f09f28b80aa5556b3"},
+    {file = "resend-2.5.1-py2.py3-none-any.whl", hash = "sha256:0f4333bb6ee7153eadf9d66fed98b2be9acc151c212011a70290bb5703a932e8"},
+    {file = "resend-2.5.1.tar.gz", hash = "sha256:3e9bfe9c4869a0dfc69581f1cf17cab112816e33e4352ba96eef8673c525dc7e"},
 ]
 
 [package.dependencies]
-requests = "*"
+requests = ">=2.31.0"
+typing-extensions = ">=4.4.0"
 
 [[package]]
 name = "rsa"
@@ -2392,4 +2393,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a1af4c4e4a91454e2934c8e100b9403c4ab556fd21459ab8ddbaa96d69b43e1d"
+content-hash = "5a406f9a0ffb91b2caae2aa7d381794e720ac677a0dd1d7cd21a6de48dc44045"
