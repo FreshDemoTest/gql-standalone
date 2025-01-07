@@ -20,7 +20,7 @@ from gqlapi.repository.supplier.supplier_business import (
 )
 from gqlapi.utils.automation import InjectedStrawberryInfo
 from gqlapi.mongo import mongo_db as MongoDatabase
-from gqlapi.config import SENDGRID_SINGLE_SENDER
+from gqlapi.config import RESEND_SINGLE_SENDER
 
 import pandas as pd
 
@@ -212,7 +212,7 @@ async def send_supplier_consolidated_to_provider(
                     email_to=supp_info.account.email,
                     subject=f"Error al mandar orden de compra a proveedor a {provider}",
                     content="Error al mandar email a proveedor",
-                    from_email={"email": SENDGRID_SINGLE_SENDER, "name": supp_info.name},
+                    from_email={"email": RESEND_SINGLE_SENDER, "name": supp_info.name},
                 )
     except Exception as e:
         logging.error(e)

@@ -14,7 +14,7 @@ from gqlapi.config import (
     ALIMA_EXTERNAL_SUPPLIER_REVIEW,
     app_path,
     HILOS_API_KEY,
-    SENDGRID_SINGLE_SENDER
+    RESEND_SINGLE_SENDER
 )
 
 
@@ -59,7 +59,7 @@ async def send_new_resto_user_welcome_msg(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
 
     Returns
     -------
@@ -86,7 +86,7 @@ async def send_new_sup_user_welcome_msg(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
 
     Returns
     -------
@@ -117,7 +117,7 @@ async def send_employee_welcome_msg(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     business_name : str
         Business name
     tmp_pswd : str
@@ -159,7 +159,7 @@ async def send_supplier_changed_status(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     status : OrdenStatusType
 
     Returns
@@ -194,7 +194,7 @@ async def send_restaurant_changed_status(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     status : OrdenStatusType
 
     Returns
@@ -232,7 +232,7 @@ async def send_restaurant_changed_status_v2(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     status : OrdenStatusType
 
     Returns
@@ -287,7 +287,7 @@ async def send_supplier_changed_status_v2(
     Parameters
     ----------
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     status : OrdenStatusType
 
     Returns
@@ -410,9 +410,9 @@ async def send_supplier_email_confirmation(
     Parameters
     ----------
     from_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     orden_details : OrdenDetails
     cart_products : List[CartProductGQL]
 
@@ -695,9 +695,9 @@ async def send_restaurant_email_confirmation(
     Parameters
     ----------
     from_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     orden_details : OrdenDetails
     cart_products : List[CartProductGQL]
 
@@ -755,9 +755,9 @@ async def send_unformat_restaurant_email_confirmation(
     Parameters
     ----------
     from_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     orden_details : OrdenDetails
     cart_products : List[CartProductGQL]
 
@@ -822,9 +822,9 @@ async def send_ecommerce_restaurant_email_confirmation(
     Parameters
     ----------
     from_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     to_email : Dict[str,str]
-        ie {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"}
+        ie {"email": RESEND_SINGLE_SENDER, "name": "Alima"}
     orden_details : OrdenDetails
     cart_products : List[CartProductGQL]
 
@@ -962,7 +962,7 @@ async def send_authos_email_restore_password_token(
             subject=f"{seller_name} - Restaurar contraseña",
             content=msg_content,
             from_email={
-                "email": SENDGRID_SINGLE_SENDER,
+                "email": RESEND_SINGLE_SENDER,
                 "name": seller_name,
             },
         )
@@ -1019,7 +1019,7 @@ async def send_authos_email_welcome(
             subject=f"¡Bienvenido a {seller_name}!",
             content=msg_content,
             from_email={
-                "email": SENDGRID_SINGLE_SENDER,
+                "email": RESEND_SINGLE_SENDER,
                 "name": seller_name,
             },
         )

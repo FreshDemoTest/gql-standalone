@@ -97,7 +97,7 @@ from gqlapi.domain.models.v2.utils import (
     UOMType,
 )
 from gqlapi.config import ALIMA_SUPPORT_PHONE, APP_TZ
-from gqlapi.config import SENDGRID_SINGLE_SENDER
+from gqlapi.config import RESEND_SINGLE_SENDER
 from gqlapi.errors import GQLApiErrorCodeType, GQLApiException
 from gqlapi.repository.user.core_user import CoreUserRepositoryInterface
 from gqlapi.utils.datetime import from_iso_format
@@ -786,7 +786,7 @@ class OrdenHandler(OrdenHandlerInterface):
                         await send_unformat_restaurant_email_confirmation(
                             f"Pedido para {sup_business.name if sup_business else 'Proveedor'}",
                             from_email={
-                                "email": SENDGRID_SINGLE_SENDER,
+                                "email": RESEND_SINGLE_SENDER,
                                 "name": sup_business.name,
                             },
                             to_email={
@@ -1051,7 +1051,7 @@ class OrdenHandler(OrdenHandlerInterface):
                 # send confirmation to the user that created the orden
                 try:
                     _from = {
-                        "email": SENDGRID_SINGLE_SENDER,
+                        "email": RESEND_SINGLE_SENDER,
                         "name": sup_business.name if sup_business.name else "Alima",
                     }
                     if source_type == OrdenSourceType.ECOMMERCE:
@@ -1344,7 +1344,7 @@ class OrdenHandler(OrdenHandlerInterface):
                 await send_unformat_restaurant_email_confirmation(
                     f"Pedido Actualizado para {supp_bus.name if supp_bus else 'Proveedor'}",
                     from_email={
-                        "email": SENDGRID_SINGLE_SENDER,
+                        "email": RESEND_SINGLE_SENDER,
                         "name": supp_bus.name,
                     },
                     to_email={
@@ -1377,7 +1377,7 @@ class OrdenHandler(OrdenHandlerInterface):
                             },
                             status=status,
                             from_email={
-                                "email": SENDGRID_SINGLE_SENDER,
+                                "email": RESEND_SINGLE_SENDER,
                                 "name": "Alima",
                             },
                             orden_details=OrdenDetails(**orden_details),
@@ -1391,7 +1391,7 @@ class OrdenHandler(OrdenHandlerInterface):
                         "name": rest_branch.branch_name,
                     },
                     from_email={
-                        "email": SENDGRID_SINGLE_SENDER,
+                        "email": RESEND_SINGLE_SENDER,
                         "name": supp_bus.name,
                     },
                     status=status,

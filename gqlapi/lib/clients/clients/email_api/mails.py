@@ -1,14 +1,14 @@
 import logging
 from typing import Any, Dict, List, Optional
 import resend
-from gqlapi.config import RESEND_API_KEY, SENDGRID_SINGLE_SENDER
+from gqlapi.config import RESEND_API_KEY, RESEND_SINGLE_SENDER
 
 
 async def send_email(
     email_to: str,
     subject: str,
     content: str,
-    from_email: Dict[str, str] = {"email": SENDGRID_SINGLE_SENDER, "name": "Alima"},
+    from_email: Dict[str, str] = {"email": RESEND_SINGLE_SENDER, "name": "Alima"},
 ) -> bool:
     """Send Email
 
@@ -20,7 +20,7 @@ async def send_email(
     #
     resend.api_key = RESEND_API_KEY
     params: resend.Emails.SendParams = {
-        "from": SENDGRID_SINGLE_SENDER,
+        "from": RESEND_SINGLE_SENDER,
         "to": [email_to],
         "subject": subject,
         "html": content,
@@ -46,7 +46,7 @@ def send_email_with_attachments_syncronous(
     """
     resend.api_key = RESEND_API_KEY
     params: resend.Emails.SendParams = {
-        "from": SENDGRID_SINGLE_SENDER,
+        "from": RESEND_SINGLE_SENDER,
         "to": [email_to],
         "subject": subject,
         "html": content,

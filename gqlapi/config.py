@@ -57,6 +57,7 @@ FIREBASE_SERVICE_ACCOUNT = cfg(
 FIREBASE_SECRET_KEY = cfg("FIREBASE_SECRET_KEY", cast=str, default="")
 SENDGRID_API_KEY = cfg("SENDGRID_API_KEY", cast=str, default="")
 RESEND_API_KEY = cfg("RESEND_API_KEY", cast=str, default="")
+RESEND_SINGLE_SENDER = cfg("RESEND_SINGLE_SENDER", cast=str, default="")
 SENDGRID_SINGLE_SENDER = cfg("SENDGRID_SINGLE_SENDER", cast=str, default="")
 HILOS_API_KEY = cfg("HILOS_API_KEY", cast=str, default="")
 CLOUDINARY_BASE_URL = (
